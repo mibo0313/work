@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <!-- 背景 -->
+  <rect width="192" height="192" rx="40" fill="#3d6b4f"/>
+  
+  <!-- 漸層疊加 -->
+  <rect width="192" height="192" rx="40" fill="url(#grad)" opacity="0.3"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6aab7e"/>
+      <stop offset="100%" style="stop-color:#2a4f38"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 葉片裝飾 -->
+  <ellipse cx="152" cy="44" rx="28" ry="16" fill="#5a9e6f" opacity="0.5" transform="rotate(-40 152 44)"/>
+  <ellipse cx="165" cy="30" rx="20" ry="10" fill="#6aab7e" opacity="0.4" transform="rotate(-40 165 30)"/>
+
+  <!-- 白色剪貼板圖形 -->
+  <rect x="54" y="56" width="84" height="98" rx="10" fill="white" opacity="0.95"/>
+  
+  <!-- 剪貼板頂部夾子 -->
+  <rect x="78" y="48" width="36" height="18" rx="9" fill="white" opacity="0.95"/>
+  <rect x="84" y="51" width="24" height="12" rx="6" fill="#3d6b4f"/>
+
+  <!-- 勾選項目 -->
+  <!-- 第一行 已完成 -->
+  <rect x="66" y="80" width="14" height="14" rx="3" fill="#3d6b4f" opacity="0.9"/>
+  <polyline points="68,87 71,91 78,83" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="86" y="83" width="40" height="6" rx="3" fill="#3d6b4f" opacity="0.25"/>
+
+  <!-- 第二行 已完成 -->
+  <rect x="66" y="102" width="14" height="14" rx="3" fill="#3d6b4f" opacity="0.9"/>
+  <polyline points="68,109 71,113 78,105" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="86" y="105" width="32" height="6" rx="3" fill="#3d6b4f" opacity="0.25"/>
+
+  <!-- 第三行 進行中 -->
+  <rect x="66" y="124" width="14" height="14" rx="3" fill="none" stroke="#3d6b4f" stroke-width="2" opacity="0.6"/>
+  <rect x="86" y="127" width="44" height="6" rx="3" fill="#3d6b4f" opacity="0.15"/>
+
+  <!-- 底部進度條 -->
+  <rect x="66" y="146" width="60" height="6" rx="3" fill="#e8f5ee"/>
+  <rect x="66" y="146" width="40" height="6" rx="3" fill="#3d6b4f" opacity="0.7"/>
+</svg>
