@@ -2,146 +2,2087 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<!-- 強制使用綠葉圖示 -->
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmQ1YTNkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRhOGM1YyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNiZykiLz4KICA8cmVjdCB4PSIyOCIgeT0iNTIiIHdpZHRoPSIxMzYiIGhlaWdodD0iMTA4IiByeD0iMTAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDxyZWN0IHg9IjI4IiB5PSIzMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSIyOCIgcng9IjgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNDYiIHI9IjciIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSI3MiIgY3k9IjQ2IiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4KICA8cmVjdCB4PSI0MCIgeT0iNzIiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIvPgogIDxyZWN0IHg9IjYwIiB5PSI3NCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8cmVjdCB4PSI0MCIgeT0iOTQiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9IiM3ZWVkOWYiLz4KICA8cmVjdCB4PSI2MCIgeT0iOTYiIHdpZHRoPSI1NSIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjQpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjExNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgPHJlY3QgeD0iNjAiIHk9IjExOCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8cmVjdCB4PSI0MCIgeT0iMTQyIiB3aWR0aD0iMTEyIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTUpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjE0MiIgd2lkdGg9IjY1IiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjN2VlZDlmIi8+CiAgPHRleHQgeD0iMTQ4IiB5PSI2MCIgZm9udC1zaXplPSIyNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MvzwvdGV4dD4KPC9zdmc+">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmQ1YTNkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRhOGM1YyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNiZykiLz4KICA8cmVjdCB4PSIyOCIgeT0iNTIiIHdpZHRoPSIxMzYiIGhlaWdodD0iMTA4IiByeD0iMTAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDxyZWN0IHg9IjI4IiB5PSIzMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSIyOCIgcng9IjgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNDYiIHI9IjciIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSI3MiIgY3k9IjQ2IiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4KICA8cmVjdCB4PSI0MCIgeT0iNzIiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIvPgogIDxyZWN0IHg9IjYwIiB5PSI3NCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8cmVjdCB4PSI0MCIgeT0iOTQiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9IiM3ZWVkOWYiLz4KICA8cmVjdCB4PSI2MCIgeT0iOTYiIHdpZHRoPSI1NSIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjQpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjExNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgPHJlY3QgeD0iNjAiIHk9IjExOCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8cmVjdCB4PSI0MCIgeT0iMTQyIiB3aWR0aD0iMTEyIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTUpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjE0MiIgd2lkdGg9IjY1IiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjN2VlZDlmIi8+CiAgPHRleHQgeD0iMTQ4IiB5PSI2MCIgZm9udC1zaXplPSIyNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MvzwvdGV4dD4KPC9zdmc+">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmQ1YTNkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRhOGM1YyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNiZykiLz4KICA8IS0tIOagvOWtkOe3muijnemjviAtLT4KICA8cmVjdCB4PSIyOCIgeT0iNTIiIHdpZHRoPSIxMzYiIGhlaWdodD0iMTA4IiByeD0iMTAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDwhLS0g6aCC6YOo5qiZ6aGM5YiXIC0tPgogIDxyZWN0IHg9IjI4IiB5PSIzMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSIyOCIgcng9IjgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPgogIDwhLS0g5pel5pyf5ZyT6bueIC0tPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNDYiIHI9IjciIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSI3MiIgY3k9IjQ2IiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4KICA8IS0tIOS7u+WLmeWIlyAxIC0tPgogIDxyZWN0IHg9IjQwIiB5PSI3MiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgPHJlY3QgeD0iNjAiIHk9Ijc0IiB3aWR0aD0iNzAiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC43KSIvPgogIDwhLS0g5Lu75YuZ5YiXIDLvvIjlrozmiJDvvIkgLS0+CiAgPHJlY3QgeD0iNDAiIHk9Ijk0IiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHJ4PSIzIiBmaWxsPSIjN2VlZDlmIi8+CiAgPHJlY3QgeD0iNjAiIHk9Ijk2IiB3aWR0aD0iNTUiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgogIDwhLS0g5Lu75YuZ5YiXIDMgLS0+CiAgPHJlY3QgeD0iNDAiIHk9IjExNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgPHJlY3QgeD0iNjAiIHk9IjExOCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8IS0tIOmAsuW6puainSAtLT4KICA8cmVjdCB4PSI0MCIgeT0iMTQyIiB3aWR0aD0iMTEyIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTUpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjE0MiIgd2lkdGg9IjY1IiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjN2VlZDlmIi8+CiAgPCEtLSDokYnlrZDoo53po74gLS0+CiAgPHRleHQgeD0iMTQ4IiB5PSI2MCIgZm9udC1zaXplPSIyNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MvzwvdGV4dD4KPC9zdmc+">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmQ1YTNkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRhOGM1YyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNiZykiLz4KICA8IS0tIOagvOWtkOe3muijnemjviAtLT4KICA8cmVjdCB4PSIyOCIgeT0iNTIiIHdpZHRoPSIxMzYiIGhlaWdodD0iMTA4IiByeD0iMTAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDwhLS0g6aCC6YOo5qiZ6aGM5YiXIC0tPgogIDxyZWN0IHg9IjI4IiB5PSIzMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSIyOCIgcng9IjgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPgogIDwhLS0g5pel5pyf5ZyT6bueIC0tPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNDYiIHI9IjciIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSI3MiIgY3k9IjQ2IiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4KICA8IS0tIOS7u+WLmeWIlyAxIC0tPgogIDxyZWN0IHg9IjQwIiB5PSI3MiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgPHJlY3QgeD0iNjAiIHk9Ijc0IiB3aWR0aD0iNzAiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC43KSIvPgogIDwhLS0g5Lu75YuZ5YiXIDLvvIjlrozmiJDvvIkgLS0+CiAgPHJlY3QgeD0iNDAiIHk9Ijk0IiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHJ4PSIzIiBmaWxsPSIjN2VlZDlmIi8+CiAgPHJlY3QgeD0iNjAiIHk9Ijk2IiB3aWR0aD0iNTUiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgogIDwhLS0g5Lu75YuZ5YiXIDMgLS0+CiAgPHJlY3QgeD0iNDAiIHk9IjExNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgPHJlY3QgeD0iNjAiIHk9IjExOCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8IS0tIOmAsuW6puainSAtLT4KICA8cmVjdCB4PSI0MCIgeT0iMTQyIiB3aWR0aD0iMTEyIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTUpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjE0MiIgd2lkdGg9IjY1IiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjN2VlZDlmIi8+CiAgPCEtLSDokYnlrZDoo53po74gLS0+CiAgPHRleHQgeD0iMTQ4IiB5PSI2MCIgZm9udC1zaXplPSIyNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MvzwvdGV4dD4KPC9zdmc+">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8IS0tIOiDjOaZryAtLT4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQyIiBmaWxsPSIjM2Q2YjRmIi8+CiAgCiAgPCEtLSDmvLjlsaTlhYnmvqQgLS0+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSI5NiIgcng9IjQyIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIi8+CiAgCiAgPCEtLSDnmb3oibLljaHniYcgLS0+CiAgPHJlY3QgeD0iMjgiIHk9IjM2IiB3aWR0aD0iMTM2IiBoZWlnaHQ9IjEyMCIgcng9IjE0IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIAogIDwhLS0g6aCC6YOo57ag6Imy5qKdIC0tPgogIDxyZWN0IHg9IjI4IiB5PSIzNiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjNWE5ZTcwIi8+CiAgPHJlY3QgeD0iMjgiIHk9IjUwIiB3aWR0aD0iMTM2IiBoZWlnaHQ9IjE0IiBmaWxsPSIjNWE5ZTcwIi8+CiAgCiAgPCEtLSDmqJnpoYzpu57pu54gLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPgogIDxjaXJjbGUgY3g9IjY2IiBjeT0iNTAiIHI9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9IjUwIiByPSI1IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC43Ii8+CiAgCiAgPCEtLSDku7vli5nliJcgMSAtLT4KICA8Y2lyY2xlIGN4PSI1MiIgY3k9Ijg2IiByPSI3IiBmaWxsPSJub25lIiBzdHJva2U9IiMzZDZiNGYiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHJlY3QgeD0iNjgiIHk9IjgyIiB3aWR0aD0iNzIiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMzZDZiNGYiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjY4IiB5PSI5MCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9IiNhYWEiIG9wYWNpdHk9IjAuNSIvPgogIAogIDwhLS0g5Lu75YuZ5YiXIDIgKOWujOaIkCkgLS0+CiAgPGNpcmNsZSBjeD0iNTIiIGN5PSIxMTQiIHI9IjciIGZpbGw9IiMzZDZiNGYiLz4KICA8cGF0aCBkPSJNNDggMTE0IGwzIDMgbDYtNiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cmVjdCB4PSI2OCIgeT0iMTEwIiB3aWR0aD0iNzIiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiNiYmIiIG9wYWNpdHk9IjAuNSIvPgogIDxyZWN0IHg9IjY4IiB5PSIxMTgiIHdpZHRoPSI0OCIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjZGRkIiBvcGFjaXR5PSIwLjQiLz4KICAKICA8IS0tIOS7u+WLmeWIlyAzIC0tPgogIDxjaXJjbGUgY3g9IjUyIiBjeT0iMTQyIiByPSI3IiBmaWxsPSJub25lIiBzdHJva2U9IiNlNTNlM2UiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHJlY3QgeD0iNjgiIHk9IjEzOCIgd2lkdGg9IjcyIiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjZTUzZTNlIiBvcGFjaXR5PSIwLjYiLz4KICA8cmVjdCB4PSI2OCIgeT0iMTQ2IiB3aWR0aD0iMzYiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iI2FhYSIgb3BhY2l0eT0iMC40Ii8+CiAgCiAgPCEtLSDokYnlrZDoo53po74gLS0+CiAgPHRleHQgeD0iMTQyIiB5PSI1OCIgZm9udC1zaXplPSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MvzwvdGV4dD4KPC9zdmc+Cg==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8IS0tIOiDjOaZryAtLT4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQyIiBmaWxsPSIjM2Q2YjRmIi8+CiAgCiAgPCEtLSDmvLjlsaTlhYnmvqQgLS0+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSI5NiIgcng9IjQyIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIi8+CiAgCiAgPCEtLSDnmb3oibLljaHniYcgLS0+CiAgPHJlY3QgeD0iMjgiIHk9IjM2IiB3aWR0aD0iMTM2IiBoZWlnaHQ9IjEyMCIgcng9IjE0IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIAogIDwhLS0g6aCC6YOo57ag6Imy5qKdIC0tPgogIDxyZWN0IHg9IjI4IiB5PSIzNiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjNWE5ZTcwIi8+CiAgPHJlY3QgeD0iMjgiIHk9IjUwIiB3aWR0aD0iMTM2IiBoZWlnaHQ9IjE0IiBmaWxsPSIjNWE5ZTcwIi8+CiAgCiAgPCEtLSDmqJnpoYzpu57pu54gLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPgogIDxjaXJjbGUgY3g9IjY2IiBjeT0iNTAiIHI9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9IjUwIiByPSI1IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC43Ii8+CiAgCiAgPCEtLSDku7vli5nliJcgMSAtLT4KICA8Y2lyY2xlIGN4PSI1MiIgY3k9Ijg2IiByPSI3IiBmaWxsPSJub25lIiBzdHJva2U9IiMzZDZiNGYiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHJlY3QgeD0iNjgiIHk9IjgyIiB3aWR0aD0iNzIiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMzZDZiNGYiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjY4IiB5PSI5MCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9IiNhYWEiIG9wYWNpdHk9IjAuNSIvPgogIAogIDwhLS0g5Lu75YuZ5YiXIDIgKOWujOaIkCkgLS0+CiAgPGNpcmNsZSBjeD0iNTIiIGN5PSIxMTQiIHI9IjciIGZpbGw9IiMzZDZiNGYiLz4KICA8cGF0aCBkPSJNNDggMTE0IGwzIDMgbDYtNiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cmVjdCB4PSI2OCIgeT0iMTEwIiB3aWR0aD0iNzIiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiNiYmIiIG9wYWNpdHk9IjAuNSIvPgogIDxyZWN0IHg9IjY4IiB5PSIxMTgiIHdpZHRoPSI0OCIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjZGRkIiBvcGFjaXR5PSIwLjQiLz4KICAKICA8IS0tIOS7u+WLmeWIlyAzIC0tPgogIDxjaXJjbGUgY3g9IjUyIiBjeT0iMTQyIiByPSI3IiBmaWxsPSJub25lIiBzdHJva2U9IiNlNTNlM2UiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHJlY3QgeD0iNjgiIHk9IjEzOCIgd2lkdGg9IjcyIiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjZTUzZTNlIiBvcGFjaXR5PSIwLjYiLz4KICA8cmVjdCB4PSI2OCIgeT0iMTQ2IiB3aWR0aD0iMzYiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iI2FhYSIgb3BhY2l0eT0iMC40Ii8+CiAgCiAgPCEtLSDokYnlrZDoo53po74gLS0+CiAgPHRleHQgeD0iMTQyIiB5PSI1OCIgZm9udC1zaXplPSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MvzwvdGV4dD4KPC9zdmc+Cg==">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8IS0tIOiDjOaZryAtLT4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjM2Q2YjRmIi8+CiAgCiAgPCEtLSDmvLjlsaTnlorliqAgLS0+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNncmFkKSIgb3BhY2l0eT0iMC4zIi8+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNmFhYjdlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzJhNGYzOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDwhLS0g6JGJ54mH6KOd6aO+IC0tPgogIDxlbGxpcHNlIGN4PSIxNTIiIGN5PSI0NCIgcng9IjI4IiByeT0iMTYiIGZpbGw9IiM1YTllNmYiIG9wYWNpdHk9IjAuNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQwIDE1MiA0NCkiLz4KICA8ZWxsaXBzZSBjeD0iMTY1IiBjeT0iMzAiIHJ4PSIyMCIgcnk9IjEwIiBmaWxsPSIjNmFhYjdlIiBvcGFjaXR5PSIwLjQiIHRyYW5zZm9ybT0icm90YXRlKC00MCAxNjUgMzApIi8+CgogIDwhLS0g55m96Imy5Ymq6LK85p2/5ZyW5b2iIC0tPgogIDxyZWN0IHg9IjU0IiB5PSI1NiIgd2lkdGg9Ijg0IiBoZWlnaHQ9Ijk4IiByeD0iMTAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjk1Ii8+CiAgCiAgPCEtLSDliarosrzmnb/poILpg6jlpL7lrZAgLS0+CiAgPHJlY3QgeD0iNzgiIHk9IjQ4IiB3aWR0aD0iMzYiIGhlaWdodD0iMTgiIHJ4PSI5IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDxyZWN0IHg9Ijg0IiB5PSI1MSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzNkNmI0ZiIvPgoKICA8IS0tIOWLvumBuOmgheebriAtLT4KICA8IS0tIOesrOS4gOihjCDlt7LlrozmiJAgLS0+CiAgPHJlY3QgeD0iNjYiIHk9IjgwIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSIjM2Q2YjRmIiBvcGFjaXR5PSIwLjkiLz4KICA8cG9seWxpbmUgcG9pbnRzPSI2OCw4NyA3MSw5MSA3OCw4MyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9Ijg2IiB5PSI4MyIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYiIHJ4PSIzIiBmaWxsPSIjM2Q2YjRmIiBvcGFjaXR5PSIwLjI1Ii8+CgogIDwhLS0g56ys5LqM6KGMIOW3suWujOaIkCAtLT4KICA8cmVjdCB4PSI2NiIgeT0iMTAyIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSIjM2Q2YjRmIiBvcGFjaXR5PSIwLjkiLz4KICA8cG9seWxpbmUgcG9pbnRzPSI2OCwxMDkgNzEsMTEzIDc4LDEwNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9Ijg2IiB5PSIxMDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0iIzNkNmI0ZiIgb3BhY2l0eT0iMC4yNSIvPgoKICA8IS0tIOesrOS4ieihjCDpgLLooYzkuK0gLS0+CiAgPHJlY3QgeD0iNjYiIHk9IjEyNCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2Q2YjRmIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuNiIvPgogIDxyZWN0IHg9Ijg2IiB5PSIxMjciIHdpZHRoPSI0NCIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0iIzNkNmI0ZiIgb3BhY2l0eT0iMC4xNSIvPgoKICA8IS0tIOW6lemDqOmAsuW6puainSAtLT4KICA8cmVjdCB4PSI2NiIgeT0iMTQ2IiB3aWR0aD0iNjAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiNlOGY1ZWUiLz4KICA8cmVjdCB4PSI2NiIgeT0iMTQ2IiB3aWR0aD0iNDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMzZDZiNGYiIG9wYWNpdHk9IjAuNyIvPgo8L3N2Zz4K">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8IS0tIOiDjOaZryAtLT4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjM2Q2YjRmIi8+CiAgCiAgPCEtLSDmvLjlsaTnlorliqAgLS0+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNncmFkKSIgb3BhY2l0eT0iMC4zIi8+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNmFhYjdlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzJhNGYzOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDwhLS0g6JGJ54mH6KOd6aO+IC0tPgogIDxlbGxpcHNlIGN4PSIxNTIiIGN5PSI0NCIgcng9IjI4IiByeT0iMTYiIGZpbGw9IiM1YTllNmYiIG9wYWNpdHk9IjAuNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQwIDE1MiA0NCkiLz4KICA8ZWxsaXBzZSBjeD0iMTY1IiBjeT0iMzAiIHJ4PSIyMCIgcnk9IjEwIiBmaWxsPSIjNmFhYjdlIiBvcGFjaXR5PSIwLjQiIHRyYW5zZm9ybT0icm90YXRlKC00MCAxNjUgMzApIi8+CgogIDwhLS0g55m96Imy5Ymq6LK85p2/5ZyW5b2iIC0tPgogIDxyZWN0IHg9IjU0IiB5PSI1NiIgd2lkdGg9Ijg0IiBoZWlnaHQ9Ijk4IiByeD0iMTAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjk1Ii8+CiAgCiAgPCEtLSDliarosrzmnb/poILpg6jlpL7lrZAgLS0+CiAgPHJlY3QgeD0iNzgiIHk9IjQ4IiB3aWR0aD0iMzYiIGhlaWdodD0iMTgiIHJ4PSI5IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDxyZWN0IHg9Ijg0IiB5PSI1MSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzNkNmI0ZiIvPgoKICA8IS0tIOWLvumBuOmgheebriAtLT4KICA8IS0tIOesrOS4gOihjCDlt7LlrozmiJAgLS0+CiAgPHJlY3QgeD0iNjYiIHk9IjgwIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSIjM2Q2YjRmIiBvcGFjaXR5PSIwLjkiLz4KICA8cG9seWxpbmUgcG9pbnRzPSI2OCw4NyA3MSw5MSA3OCw4MyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9Ijg2IiB5PSI4MyIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYiIHJ4PSIzIiBmaWxsPSIjM2Q2YjRmIiBvcGFjaXR5PSIwLjI1Ii8+CgogIDwhLS0g56ys5LqM6KGMIOW3suWujOaIkCAtLT4KICA8cmVjdCB4PSI2NiIgeT0iMTAyIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSIjM2Q2YjRmIiBvcGFjaXR5PSIwLjkiLz4KICA8cG9seWxpbmUgcG9pbnRzPSI2OCwxMDkgNzEsMTEzIDc4LDEwNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9Ijg2IiB5PSIxMDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0iIzNkNmI0ZiIgb3BhY2l0eT0iMC4yNSIvPgoKICA8IS0tIOesrOS4ieihjCDpgLLooYzkuK0gLS0+CiAgPHJlY3QgeD0iNjYiIHk9IjEyNCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2Q2YjRmIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuNiIvPgogIDxyZWN0IHg9Ijg2IiB5PSIxMjciIHdpZHRoPSI0NCIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0iIzNkNmI0ZiIgb3BhY2l0eT0iMC4xNSIvPgoKICA8IS0tIOW6lemDqOmAsuW6puainSAtLT4KICA8cmVjdCB4PSI2NiIgeT0iMTQ2IiB3aWR0aD0iNjAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiNlOGY1ZWUiLz4KICA8cmVjdCB4PSI2NiIgeT0iMTQ2IiB3aWR0aD0iNDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMzZDZiNGYiIG9wYWNpdHk9IjAuNyIvPgo8L3N2Zz4K">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>沛婷工作管理中心</title>
 <style>
+/* 內嵌系統字體堆疊：優先使用各平台內建繁體中文字體，完全離線可用 */
 :root {
-  --accent:#3d6b4f; --accent-light:#e8f5ee; --bg:#f5f3ef; --card:#fff; --text:#1a1a1a; --muted:#888;
-  --red:#dc2626; --amber:#d97706; --green:#16a34a; --border:#e5e0d8;
+  --font-tc: "PingFang TC", "蘋方-繁", "Microsoft JhengHei", "微軟正黑體",
+             "Heiti TC", "黑體-繁", "Noto Sans TC", "Apple SD Gothic Neo",
+             "Hiragino Sans", sans-serif;
+}
+</style>
+<style>
+:root{
+  --bg:#f5f3ef;--card:#fff;--text:#1a1a1a;--muted:#888;
+  --red:#dc2626;--red-bg:#fef2f2;
+  --amber:#d97706;--amber-bg:#fffbeb;
+  --green:#16a34a;--green-bg:#f0fdf4;
+  --blue:#2563eb;--blue-bg:#eff6ff;
+  --purple:#7c3aed;--purple-bg:#f5f3ff;
+  --accent:#3d6b4f;--accent-light:#e8f5ee;
+  --border:#e5e0d8;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
-header{background:var(--accent);color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
-.tabs{display:flex;background:white;border-bottom:1px solid var(--border);overflow-x:auto;position:sticky;top:52px;z-index:40;}
-.tab{padding:12px 16px;font-size:14px;white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent;}
-.tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600;}
-.content{padding:16px;max-width:720px;margin:0 auto;}
-.task-card{background:white;border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;}
-.chk{width:24px;height:24px;border:2px solid #ccc;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
-.chk.on{background:var(--accent);border-color:var(--accent);color:white;}
-.btn{padding:8px 16px;border-radius:8px;border:none;cursor:pointer;}
-.btn-primary{background:var(--accent);color:white;}
-.empty-state{text-align:center;color:#888;padding:40px 20px;}
+body{font-family:var(--font-tc);background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:2rem;}
+header{background:var(--accent);color:#fff;padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+header h1{font-size:15px;font-weight:700;}
+#today-label{font-size:11px;opacity:.8;}
+.tabs{display:flex;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;position:sticky;top:46px;z-index:40;}
+.tab{flex:0 0 auto;padding:.7rem .9rem;font-size:12px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--muted);white-space:nowrap;}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.content{padding:1rem;max-width:700px;margin:0 auto;}
+.section-title{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin:1rem 0 .5rem;}
+.btn{font-family:inherit;font-size:13px;padding:8px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:500;transition:all .15s;}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{opacity:.85;}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted);}
+.btn-ghost:hover{background:var(--bg);}
+.btn-sm{font-size:11px;padding:4px 10px;border-radius:6px;}
+.btn-danger{background:var(--red-bg);color:var(--red);border:1px solid #fca5a5;}
+.badge{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:500;}
+.badge-red{background:var(--red-bg);color:var(--red);}
+.badge-amber{background:var(--amber-bg);color:var(--amber);}
+.badge-green{background:var(--green-bg);color:var(--green);}
+.badge-blue{background:var(--blue-bg);color:var(--blue);}
+.badge-gray{background:var(--bg);color:var(--muted);border:1px solid var(--border);}
+input,select,textarea{font-family:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);width:100%;}
+textarea{resize:vertical;}
+
+/* TASK */
+.add-bar{display:flex;gap:7px;margin-bottom:1rem;}
+.add-bar input{flex:1;}
+.add-bar select{width:86px;flex-shrink:0;}
+.add-bar .btn{flex-shrink:0;}
+.task-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.7rem .9rem;margin-bottom:7px;display:flex;align-items:flex-start;gap:9px;}
+.task-card.done{opacity:.45;}
+.task-card.done .tname{text-decoration:line-through;}
+.chk{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);cursor:pointer;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.chk.on{background:var(--accent);border-color:var(--accent);}
+.chk.on::after{content:'✓';color:#fff;font-size:11px;font-weight:700;}
+.tbody{flex:1;min-width:0;}
+.tname{font-size:13px;font-weight:500;margin-bottom:3px;}
+.tmeta{display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
+.tacts{display:flex;gap:5px;flex-shrink:0;}
+.empty-state{text-align:center;color:var(--muted);padding:1.5rem;font-size:13px;}
+
+/* PROGRESS */
+.prog-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;margin-bottom:10px;}
+.prog-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.prog-name{font-size:14px;font-weight:600;}
+.prog-pct{font-size:14px;font-weight:700;}
+.prog-bar-bg{background:#e5e7eb;border-radius:20px;height:12px;overflow:hidden;margin-bottom:4px;}
+.prog-bar-fill{height:100%;border-radius:20px;transition:width .5s ease;}
+.prog-stats{font-size:11px;color:var(--muted);}
+.prog-controls{display:flex;gap:6px;margin-top:8px;align-items:center;}
+.prog-controls input[type=number]{width:70px;padding:5px 8px;font-size:12px;}
+.prog-controls input[type=color]{width:36px;height:32px;padding:2px;border-radius:6px;cursor:pointer;}
+
+/* WEEK */
+.week-wrap{overflow-x:auto;padding-bottom:4px;}
+.week-grid{display:grid;grid-template-rows:repeat(7,12px);grid-auto-flow:column;grid-auto-columns:12px;gap:2px;width:max-content;}
+.wk{width:12px;height:12px;border-radius:2px;background:#e5e7eb;cursor:pointer;transition:all .1s;}
+.wk.done{background:var(--accent);}
+.wk.today{outline:2px solid var(--amber);outline-offset:1px;}
+.week-legend{display:flex;gap:12px;font-size:11px;color:var(--muted);margin-top:6px;align-items:center;}
+.week-legend span{display:flex;align-items:center;gap:4px;}
+.wl-box{width:10px;height:10px;border-radius:2px;}
+
+/* CALENDAR */
+.month-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;}
+.month-label{font-size:15px;font-weight:700;}
+.cal-header{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:3px;}
+.dow{font-size:11px;color:var(--muted);text-align:center;padding:3px 0;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.day-cell{background:var(--card);border:1px solid var(--border);border-radius:6px;min-height:48px;padding:4px;cursor:pointer;transition:border-color .15s;}
+.day-cell:hover{border-color:var(--accent);}
+.day-cell.today{border-color:var(--accent);background:var(--accent-light);}
+.day-num{font-size:11px;font-weight:500;color:var(--muted);}
+.day-cell.today .day-num{color:var(--accent);font-weight:700;}
+.day-dot{width:6px;height:6px;border-radius:50%;margin:2px auto 0;}
+
+/* JOURNAL */
+.mood-row{display:flex;gap:8px;margin-bottom:.75rem;}
+.mood-btn{font-size:20px;padding:6px 10px;border-radius:8px;border:2px solid var(--border);background:var(--card);cursor:pointer;transition:all .15s;}
+.mood-btn.selected{border-color:var(--accent);background:var(--accent-light);}
+.journal-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.8rem 1rem;margin-bottom:8px;}
+.journal-date{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.journal-text{font-size:13px;line-height:1.6;margin-bottom:4px;}
+.journal-mood{font-size:16px;}
+.journal-done{font-size:11px;color:var(--muted);margin-top:4px;padding-top:4px;border-top:1px solid var(--border);}
+
+/* ALERTS */
+.alert-box{border-radius:10px;padding:.85rem 1rem;margin-bottom:.75rem;border-left:4px solid;}
+.alert-box.red{background:var(--red-bg);border-color:var(--red);}
+.alert-box.amber{background:var(--amber-bg);border-color:var(--amber);}
+.alert-box h4{font-size:13px;font-weight:700;margin-bottom:3px;}
+.alert-box p{font-size:12px;color:var(--muted);}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:center;justify-content:center;padding:1rem;}
+.overlay.show{display:flex;}
+.modal{background:var(--card);border-radius:14px;padding:1.25rem;width:100%;max-width:420px;max-height:88vh;overflow-y:auto;}
+.modal h3{font-size:15px;font-weight:700;margin-bottom:1rem;}
+.form-row{margin-bottom:.75rem;}
+.form-row label{font-size:12px;color:var(--muted);display:block;margin-bottom:4px;}
+.modal-btns{display:flex;gap:8px;margin-top:1rem;justify-content:flex-end;}
+
+/* BREAKDOWN */
+.bd-step{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.bd-step:last-child{border-bottom:none;}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-time{font-size:11px;color:var(--muted);margin-left:auto;}
+
+/* STAT CARDS */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1rem;}
+.stat-card{background:var(--card);border-radius:10px;padding:.7rem .8rem;text-align:center;border:1px solid var(--border);}
+.stat-num{font-size:20px;font-weight:700;}
+.stat-label{font-size:10px;color:var(--muted);margin-top:2px;}
 </style>
 </head>
 <body>
-
 <header>
   <h1 id="site-title">🌿 工作管理中心</h1>
-  <button onclick="openSettingsModal()" style="background:none;border:none;color:white;font-size:24px;cursor:pointer">⚙️</button>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span id="today-label"></span>
+    <button onclick="openSettingsModal()" style="background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:18px;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center">⚙️</button>
+  </div>
 </header>
-
 <div class="tabs">
-  <div class="tab active" onclick="switchTab(0)">每日任務</div>
-  <div class="tab" onclick="switchTab(1)">任務總覽</div>
-  <div class="tab" onclick="switchTab(2)">年度進度</div>
-  <div class="tab" onclick="switchTab(3)">月曆</div>
-  <div class="tab" onclick="switchTab(4)">工作日誌</div>
+  <div class="tab active" onclick="switchTab('daily')">每日任務</div>
+  <div class="tab" onclick="switchTab('overview')">任務總覽</div>
+  <div class="tab" onclick="switchTab('progress')">年度進度</div>
+  <div class="tab" onclick="switchTab('monthly')">月曆</div>
+  <div class="tab" onclick="switchTab('journal')">工作日誌</div>
+  <div class="tab" onclick="switchTab('alerts')">提醒</div>
+</div>
+<div class="content">
+  <div id="tab-daily"></div>
+  <div id="tab-overview" style="display:none"></div>
+  <div id="tab-progress" style="display:none"></div>
+  <div id="tab-monthly" style="display:none"></div>
+  <div id="tab-journal" style="display:none"></div>
+  <div id="tab-alerts" style="display:none"></div>
 </div>
 
-<div class="content" id="main-content"></div>
+<!-- TASK MODAL -->
+<div class="overlay" id="modal-task">
+  <div class="modal">
+    <h3 id="mt-title">新增任務</h3>
+    <div class="form-row"><label>任務名稱</label><input id="mt-name" placeholder="任務名稱"/></div>
+    <div class="form-row"><label>性質</label>
+      <select id="mt-cat"></select>
+    </div>
+    <div class="form-row"><label>到期日</label><input id="mt-due" type="date"/></div>
+    <div class="form-row"><label>重複週期</label>
+      <select id="mt-freq">
+        <option value="once">單次</option><option value="daily">每天</option>
+        <option value="weekly">每週</option><option value="monthly">每月</option>
+        <option value="quarterly">每季</option><option value="yearly">每年</option>
+        <option value="triennial">3年</option><option value="quinquennial">5年</option>
+      </select>
+    </div>
+    <div class="form-row"><label>備註／檔案位置</label><textarea id="mt-notes" rows="2" placeholder="負責人、檔案位置..."></textarea></div>
+    <div class="form-row"><label>作業天數（幾天前要開始做）</label>
+      <div style="display:flex;align-items:center;gap:8px">
+        <input id="mt-workdays" type="number" min="0" max="30" value="0" style="width:80px"/>
+        <span style="font-size:12px;color:var(--muted)" id="mt-workdays-hint">到期日當天開始即可</span>
+      </div>
+    </div>
+    <div class="form-row"><label>筆記（停用原因、特殊說明等）</label><textarea id="mt-memo" rows="2" placeholder="例：此文件已停用、改由南行政負責、某年後不再更新..."></textarea></div>
+    <div class="form-row"><label>狀態</label>
+      <select id="mt-status">
+        <option value="active">正常追蹤</option>
+        <option value="paused">暫停（不顯示在每日任務）</option>
+        <option value="obsolete">已停用（保留紀錄）</option>
+      </select>
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal('modal-task')">取消</button>
+      <button class="btn btn-primary" onclick="saveTask()">儲存</button>
+    </div>
+  </div>
+</div>
+
+<!-- DONE MODAL（只有單次任務才會開） -->
+<div class="overlay" id="modal-done">
+  <div class="modal">
+    <h3>✅ 任務完成！</h3>
+    <p style="font-size:13px;font-weight:500;margin-bottom:1rem;" id="done-name"></p>
+    <div class="form-row"><label>這個任務下次還需要做嗎？</label>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;color:var(--text)">
+          <input type="radio" name="done-repeat" value="no" checked onclick="toggleRepeatFields(false)" style="width:auto;accent-color:var(--accent)"/>
+          不需要，這次完成就好
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;color:var(--text)">
+          <input type="radio" name="done-repeat" value="yes" onclick="toggleRepeatFields(true)" style="width:auto;accent-color:var(--accent)"/>
+          需要，幫我設下次日期和週期
+        </label>
+      </div>
+    </div>
+    <div id="done-next-block" style="display:none">
+      <div class="form-row"><label>下次日期</label><input id="done-next" type="date"/></div>
+      <div class="form-row"><label>重複週期</label>
+        <select id="done-freq">
+          <option value="monthly">每月</option>
+          <option value="quarterly">每季</option>
+          <option value="yearly">每年</option>
+          <option value="triennial">3年</option>
+          <option value="quinquennial">5年</option>
+          <option value="weekly">每週</option>
+          <option value="once">單次（不再重複）</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal('modal-done')">跳過</button>
+      <button class="btn btn-primary" onclick="confirmDone()">確認</button>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="overlay" id="modal-settings">
+  <div class="modal">
+    <h3>⚙️ 個人設定</h3>
+    <div class="form-row"><label>您的暱稱</label><input id="set-name" placeholder="例：巧巧、Mibo" /></div>
+    <div class="form-row">
+      <label>主題顏色</label>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:6px" id="theme-picker">
+        <div onclick="setTheme('green')" title="森林綠" style="height:36px;border-radius:8px;background:#3d6b4f;cursor:pointer;border:3px solid transparent" id="theme-green"></div>
+        <div onclick="setTheme('blue')" title="海洋藍" style="height:36px;border-radius:8px;background:#1d4ed8;cursor:pointer;border:3px solid transparent" id="theme-blue"></div>
+        <div onclick="setTheme('purple')" title="薰衣草紫" style="height:36px;border-radius:8px;background:#6d28d9;cursor:pointer;border:3px solid transparent" id="theme-purple"></div>
+        <div onclick="setTheme('rose')" title="玫瑰粉" style="height:36px;border-radius:8px;background:#be185d;cursor:pointer;border:3px solid transparent" id="theme-rose"></div>
+        <div onclick="setTheme('orange')" title="活力橘" style="height:36px;border-radius:8px;background:#c2410c;cursor:pointer;border:3px solid transparent" id="theme-orange"></div>
+        <div onclick="setTheme('teal')" title="青綠" style="height:36px;border-radius:8px;background:#0f766e;cursor:pointer;border:3px solid transparent" id="theme-teal"></div>
+        <div onclick="setTheme('slate')" title="石板灰" style="height:36px;border-radius:8px;background:#334155;cursor:pointer;border:3px solid transparent" id="theme-slate"></div>
+        <div onclick="setTheme('amber')" title="暖金黃" style="height:36px;border-radius:8px;background:#92400e;cursor:pointer;border:3px solid transparent" id="theme-amber"></div>
+        <div onclick="setTheme('indigo')" title="靛藍" style="height:36px;border-radius:8px;background:#3730a3;cursor:pointer;border:3px solid transparent" id="theme-indigo"></div>
+        <div onclick="setTheme('custom')" title="自訂" style="height:36px;border-radius:8px;background:linear-gradient(135deg,#f43f5e,#8b5cf6,#06b6d4);cursor:pointer;border:3px solid transparent;display:flex;align-items:center;justify-content:center;font-size:16px" id="theme-custom">🎨</div>
+      </div>
+      <div id="custom-color-row" style="display:none;margin-top:8px;display:flex;align-items:center;gap:8px">
+        <label style="font-size:12px;color:var(--muted)">自訂色</label>
+        <input type="color" id="custom-color-pick" value="#3d6b4f" style="width:48px;height:32px;padding:2px;border-radius:6px;cursor:pointer;border:1px solid var(--border)" oninput="applyCustomColor(this.value)"/>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid var(--border);margin-top:1rem;padding-top:1rem">
+      <div style="font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px">📱 主畫面圖示</div>
+      <div id="icon-picker" style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:8px"></div>
+      <div style="font-size:11px;color:var(--muted)">選好後點「儲存」，再重新加入主畫面即可更新</div>
+    </div>
+
+    <div style="border-top:1px solid var(--border);margin-top:1rem;padding-top:1rem">
+      <div style="font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px">💾 資料備份</div>
+      <div style="display:flex;gap:8px;margin-bottom:6px">
+        <button class="btn btn-ghost" style="flex:1;font-size:12px" onclick="exportBackup()">📤 匯出備份</button>
+        <button class="btn btn-ghost" style="flex:1;font-size:12px" onclick="document.getElementById('import-file').click()">📥 匯入備份</button>
+        <input type="file" id="import-file" accept=".json" style="display:none" onchange="importBackup(this)"/>
+      </div>
+      <div style="font-size:11px;color:var(--muted)">換手機或清除快取前請先匯出備份</div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal('modal-settings')">取消</button>
+      <button class="btn btn-primary" onclick="saveSettings()">儲存</button>
+    </div>
+  </div>
+</div>
+
+<!-- HOLIDAY TYPE MODAL -->
+<div class="overlay" id="modal-holiday">
+  <div class="modal">
+    <h3>📅 標記假期</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:.75rem" id="h-date-label"></p>
+    <div class="form-row"><label>假期類型</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:4px" id="htype-grid">
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="off" checked style="accent-color:var(--accent);width:auto"/> 😴 週休
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="national" style="accent-color:var(--accent);width:auto"/> 🇹🇼 國定假日
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="annual" style="accent-color:var(--accent);width:auto"/> 🏖 特休
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="sick" style="accent-color:var(--accent);width:auto"/> 🤒 病假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="menstrual" style="accent-color:var(--accent);width:auto"/> 🌸 生理假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="family" style="accent-color:var(--accent);width:auto"/> 👨‍👩‍👧 家庭照顧假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="marriage" style="accent-color:var(--accent);width:auto"/> 💍 婚假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="funeral" style="accent-color:var(--accent);width:auto"/> 🕯️ 喪假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="maternity" style="accent-color:var(--accent);width:auto"/> 🍼 產假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="paternity" style="accent-color:var(--accent);width:auto"/> 👨‍🍼 陪產假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="parental" style="accent-color:var(--accent);width:auto"/> 🧸 育嬰假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="official" style="accent-color:var(--accent);width:auto"/> 📋 公假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid #fca5a5;cursor:pointer;font-size:12px;background:var(--red-bg)">
+          <input type="radio" name="htype" value="makeup" style="accent-color:var(--red);width:auto"/> ⚠️ 補班（需上班）
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="other" style="accent-color:var(--accent);width:auto"/> 📅 其他
+        </label>
+      </div>
+    </div>
+    <div class="form-row"><label>備註（可留空）</label>
+      <input id="h-label" placeholder="例：端午節、婚假..."/>
+    </div>
+
+    <!-- 自訂假別 -->
+    <div style="border-top:1px solid var(--border);margin-top:.75rem;padding-top:.75rem">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:6px">＋ 新增自訂假別</div>
+      <div style="display:flex;gap:7px;align-items:center">
+        <button id="custom-emoji-btn" onclick="openEmojiPicker()" style="font-size:22px;width:44px;height:44px;border-radius:8px;border:1px solid var(--border);background:var(--bg);cursor:pointer;flex-shrink:0" title="選擇Emoji">😊</button>
+        <input id="custom-type-name" placeholder="假別名稱（例：調休）" style="flex:1;font-size:13px;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)"/>
+        <button onclick="addCustomHolidayType()" class="btn btn-primary btn-sm">新增</button>
+      </div>
+      <div id="custom-types-list" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px"></div>
+    </div>
+
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal('modal-holiday')">取消</button>
+      <button class="btn btn-primary" onclick="saveHolidayType()">確認</button>
+    </div>
+  </div>
+</div>
+
+<!-- WEEKLY OFF MODAL -->
+<div class="overlay" id="modal-weeklyoff">
+  <div class="modal">
+    <h3>😴 設定週休</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:.75rem">一次設定整年的週休日，會自動標記所有符合的日期</p>
+    <div class="form-row"><label>年份</label>
+      <select id="wo-year" style="width:120px">
+        <option value="2026">2026年</option>
+        <option value="2027">2027年</option>
+        <option value="2028">2028年</option>
+        <option value="2029">2029年</option>
+        <option value="2030">2030年</option>
+      </select>
+    </div>
+    <div class="form-row"><label>週休模式</label>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="radio" name="wo-pattern" value="both" checked style="accent-color:var(--accent);width:auto"/> 週休二日（六＋日）
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="radio" name="wo-pattern" value="sun" style="accent-color:var(--accent);width:auto"/> 只休星期日
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="radio" name="wo-pattern" value="alt_sat" style="accent-color:var(--accent);width:auto"/> 隔週六（上班下休）
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="radio" name="wo-pattern" value="none" style="accent-color:var(--accent);width:auto"/> 清除該年所有週休標記
+        </label>
+      </div>
+    </div>
+    <div style="background:var(--green-bg);border-radius:8px;padding:.6rem .75rem;margin-bottom:.75rem;font-size:12px;color:var(--green)">
+      🇹🇼 <b>自動加入台灣國定假日</b>（2026、2027年，含新增教師節、光復節、行憲紀念日）
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost btn-sm" onclick="addNationalHolidays()" style="font-size:12px">🇹🇼 加入台灣國定假日</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-weeklyoff')">取消</button>
+      <button class="btn btn-primary" onclick="confirmWeeklyOff()">確認設定</button>
+    </div>
+  </div>
+</div>
+
+<!-- BATCH ADD MODAL -->
+<div class="overlay" id="modal-batch">
+  <div class="modal">
+    <h3>📋 批量新增任務</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:.75rem">每行一筆，格式：<b>任務名稱, 性質, 到期日, 週期</b><br>只有名稱是必填，其他可省略</p>
+    <div style="background:var(--bg);border-radius:8px;padding:8px 10px;font-size:11px;color:var(--muted);margin-bottom:.75rem;line-height:1.8">
+      範例：<br>
+      食品安全會議<br>
+      儀器內校｜計畫表, 校正, 2026-07-01, quarterly<br>
+      產品責任險, 合約, 2026-06-24, yearly
+    </div>
+    <div class="form-row">
+      <label>貼上任務清單</label>
+      <textarea id="batch-input" rows="8" placeholder="每行一筆任務...&#10;任務名稱, 性質, 到期日, 週期"></textarea>
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:.5rem">
+      週期可填：once / daily / weekly / monthly / quarterly / yearly / triennial / quinquennial<br>
+      或中文：單次 / 每天 / 每週 / 每月 / 每季 / 每年 / 3年 / 5年
+    </div>
+    <div id="batch-preview" style="display:none;margin-bottom:.75rem"></div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="previewBatch()">預覽</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-batch')">取消</button>
+      <button class="btn btn-primary" onclick="confirmBatch()">確定新增</button>
+    </div>
+  </div>
+</div>
+
+<!-- EMOJI PICKER MODAL -->
+<div class="overlay" id="modal-emoji" style="z-index:200">
+  <div class="modal" style="max-width:360px">
+    <h3>選擇 Emoji</h3>
+    <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:.75rem 0;max-height:280px;overflow-y:auto">
+      <button onclick="selectEmoji('😴')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">😴</button><button onclick="selectEmoji('🏖')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🏖</button><button onclick="selectEmoji('🤒')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🤒</button><button onclick="selectEmoji('🌸')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌸</button><button onclick="selectEmoji('👨‍👩‍👧')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">👨‍👩‍👧</button><button onclick="selectEmoji('💍')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">💍</button><button onclick="selectEmoji('🕯')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🕯</button><button onclick="selectEmoji('🍼')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🍼</button><button onclick="selectEmoji('👨‍🍼')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">👨‍🍼</button><button onclick="selectEmoji('🧸')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🧸</button><button onclick="selectEmoji('📋')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📋</button><button onclick="selectEmoji('📅')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📅</button><button onclick="selectEmoji('🎉')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎉</button><button onclick="selectEmoji('🏥')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🏥</button><button onclick="selectEmoji('🌴')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌴</button><button onclick="selectEmoji('✈️')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">✈️</button><button onclick="selectEmoji('🏠')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🏠</button><button onclick="selectEmoji('📚')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📚</button><button onclick="selectEmoji('🎓')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎓</button><button onclick="selectEmoji('💼')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">💼</button><button onclick="selectEmoji('🌟')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌟</button><button onclick="selectEmoji('❤️')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">❤️</button><button onclick="selectEmoji('🙏')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🙏</button><button onclick="selectEmoji('🎊')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎊</button><button onclick="selectEmoji('🎁')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎁</button><button onclick="selectEmoji('🌈')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌈</button><button onclick="selectEmoji('☀️')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">☀️</button><button onclick="selectEmoji('🌙')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌙</button><button onclick="selectEmoji('⭐')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">⭐</button><button onclick="selectEmoji('🔔')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🔔</button><button onclick="selectEmoji('📆')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📆</button><button onclick="selectEmoji('📌')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📌</button><button onclick="selectEmoji('✅')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">✅</button><button onclick="selectEmoji('🔑')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🔑</button><button onclick="selectEmoji('💡')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">💡</button><button onclick="selectEmoji('🎯')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎯</button><button onclick="selectEmoji('🏃')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🏃</button><button onclick="selectEmoji('💪')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">💪</button><button onclick="selectEmoji('🧘')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🧘</button><button onclick="selectEmoji('🥗')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🥗</button><button onclick="selectEmoji('☕')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">☕</button><button onclick="selectEmoji('🍵')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🍵</button><button onclick="selectEmoji('🎵')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎵</button><button onclick="selectEmoji('🎨')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎨</button><button onclick="selectEmoji('📷')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📷</button><button onclick="selectEmoji('🌺')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌺</button><button onclick="selectEmoji('🍀')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🍀</button><button onclick="selectEmoji('🦋')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🦋</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:.75rem">
+      <span style="font-size:12px;color:var(--muted)">或直接輸入：</span>
+      <input id="emoji-direct-input" maxlength="2" placeholder="🎯" style="width:60px;font-size:18px;text-align:center;padding:5px;border:1px solid var(--border);border-radius:8px"/>
+      <button class="btn btn-primary btn-sm" onclick="selectEmoji(document.getElementById('emoji-direct-input').value||'📅')">確認</button>
+    </div>
+  </div>
+</div>
+
+<!-- WELCOME MODAL -->
+<div class="overlay" id="modal-welcome">
+  <div class="modal">
+    <h3>👋 歡迎使用！</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">請問怎麼稱呼您？之後會顯示在標題上</p>
+    <div class="form-row"><input id="welcome-name" placeholder="例：巧巧、Mibo..." onkeydown="if(event.key==='Enter')saveWelcome()"/></div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="skipWelcome()">跳過</button>
+      <button class="btn btn-primary" onclick="saveWelcome()">確認</button>
+    </div>
+  </div>
+</div>
+
+<!-- BREAKDOWN MODAL -->
+<div class="overlay" id="modal-bd">
+  <div class="modal">
+    <h3>🔧 任務拆解</h3>
+    <p style="font-size:13px;font-weight:500;margin-bottom:.5rem;" id="bd-name"></p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:.75rem;">一步一步來，不要急：</p>
+    <div id="bd-steps"></div>
+    <div class="modal-btns"><button class="btn btn-primary" onclick="closeModal('modal-bd');renderDaily()">好，我知道了！</button></div>
+  </div>
+</div>
+
+
+
+<!-- JOURNAL MODAL -->
+<div class="overlay" id="modal-journal">
+  <div class="modal">
+    <h3>📝 今日工作日誌</h3>
+    <div class="form-row"><label>心情</label>
+      <div class="mood-row" id="mood-picker">
+        <button class="mood-btn" data-mood="😄" onclick="selectMood('😄',this)">😄</button>
+        <button class="mood-btn" data-mood="🙂" onclick="selectMood('🙂',this)">🙂</button>
+        <button class="mood-btn" data-mood="😐" onclick="selectMood('😐',this)">😐</button>
+        <button class="mood-btn" data-mood="😔" onclick="selectMood('😔',this)">😔</button>
+        <button class="mood-btn" data-mood="😤" onclick="selectMood('😤',this)">😤</button>
+      </div>
+    </div>
+    <div class="form-row">
+      <label>今日完成任務（自動抓取）</label>
+      <div id="jt-auto-done" style="background:var(--bg);border-radius:8px;padding:10px;min-height:48px;font-size:13px;color:var(--text);border:1px solid var(--border);line-height:1.8"></div>
+    </div>
+    <div class="form-row"><label>備註 / 想法 / 明天注意</label><textarea id="jt-note" rows="3" placeholder="困難、想法、明天要注意的事..."></textarea></div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal('modal-journal')">取消</button>
+      <button class="btn btn-primary" onclick="saveJournal()">儲存日誌</button>
+    </div>
+  </div>
+</div>
 
 <script>
-// 核心變數
-let tasks = JSON.parse(localStorage.getItem('pt_tasks') || '[]');
-let activeTab = 0;
+// ===== GLOBALS =====
+const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+const DAYS = ['日','一','二','三','四','五','六'];
+const FREQ_LABEL = {once:'單次',daily:'每天',weekly:'每週',monthly:'每月',quarterly:'每季',yearly:'每年',triennial:'3年',quinquennial:'5年'};
+const CAT_COLOR = {文件:'blue',會議:'amber',稽核:'red',校正:'amber',報告:'blue',合約:'green',其他:'gray'};
+const BREAKDOWNS = {
+  會議:['確認上次會議記錄','準備本次議程與資料','通知與會人員','主持/出席會議','撰寫會議記錄並存檔'],
+  稽核:['調出上次稽核報告','確認稽核範圍與表單','現場稽核/資料審查','填寫稽核記錄','存檔並回報主管'],
+  校正:['確認儀器清單與上次記錄','聯繫廠商或準備內校工具','進行校正作業','更新貼紙/計畫表','存放校正報告並歸檔'],
+  文件:['打開舊版文件確認需更新欄位','收集最新資料','逐一填寫更新內容','確認格式與簽核需求','存檔並記錄更新日期'],
+  報告:['確認報告範本位置','收集本期數據','填寫報告內容','自我檢查數據正確性','送交主管審核'],
+  合約:['確認合約到期與廠商資訊','聯繫廠商確認續約','確認許可證同步更新','取得新合約核對條款','歸檔並更新追蹤清單'],
+};
+const STEP_TIMES = ['5分鐘','10分鐘','15分鐘','10分鐘','5分鐘'];
 
-const TODAY = new Date();
-TODAY.setHours(0,0,0,0);
+// 空白版：強制清除所有舊資料
+localStorage.removeItem('pt_tasks');
+localStorage.removeItem('pt_progs');
+localStorage.removeItem('pt_journals');
+localStorage.removeItem('pt_week');
+localStorage.removeItem('pt_customcats');
 
-function todayStr() {
-  return TODAY.getFullYear() + '-' + String(TODAY.getMonth()+1).padStart(2,'0') + '-' + String(TODAY.getDate()).padStart(2,'0');
-}
+let tasks = [];
+// progs removed
+let journals = JSON.parse(localStorage.getItem('pt_journals')||'[]');
+let weekDone = JSON.parse(localStorage.getItem('pt_week')||'[]');
+// holidays 格式: [{date:'2026-05-01', type:'holiday', label:'勞動節'}]
+let holidays = JSON.parse(localStorage.getItem('pt_holidays')||'[]');
+function saveHolidays(){ localStorage.setItem('pt_holidays', JSON.stringify(holidays)); }
 
-function dLeft(due) {
-  if (!due) return 999;
-  const d = new Date(due);
-  d.setHours(0,0,0,0);
-  return Math.round((d - TODAY) / 86400000);
-}
+const HOLIDAY_TYPES = {
+  off:        {label:'週休',     color:'#d97706', bg:'#fef9c3', emoji:'😴'},
+  makeup:     {label:'補班',     color:'#dc2626', bg:'#fef2f2', emoji:'⚠️'},
+  national:   {label:'國定假日', color:'#dc2626', bg:'#fef2f2', emoji:'🇹🇼'},
+  sick:       {label:'病假',     color:'#a78bfa', bg:'#f5f3ff', emoji:'🤒'},
+  menstrual:  {label:'生理假',   color:'#f9a8d4', bg:'#fdf2f8', emoji:'🌸'},
+  family:     {label:'家庭照顧假', color:'#f472b6', bg:'#fdf2f8', emoji:'👨‍👩‍👧'},
+  marriage:   {label:'婚假',     color:'#fbbf24', bg:'#fefce8', emoji:'💍'},
+  funeral:    {label:'喪假',     color:'#94a3b8', bg:'#f1f5f9', emoji:'🕯️'},
+  maternity:  {label:'產假',     color:'#fb923c', bg:'#fff7ed', emoji:'🍼'},
+  paternity:  {label:'陪產假',   color:'#60a5fa', bg:'#eff6ff', emoji:'👨‍🍼'},
+  parental:   {label:'育嬰假',   color:'#34d399', bg:'#ecfdf5', emoji:'🧸'},
+  annual:     {label:'特休',     color:'#16a34a', bg:'#f0fdf4', emoji:'🏖'},
+  official:   {label:'公假',     color:'#2563eb', bg:'#eff6ff', emoji:'📋'},
+  other:      {label:'其他假',   color:'#94a3b8', bg:'#f8fafc', emoji:'📅'},
+};
 
-function saveTasks() {
-  localStorage.setItem('pt_tasks', JSON.stringify(tasks));
-}
+// 台灣國定假日資料
+const TW_NATIONAL_HOLIDAYS = {
+  "2026-01-01": "元旦", "2026-01-02": "元旦補假", "2026-02-14": "除夕", "2026-02-16": "春節初一", "2026-02-17": "春節初二", "2026-02-18": "春節初三", "2026-02-19": "春節補假", "2026-02-20": "春節補假", "2026-02-27": "和平紀念日補假", "2026-02-28": "和平紀念日", "2026-04-03": "兒童節", "2026-04-04": "清明節", "2026-04-05": "清明補假", "2026-05-01": "勞動節", "2026-06-19": "端午節", "2026-09-28": "教師節", "2026-09-25": "中秋節補假", "2026-09-26": "中秋節", "2026-10-09": "國慶日補假", "2026-10-10": "國慶日", "2026-10-25": "台灣光復節", "2026-10-26": "台灣光復節補假", "2026-12-25": "行憲紀念日", "2027-01-01": "元旦", "2027-02-02": "除夕", "2027-02-03": "春節初一", "2027-02-04": "春節初二", "2027-02-05": "春節初三", "2027-02-06": "春節補假", "2027-02-28": "和平紀念日", "2027-04-03": "兒童節", "2027-04-05": "清明節", "2027-05-01": "勞動節", "2027-06-09": "端午節", "2027-09-28": "教師節", "2027-10-04": "中秋節", "2027-10-10": "國慶日", "2027-10-25": "台灣光復節", "2027-12-25": "行憲紀念日"
+};
 
-// 完成勾勾（已修復）
-function toggleDone(id) {
-  event.stopImmediatePropagation();
-  const task = tasks.find(t => t.id === id);
-  if (!task) return;
-  
-  task.done = !task.done;
-  if (task.done) task.doneDate = todayStr();
-  else task.doneDate = null;
-  
-  saveTasks();
-  renderCurrentTab();
-}
-
-// 渲染目前分頁
-function renderCurrentTab() {
-  const content = document.getElementById('main-content');
-  
-  if (activeTab === 0) { // 每日任務
-    let html = `<h2 style="margin-bottom:16px">今日任務</h2>`;
-    if (tasks.length === 0) {
-      html += `<div class="empty-state">目前沒有任務<br><button class="btn btn-primary" onclick="openNewTask()" style="margin-top:16px">新增任務</button></div>`;
-    } else {
-      tasks.forEach(t => {
-        const days = dLeft(t.due);
-        html += `
-          <div class="task-card" style="${t.done ? 'opacity:0.6' : ''}">
-            <div class="chk ${t.done ? 'on' : ''}" onclick="toggleDone(${t.id})">${t.done ? '✓' : ''}</div>
-            <div style="flex:1">
-              <div style="font-weight:500">${t.name}</div>
-              <div style="font-size:13px;color:#666">${t.due ? t.due : '無到期日'} ${days <= 7 && days >= 0 ? '（即將到期）' : ''}</div>
-            </div>
-          </div>`;
-      });
-    }
-    content.innerHTML = html;
-  } 
-  else if (activeTab === 3) { // 月曆簡化版
-    content.innerHTML = `<h2>月曆功能開發中...（可點選日期後勾選任務）</h2>`;
-  } 
-  else {
-    content.innerHTML = `<h2>此分頁開發中</h2>`;
-  }
-}
-
-function switchTab(n) {
-  activeTab = n;
-  document.querySelectorAll('.tab').forEach((tab, i) => {
-    tab.classList.toggle('active', i === n);
+function autoAddNationalHolidays(year){
+  // 加入該年國定假日（不重複）
+  let added=0;
+  Object.entries(TW_NATIONAL_HOLIDAYS).forEach(([date,name])=>{
+    if(!date.startsWith(String(year))) return;
+    if(isHolidayDate(date)) return;
+    holidays.push({date,type:'national',label:name});
+    added++;
   });
-  renderCurrentTab();
+  if(added>0){ saveHolidays(); return added; }
+  return 0;
 }
 
-function openNewTask() {
-  const name = prompt("任務名稱：");
-  if (name) {
-    tasks.push({
-      id: Date.now(),
-      name: name,
-      due: todayStr(),
-      done: false
-    });
-    saveTasks();
-    renderCurrentTab();
+function getHolidayInfo(dateStr){
+  const h = holidays.find(h=> (typeof h==='string'?h:h.date) === dateStr);
+  if(!h) return null;
+  if(typeof h==='string') return {date:h, type:'off', ...HOLIDAY_TYPES.off};
+  const allT=getFullHolidayTypes(); return {...h, ...(allT[h.type]||allT.other)};
+}
+function isHolidayDate(dateStr){
+  return holidays.some(h=>(typeof h==='string'?h:h.date)===dateStr);
+}
+
+// 週休二日：設定整年的週六日
+function setWeeklyOff(year, pattern){
+  // pattern: 'both'=六日, 'sat'=六, 'sun'=日, 'alt_sat'=隔週六, 'none'=清除
+  // 先移除該年所有 type=off 的假期
+  holidays = holidays.filter(h=>{
+    const d = typeof h==='string'?h:h.date;
+    const t = typeof h==='string'?'off':h.type;
+    return !(d.startsWith(String(year)) && t==='off');
+  });
+  if(pattern==='none'){ saveHolidays(); return 0; }
+  let count=0;
+  const d = new Date(year,0,1);
+  let satCount=0;
+  function toLocalDate(date){
+    const y=date.getFullYear();
+    const m=String(date.getMonth()+1).padStart(2,'0');
+    const day=String(date.getDate()).padStart(2,'0');
+    return `${y}-${m}-${day}`;
+  }
+  while(d.getFullYear()===year){
+    const dow = d.getDay(); // 0=日, 1=一, 2=二, 3=三, 4=四, 5=五, 6=六
+    const ds = toLocalDate(d);
+    let add=false;
+    let lbl='';
+    if(pattern==='both' && dow===0){ add=true; lbl='星期日'; }
+    else if(pattern==='both' && dow===6){ add=true; lbl='星期六'; }
+    else if(pattern==='sun' && dow===0){ add=true; lbl='星期日'; }
+    else if(pattern==='sat' && dow===6){ add=true; lbl='星期六'; }
+    else if(pattern==='alt_sat' && dow===6){ satCount++; if(satCount%2===0){ add=true; lbl='隔週六'; } }
+    if(add){ holidays.push({date:ds,type:'off',label:lbl}); count++; }
+    d.setDate(d.getDate()+1);
+  }
+  saveHolidays();
+  return count;
+}
+
+let editTaskId = null, doneTaskId = null, editProgId = null, selMood = '🙂';
+let calMonth = new Date(TODAY.getFullYear(), TODAY.getMonth(), 1);
+let selCalDay = null;
+
+// ===== INIT DATA =====
+if (!tasks.length) {
+  tasks = [];
+  save('tasks');
+}
+// progs init removed
+
+function save(k){ localStorage.setItem('pt_'+k, JSON.stringify(eval(k))); }
+
+// ===== UTILS =====
+function fmt(s){ return s?s.replace(/-/g,'/'):'—'; }
+function dLeft(due){
+  if(!due) return null;
+  const d=new Date(due); d.setHours(0,0,0,0);
+  return Math.round((d-TODAY)/86400000);
+}
+function statusBadge(d){
+  if(d===null) return '';
+  if(d<0) return `<span class="badge badge-red">過期${Math.abs(d)}天</span>`;
+  if(d===0) return `<span class="badge badge-red">今天到期</span>`;
+  if(d<=7) return `<span class="badge badge-red">剩${d}天</span>`;
+  if(d<=30) return `<span class="badge badge-amber">剩${d}天</span>`;
+  if(d<=90) return `<span class="badge badge-amber">剩${d}天</span>`;
+  return `<span class="badge badge-green">剩${d}天</span>`;
+}
+function catBadge(c){ const cl=CAT_COLOR[c]||'gray'; return `<span class="badge badge-${cl}">${c}</span>`; }
+function freqBadge(f){ return `<span class="badge badge-gray">${FREQ_LABEL[f]||f}</span>`; }
+function nextDue(from,freq){
+  const d=new Date(from);
+  if(freq==='daily') d.setDate(d.getDate()+1);
+  else if(freq==='weekly') d.setDate(d.getDate()+7);
+  else if(freq==='monthly') d.setMonth(d.getMonth()+1);
+  else if(freq==='quarterly') d.setMonth(d.getMonth()+3);
+  else if(freq==='yearly') d.setFullYear(d.getFullYear()+1);
+  else if(freq==='triennial') d.setFullYear(d.getFullYear()+3);
+  else if(freq==='quinquennial') d.setFullYear(d.getFullYear()+5);
+  return d.toISOString().split('T')[0];
+}
+function todayStr(){
+  const d=TODAY;
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function openModal(id){ document.getElementById(id).classList.add('show'); }
+function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+
+// ===== HEADER =====
+document.getElementById('today-label').textContent =
+  `${TODAY.getFullYear()}/${String(TODAY.getMonth()+1).padStart(2,'0')}/${String(TODAY.getDate()).padStart(2,'0')} 週${DAYS[TODAY.getDay()]}`;
+
+// ===== TAB =====
+let activeTab='daily';
+function switchTab(t){
+  activeTab=t;
+  ['daily','overview','progress','monthly','journal','alerts'].forEach((x,i)=>{
+    document.getElementById('tab-'+x).style.display=x===t?'block':'none';
+    document.querySelectorAll('.tab')[i].classList.toggle('active',x===t);
+  });
+  if(t==='overview') renderOverview();
+  else if(t==='progress') renderProgress();
+  else if(t==='monthly') renderCalendar();
+  else if(t==='journal') renderJournal();
+  else if(t==='alerts') renderAlerts();
+  else renderDaily();
+}
+
+// ===== OVERVIEW =====
+function renderOverview(){
+  const FREQ_ORDER={once:0,daily:1,weekly:2,monthly:3,quarterly:4,yearly:5,triennial:6,quinquennial:7};
+  const FREQ_MAP={'全部':'all','單次':'once','每天':'daily','每週':'weekly','每月':'monthly','每季':'quarterly','每年':'yearly','3年':'triennial','5年':'quinquennial'};
+
+  // 年份選項：從任務中取得所有年份
+  const allYears=[...new Set(tasks.map(t=>t.due?t.due.slice(0,4):null).filter(Boolean))].sort();
+  const curYear=String(TODAY.getFullYear());
+
+  let filterYear=window._ovYear||curYear;
+  let filterCat=window._ovCat||'全部';
+  let filterFreq=window._ovFreq||'全部';
+  let filterStatus=window._ovStatus||'全部';
+  let sortBy=window._ovSort||'due';
+
+  // 取得目前年份任務的所有性質
+  const yearTasks=tasks.filter(t=>!t.due||t.due.startsWith(filterYear)||filterYear==='全部');
+  const allCatsInYear=['全部',...new Set(yearTasks.map(t=>t.cat).filter(Boolean))];
+  const freqs=['全部','單次','每月','每季','每年','3年','5年'];
+
+  // 篩選
+  let filtered=[...tasks];
+  // 年份篩選：顯示該年有到期的任務（due 在該年，或無到期日全顯示）
+  if(filterYear!=='全部'){
+    filtered=filtered.filter(t=>t.due&&t.due.startsWith(filterYear));
+  }
+  if(filterCat!=='全部') filtered=filtered.filter(t=>t.cat===filterCat);
+  if(filterFreq!=='全部') filtered=filtered.filter(t=>t.freq===(FREQ_MAP[filterFreq]||filterFreq));
+  if(filterStatus==='待完成') filtered=filtered.filter(t=>!t.done);
+  else if(filterStatus==='已完成') filtered=filtered.filter(t=>t.done);
+  else if(filterStatus==='過期') filtered=filtered.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)<0);
+  else if(filterStatus==='30天內') filtered=filtered.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)>=0&&dLeft(t.due)<=30);
+  else if(filterStatus==='暫停') filtered=filtered.filter(t=>t.status==='paused');
+  else if(filterStatus==='停用') filtered=filtered.filter(t=>t.status==='obsolete');
+
+  if(sortBy==='due') filtered.sort((a,b)=>(dLeft(a.due)??99999)-(dLeft(b.due)??99999));
+  else if(sortBy==='name') filtered.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(sortBy==='cat') filtered.sort((a,b)=>a.cat.localeCompare(b.cat));
+  else if(sortBy==='freq') filtered.sort((a,b)=>(FREQ_ORDER[a.freq]||0)-(FREQ_ORDER[b.freq]||0));
+
+  const yearBase=filterYear==='全部'?tasks:tasks.filter(t=>t.due&&t.due.startsWith(filterYear));
+  const total=yearBase.length;
+  const doneCount=yearBase.filter(t=>t.done).length;
+  const expCount=yearBase.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)<0).length;
+  const s30=yearBase.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)>=0&&dLeft(t.due)<=30).length;
+
+  function pill(label,active,onclick){
+    return `<button onclick="${onclick}" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid ${active?'var(--accent)':'var(--border)'};background:${active?'var(--accent-light)':'transparent'};color:${active?'var(--accent)':'var(--muted)'};cursor:pointer;white-space:nowrap">${label}</button>`;
+  }
+
+  const rows=filtered.map(t=>{
+    const d=dLeft(t.due);
+    const statusDot=t.done?'✅':t.status==='obsolete'?'⛔':t.status==='paused'?'⏸':d===null?'⚪':d<0?'🔴':d<=7?'🔴':d<=30?'🟡':d<=90?'🟡':'🟢';
+    const rowStyle=t.status==='obsolete'?'opacity:.5':'';
+    return `<tr style="border-bottom:1px solid var(--border);${rowStyle}">
+      <td style="padding:7px 6px;font-size:12px;font-weight:500;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${t.name}${t.memo?' | 筆記：'+t.memo:''}">${statusDot} ${t.name}${t.memo?` <span style="color:var(--purple);font-size:10px">💬</span>`:''}</td>
+      <td style="padding:7px 6px">${catBadge(t.cat)}</td>
+      <td style="padding:7px 6px">${freqBadge(t.freq)}</td>
+      <td style="padding:7px 6px;font-size:11px;color:var(--muted);white-space:nowrap">${t.due?fmt(t.due):'—'}</td>
+      <td style="padding:7px 6px">${t.status==='obsolete'?'<span class="badge badge-gray">停用</span>':t.status==='paused'?'<span class="badge badge-amber">暫停</span>':statusBadge(d)}</td>
+      <td style="padding:7px 6px">
+        <button class="btn btn-ghost btn-sm" onclick="openEditTask(${t.id})">編輯</button>
+      </td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('tab-overview').innerHTML=`
+    <div style="margin-top:.5rem;margin-bottom:.75rem">
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:600;color:var(--muted)">年份</span>
+        ${pill('全部',filterYear==='全部',`window._ovYear='全部';window._ovCat='全部';renderOverview()`)}
+        ${(window._ovShowAllYears?allYears:allYears.slice(-5)).map(y=>pill(y,filterYear===y,`window._ovYear='${y}';window._ovCat='全部';renderOverview()`)).join('')}
+        ${allYears.length>5&&!window._ovShowAllYears?`<button onclick="window._ovShowAllYears=true;renderOverview()" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">更多 ▼ (${allYears.length-5})</button>`:''}
+        ${allYears.length>5&&window._ovShowAllYears?`<button onclick="window._ovShowAllYears=false;renderOverview()" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">收合 ▲</button>`:''}
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">${total}</div><div class="stat-label">${filterYear==='全部'?'全部':''+filterYear+'年'} 任務</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--red)">${expCount}</div><div class="stat-label">已過期</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--amber)">${s30}</div><div class="stat-label">30天內</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--green)">${doneCount}</div><div class="stat-label">已完成</div></div>
+    </div>
+
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px;align-items:center">
+      <span style="font-size:11px;color:var(--muted)">狀態</span>
+      ${['全部','待完成','已完成','過期','30天內','暫停','停用'].map(s=>pill(s,filterStatus===s,`window._ovStatus='${s}';renderOverview()`)).join('')}
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px;align-items:center">
+      <span style="font-size:11px;color:var(--muted)">性質</span>
+      ${allCatsInYear.map(c=>pill(c,filterCat===c,`window._ovCat='${c}';renderOverview()`)).join('')}
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px;align-items:center">
+      <span style="font-size:11px;color:var(--muted)">排序</span>
+      ${[['due','到期日'],['name','名稱'],['cat','性質'],['freq','週期']].map(([v,l])=>pill(l,sortBy===v,`window._ovSort='${v}';renderOverview()`)).join('')}
+    </div>
+
+    <div style="font-size:11px;color:var(--muted);margin-bottom:6px">共 ${filtered.length} 筆</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;min-width:480px">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border)">
+            <th style="text-align:left;font-size:11px;color:var(--muted);padding:5px 6px;font-weight:500">任務名稱</th>
+            <th style="text-align:left;font-size:11px;color:var(--muted);padding:5px 6px;font-weight:500">性質</th>
+            <th style="text-align:left;font-size:11px;color:var(--muted);padding:5px 6px;font-weight:500">週期</th>
+            <th style="text-align:left;font-size:11px;color:var(--muted);padding:5px 6px;font-weight:500">到期日</th>
+            <th style="text-align:left;font-size:11px;color:var(--muted);padding:5px 6px;font-weight:500">狀態</th>
+            <th style="text-align:left;font-size:11px;color:var(--muted);padding:5px 6px;font-weight:500"></th>
+          </tr>
+        </thead>
+        <tbody>${rows||'<tr><td colspan="6" style="text-align:center;padding:1.5rem;color:var(--muted);font-size:13px">沒有符合的任務</td></tr>'}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function saveWelcome(){
+  const name = document.getElementById('welcome-name').value.trim();
+  if(!name) return;
+  userSettings.name = name;
+  localStorage.setItem('pt_settings', JSON.stringify(userSettings));
+  document.getElementById('site-title').textContent = '🌿 '+name+'的工作管理中心';
+  closeModal('modal-welcome');
+  showToast('歡迎 '+name+'！🎉');
+}
+function skipWelcome(){
+  userSettings.skippedName = true;
+  localStorage.setItem('pt_settings', JSON.stringify(userSettings));
+  closeModal('modal-welcome');
+}
+
+// ===== SCHEDULE ENGINE =====
+// 計算任務的「應開始日」（排除假期，往前推工作天）
+function calcStartDate(dueStr, workDays){
+  if(!dueStr||!workDays) return dueStr||'';
+  const due = new Date(dueStr); due.setHours(0,0,0,0);
+  let remaining = workDays;
+  const d = new Date(due);
+  while(remaining > 0){
+    d.setDate(d.getDate()-1);
+    const ds = d.toISOString().split('T')[0];
+    const hInfo = getHolidayInfo(ds);
+    // 假期（非補班）不算工作天
+    if(!hInfo || hInfo.type==='makeup') remaining--;
+  }
+  return d.toISOString().split('T')[0];
+}
+
+// 取得今日/指定日期的「應作業任務清單」
+function getTodaySchedule(dateStr){
+  const result = [];
+  tasks.forEach(t=>{
+    if(t.done||!t.due||!(!t.status||t.status==='active')) return;
+    const startDate = calcStartDate(t.due, t.workDays||0);
+    const dueDate = t.due;
+    // 今天在作業區間內（startDate ~ dueDate）
+    if(dateStr >= startDate && dateStr <= dueDate){
+      const daysLeft = Math.round((new Date(dueDate)-new Date(dateStr))/86400000);
+      const totalDays = t.workDays||0;
+      const elapsed = totalDays - Math.round((new Date(dueDate)-new Date(dateStr))/86400000);
+      result.push({...t, startDate, daysLeft, totalDays, elapsed: Math.max(0,elapsed)});
+    }
+  });
+  // 排序：越急越前面
+  result.sort((a,b)=>a.daysLeft-b.daysLeft);
+  return result;
+}
+
+// 建立假期統計 HTML
+function buildHolidaySummary(year){
+  const yHols=holidays.filter(h=>{const d=typeof h==='string'?h:h.date; return d.startsWith(year);});
+  if(!yHols.length) return '';
+  const counts={};
+  const allT2=getFullHolidayTypes();
+  yHols.forEach(h=>{const t=typeof h==='string'?'off':(h.type||'off'); if(t!=='makeup') counts[t]=(counts[t]||0)+1;});
+  if(!Object.keys(counts).length) return '';
+  return `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.75rem">
+    ${Object.entries(counts).map(([t,n])=>`<span style="font-size:11px;padding:3px 9px;border-radius:20px;background:${allT2[t]?.bg||'#f8fafc'};color:${allT2[t]?.color||'#888'}">${allT2[t]?.emoji||'📅'} ${allT2[t]?.label||t} ${n}天</span>`).join('')}
+  </div>`;
+}
+
+// ===== DAILY =====
+function buildRestDayHTML(hol){
+  const tmr=new Date(TODAY); tmr.setDate(tmr.getDate()+1);
+  const tmrStr=tmr.getFullYear()+'-'+String(tmr.getMonth()+1).padStart(2,'0')+'-'+String(tmr.getDate()).padStart(2,'0');
+  const tmrTasks=getTodaySchedule(tmrStr);
+  const tmrHTML=tmrTasks.length
+    ?tmrTasks.slice(0,3).map(t=>`<div style="font-size:12px;padding:4px 0;display:flex;justify-content:space-between;border-bottom:1px solid var(--border)"><span>${t.name}</span><span style="color:var(--muted);font-size:11px">到期 ${fmt(t.due)}</span></div>`).join('')
+    :'<div style="font-size:13px;color:var(--muted)">明天沒有排定任務 🎉</div>';
+  return `<div style="text-align:center;padding:2.5rem 1rem 1.5rem">
+    <div style="font-size:64px;margin-bottom:12px">${hol.emoji}</div>
+    <div style="font-size:20px;font-weight:700;color:var(--accent);margin-bottom:6px">今天${hol.label}</div>
+    <div style="font-size:14px;color:var(--muted);margin-bottom:1.5rem">好好休息，明天繼續加油！💪</div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1rem;text-align:left">
+      <div style="font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px">📋 明天待辦預覽</div>
+      ${tmrHTML}
+    </div>
+    <button class="btn btn-ghost" style="font-size:12px" onclick="window._forceShowTasks=true;renderDaily()">還是看任務清單</button>
+  </div>`;
+}
+
+function renderDaily(){
+  // 休息日直接跳出
+  const todayHolCheck = getHolidayInfo(todayStr());
+  if(todayHolCheck && todayHolCheck.type!=='makeup' && !window._forceShowTasks){
+    document.getElementById('tab-daily').innerHTML = buildRestDayHTML(todayHolCheck);
+    return;
+  }
+  const sorted=[...tasks].sort((a,b)=>(dLeft(a.due)??9999)-(dLeft(b.due)??9999));
+  const isActive=t=>!t.status||t.status==='active';
+  const overdue=sorted.filter(t=>!t.done&&isActive(t)&&dLeft(t.due)!==null&&dLeft(t.due)<0);
+  const todayT=sorted.filter(t=>!t.done&&isActive(t)&&dLeft(t.due)===0);
+  const upcoming=sorted.filter(t=>!t.done&&isActive(t)&&dLeft(t.due)!==null&&dLeft(t.due)>0);
+  const doneT=sorted.filter(t=>t.done);
+
+  // 今日排程
+  const todaySchedule = getTodaySchedule(todayStr());
+  // 提前可做的任務（到期日>今天，但 startDate <= 今天，且今天不在原本的作業區間，代表可提前）
+  const canEarly = upcoming.filter(t=>{
+    if(!t.workDays) return false;
+    const start = calcStartDate(t.due, t.workDays);
+    return start > todayStr(); // 還沒到開始日，但可以提前
+  }).slice(0,3);
+
+  const urgent=[...overdue,...todayT];
+  let alertH='';
+  if(urgent.length) alertH=`<div class="alert-box red"><h4>⚠️ ${urgent.length}件需要立即處理</h4><p>${urgent.slice(0,3).map(t=>t.name).join('、')}${urgent.length>3?'...':''}</p></div>`;
+
+  function tcard(t){
+    const d=dLeft(t.due);
+    const isSel=batchSelected.has(t.id);
+    return `<div class="task-card ${t.done?'done':''}" style="${batchMode?'cursor:pointer':''}${isSel?';background:var(--red-bg);border-color:#fca5a5':''}" onclick="${batchMode?`toggleBatchSelect(${t.id})`:''}">
+      ${batchMode
+        ? `<div style="width:20px;height:20px;border-radius:4px;border:2px solid ${isSel?'var(--red)':'var(--border)'};background:${isSel?'var(--red)':'transparent'};flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px">${isSel?'<span style="color:#fff;font-size:12px">✓</span>':''}</div>`
+        : `<div class="chk ${t.done?'on':''}" onclick="event.stopPropagation();toggleDone(${t.id})"></div>`
+      }
+      <div class="tbody">
+        <div class="tname">${t.name}</div>
+        <div class="tmeta">${catBadge(t.cat)}${freqBadge(t.freq)}
+          ${t.status==='paused'?'<span class="badge badge-amber">暫停</span>':''}
+          ${t.status==='obsolete'?'<span class="badge badge-gray">已停用</span>':''}
+          ${t.due?`<span style="font-size:10px;color:var(--muted)">${fmt(t.due)}</span>`:''}
+          ${statusBadge(d)}
+          ${t.notes?`<span title="${t.notes}" style="font-size:11px;cursor:help">📝</span>`:''}
+          ${t.memo?`<span title="${t.memo}" style="font-size:11px;cursor:help;color:var(--purple)">💬</span>`:''}
+        </div>
+      </div>
+      ${!batchMode?`<div class="tacts">
+        <button class="btn btn-ghost btn-sm" onclick="openEditTask(${t.id})">編輯</button>
+        <button class="btn btn-danger btn-sm" onclick="delTask(${t.id})">刪除</button>
+      </div>`:''}
+    </div>`;
+  }
+
+  // Stats
+  const exp=tasks.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)<0).length;
+  const s30=tasks.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)>=0&&dLeft(t.due)<=30).length;
+  const doneCount=tasks.filter(t=>t.done).length;
+  const total=tasks.length;
+
+  // 今日是否放假
+  const todayHol = getHolidayInfo(todayStr());
+  const isMakeup = todayHol && todayHol.type==='makeup';
+  const isOff = todayHol && todayHol.type!=='makeup';
+
+  // 今日排程卡（只顯示前3件，依緊急度排序）
+  const ENCOURAGE_MSGS = [
+    '太棒了！繼續保持 💪','做得很好！下一件等你 🎯',
+    '厲害！再接再厲 🌟','完成了！繼續衝 🚀',
+    '超讚！下一件開始 ✨','好樣的！繼續前進 🏃',
+  ];
+  // 排序：先過期（過期越久越急），再依剩餘天數
+  const sortedSchedule = [...todaySchedule].sort((a,b)=>{
+    const da = a.daysLeft; const db = b.daysLeft;
+    if(da<0 && db<0) return da-db; // 都過期，過期越久越前
+    if(da<0) return -1; // a過期，a排前
+    if(db<0) return 1;  // b過期，b排前
+    return da-db; // 都未過期，剩越少越前
+  });
+  const shown3 = sortedSchedule.slice(0,3);
+  const remaining = todaySchedule.length - shown3.length;
+  const doneToday = tasks.filter(t=>t.done&&t.doneDate===todayStr()).length;
+
+  const scheduleHTML = todaySchedule.length ? `
+    <div style="background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;padding:.85rem 1rem;margin-bottom:.75rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-size:13px;font-weight:700;color:var(--accent)">📋 今日作業清單</span>
+        <span style="font-size:11px;color:var(--muted)">今日已完成 ${doneToday} 件 ✅</span>
+      </div>
+      ${doneToday>0?`<div style="font-size:12px;color:var(--accent);background:rgba(61,107,79,.1);border-radius:8px;padding:5px 10px;margin-bottom:8px;text-align:center">
+        ${ENCOURAGE_MSGS[doneToday%ENCOURAGE_MSGS.length]}
+      </div>`:''}
+      ${shown3.map((t,i)=>{
+        // 過期越久顏色越深
+        const absOverdue = t.daysLeft<0?Math.abs(t.daysLeft):0;
+        const urgency = t.daysLeft<0?(absOverdue>7?'🔴':absOverdue>3?'🟠':'🟡'):t.daysLeft===0?'🔴':t.daysLeft<=2?'🟡':'🟢';
+        const urgColor = t.daysLeft<0?(absOverdue>7?'#b91c1c':absOverdue>3?'#dc2626':'var(--red)'):'var(--red)';
+        const urgLabel = t.daysLeft<0?`⚠️ 過期${absOverdue}天`:t.daysLeft===0?'🔴 今天截止':t.daysLeft<=2?`剩${t.daysLeft}天`:t.daysLeft<=7?`剩${t.daysLeft}天`:`剩${t.daysLeft}天`;
+        const urgBg = t.daysLeft<0?(absOverdue>7?'#fef2f2':absOverdue>3?'#fff5f5':'transparent'):'transparent';
+        const prog = t.totalDays>0?Math.min(100,Math.round(((t.totalDays-Math.max(0,t.daysLeft))/t.totalDays)*100)):0;
+        const isLast = i===shown3.length-1;
+        return `<div style="padding:8px;border-radius:8px;margin-bottom:4px;background:${urgBg};${!isLast?'':''}">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:18px;flex-shrink:0">${urgency}</span>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:13px;font-weight:600">${t.name}</div>
+              <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:2px">
+                <span style="font-size:11px;color:var(--muted)">到期 ${fmt(t.due)}</span>
+                <span style="font-size:11px;font-weight:600;color:${urgColor}">${urgLabel}</span>
+                ${t.workDays?`<span style="font-size:10px;color:var(--muted)">需${t.workDays}天</span>`:''}
+              </div>
+              ${t.totalDays>0?`<div style="background:rgba(61,107,79,.15);border-radius:10px;height:4px;margin-top:4px">
+                <div style="background:var(--accent);height:4px;border-radius:10px;width:${prog}%;transition:width .3s"></div>
+              </div>`:''}
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="doneWithEncourage(${t.id})" style="flex-shrink:0;background:${t.daysLeft<0?urgColor:'var(--accent)'}">完成 ✓</button>
+          </div>
+        </div>`;
+      }).join('')}
+      ${remaining>0?`<div style="font-size:11px;color:var(--muted);text-align:center;padding-top:6px;border-top:1px solid rgba(61,107,79,.15)">另有 ${remaining} 件待作業 ↓</div>`:''}
+    </div>` : `<div style="background:var(--green-bg);border:1px solid #86efac;border-radius:12px;padding:.85rem 1rem;margin-bottom:.75rem;text-align:center">
+      <div style="font-size:14px;font-weight:600;color:var(--green)">🎉 今日沒有待作業任務</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">${doneToday>0?`已完成 ${doneToday} 件，好樣的！`:'休息一下，或看看可提前的任務'}</div>
+    </div>`;
+
+  // 可提前完成的任務
+  const earlyHTML = canEarly.length ? `
+    <div style="background:var(--blue-bg);border:1px solid #93c5fd;border-radius:10px;padding:.75rem 1rem;margin-bottom:.75rem">
+      <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:6px">⚡ 今日可提前作業（${canEarly.length}件）</div>
+      ${canEarly.map(t=>`<div style="font-size:12px;padding:4px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(37,99,235,.1)">
+        <span style="font-weight:500">${t.name}</span>
+        <div style="display:flex;gap:6px;align-items:center">
+          <span style="color:var(--muted);font-size:11px">到期 ${fmt(t.due)}</span>
+          <button class="btn btn-ghost btn-sm" onclick="doneWithEncourage(${t.id})" style="font-size:11px">做！</button>
+        </div>
+      </div>`).join('')}
+    </div>` : '';
+  document.getElementById('tab-daily').innerHTML=`
+    ${isOff&&!isMakeup?`<div style="background:#fef9c3;border:1px solid #fbbf24;border-radius:10px;padding:.75rem 1rem;margin-top:.5rem;margin-bottom:.75rem;text-align:center;font-size:14px">
+      ${todayHol.emoji} 今天是${todayHol.label}，好好休息！
+    </div>`:''}
+    ${isMakeup?`<div style="background:var(--red-bg);border:1px solid #fca5a5;border-radius:10px;padding:.75rem 1rem;margin-top:.5rem;margin-bottom:.75rem;text-align:center;font-size:14px">
+      ⚠️ 今天補班，記得上班！
+    </div>`:''}
+    <div class="stat-grid" style="margin-top:${isOff||isMakeup?'0':'.5rem'}">
+      <div class="stat-card"><div class="stat-num" style="color:var(--red)">${exp}</div><div class="stat-label">已過期</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--amber)">${s30}</div><div class="stat-label">30天內</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--green)">${doneCount}</div><div class="stat-label">已完成</div></div>
+      <div class="stat-card"><div class="stat-num">${total}</div><div class="stat-label">全部任務</div></div>
+    </div>
+    ${alertH}
+    ${scheduleHTML}
+    ${earlyHTML}
+    <div class="add-bar">
+      <input id="quick-name" placeholder="快速新增任務..." onkeydown="if(event.key==='Enter')quickAdd()"/>
+      <select id="quick-freq">
+        <option value="once">單次</option><option value="monthly">每月</option>
+        <option value="quarterly">每季</option><option value="yearly">每年</option>
+        <option value="triennial">3年</option><option value="quinquennial">5年</option>
+      </select>
+      <button class="btn btn-primary" onclick="quickAdd()">＋</button>
+    </div>
+    <div style="display:flex;gap:7px;margin-bottom:.75rem">
+      <button class="btn btn-ghost" style="flex:1;font-size:12px" onclick="openNewTask()">＋ 完整新增</button>
+      <button class="btn btn-ghost" style="flex:1;font-size:12px" onclick="openBatchAdd()">📋 批量新增</button>
+      <button class="btn btn-ghost" style="flex:1;font-size:12px;color:var(--red)" onclick="toggleBatchMode()">🗑 批量刪除</button>
+    </div>
+    <div id="batch-bar" style="display:none;background:var(--red-bg);border:1px solid #fca5a5;border-radius:10px;padding:.6rem 1rem;margin-bottom:.75rem;display:none;align-items:center;justify-content:space-between">
+      <span id="batch-count" style="font-size:13px;color:var(--red)">已選 0 件</span>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost btn-sm" onclick="selectAllTasks()">全選</button>
+        <button class="btn btn-danger btn-sm" onclick="confirmBatchDelete()">確定刪除</button>
+        <button class="btn btn-ghost btn-sm" onclick="cancelBatchMode()">取消</button>
+      </div>
+    </div>
+    ${overdue.length?`<div class="section-title" style="color:var(--red)">已過期</div>${overdue.map(tcard).join('')}`:''}
+    ${todayT.length?`<div class="section-title" style="color:var(--amber)">今天到期</div>${todayT.map(tcard).join('')}`:''}
+    ${upcoming.length?`<div class="section-title">即將到期</div>${upcoming.map(tcard).join('')}`:''}
+    ${doneT.length?`<div class="section-title">已完成</div>${doneT.map(tcard).join('')}`:''}
+    ${!tasks.length?`<div class="empty-state">目前沒有任務，按上方新增吧！</div>`:''}
+  `;
+}
+
+function quickAdd(){
+  const name=document.getElementById('quick-name').value.trim();
+  if(!name) return;
+  const freq=document.getElementById('quick-freq').value;
+  tasks.push({id:Date.now(),name,cat:'其他',due:todayStr(),freq,notes:'',done:false});
+  save('tasks'); document.getElementById('quick-name').value=''; renderDaily();
+}
+function fillCatSelect(selectedVal){
+  const sel=document.getElementById('mt-cat');
+  const cats=[...customCats];
+  if(!cats.includes('其他')) cats.push('其他');
+  sel.innerHTML=cats.map(c=>
+    `<option value="${c}" ${c===selectedVal?'selected':''}>${c}</option>`
+  ).join('');
+}
+
+function openNewTask(){
+  editTaskId=null;
+  document.getElementById('mt-title').textContent='新增任務';
+  document.getElementById('mt-name').value='';
+  document.getElementById('mt-due').value=todayStr();
+  document.getElementById('mt-freq').value='once';
+  document.getElementById('mt-notes').value='';
+  document.getElementById('mt-memo').value='';
+  document.getElementById('mt-status').value='active';
+  fillCatSelect(customCats[0]||'');
+  // 作業天數提示
+  const wdInput=document.getElementById('mt-workdays');
+  const wdHint=document.getElementById('mt-workdays-hint');
+  if(wdInput&&wdHint){
+    wdInput.oninput=function(){
+      const n=parseInt(this.value)||0;
+      wdHint.textContent=n===0?'到期日當天開始即可':`到期日前 ${n} 天開始作業`;
+    };
+  }
+  openModal('modal-task');
+}
+function openEditTask(id){
+  const t=tasks.find(x=>x.id===id); if(!t) return;
+  editTaskId=id;
+  document.getElementById('mt-title').textContent='編輯任務';
+  document.getElementById('mt-name').value=t.name;
+  fillCatSelect(t.cat);
+  document.getElementById('mt-due').value=t.due||'';
+  document.getElementById('mt-freq').value=t.freq;
+  document.getElementById('mt-notes').value=t.notes||'';
+  document.getElementById('mt-memo').value=t.memo||'';
+  document.getElementById('mt-workdays').value=t.workDays||0;
+  const wdHint2=document.getElementById('mt-workdays-hint');
+  if(wdHint2){ const n=t.workDays||0; wdHint2.textContent=n===0?'到期日當天開始即可':`到期日前 ${n} 天開始作業`; }
+  document.getElementById('mt-status').value=t.status||'active';
+  openModal('modal-task');
+}
+function saveTask(){
+  const name=document.getElementById('mt-name').value.trim();
+  if(!name) return alert('請填寫任務名稱');
+  const t={id:editTaskId||Date.now(),name,cat:document.getElementById('mt-cat').value,
+    due:document.getElementById('mt-due').value,freq:document.getElementById('mt-freq').value,
+    notes:document.getElementById('mt-notes').value,
+    memo:document.getElementById('mt-memo').value,
+    status:document.getElementById('mt-status').value,
+    workDays:parseInt(document.getElementById('mt-workdays').value)||0,
+    done:false};
+  if(editTaskId){ const i=tasks.findIndex(x=>x.id===editTaskId); tasks[i]=t; }
+  else tasks.push(t);
+  save('tasks'); closeModal('modal-task'); renderDaily();
+}
+function delTask(id){
+  if(!confirm('確定刪除？')) return;
+  tasks=tasks.filter(x=>x.id!==id); save('tasks'); renderDaily();
+}
+// 年度進度同步：性質模式為自動統計，不需手動同步
+function syncProg(cat, delta){ /* auto-calculated in renderProgress */ }
+
+// Toast 小提示
+function showToast(msg){
+  let el=document.getElementById('toast');
+  if(!el){
+    el=document.createElement('div');
+    el.id='toast';
+    el.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;z-index:200;opacity:0;transition:opacity .3s;white-space:nowrap;max-width:90vw;text-align:center;';
+    document.body.appendChild(el);
+  }
+  el.textContent=msg; el.style.opacity='1';
+  clearTimeout(el._t); el._t=setTimeout(()=>el.style.opacity='0',2800);
+}
+
+function doneWithEncourage(id){
+  const t = tasks.find(x=>x.id===id);
+  if(!t) return;
+  // 先打勾
+  if(t.freq==='once'){
+    doneTaskId=id;
+    document.getElementById('done-name').textContent=t.name;
+    document.querySelectorAll('input[name="done-repeat"]').forEach(r=>{r.checked=r.value==='no';});
+    document.getElementById('done-next').value=todayStr();
+    document.getElementById('done-freq').value='monthly';
+    openModal('modal-done');
+  } else {
+    t.done=true; t.doneDate=todayStr();
+    syncProg(t.cat,+1);
+    const nextDate=nextDue(t.due||todayStr(),t.freq);
+    tasks.push({id:Date.now()+1,name:t.name,cat:t.cat,due:nextDate,freq:t.freq,notes:t.notes,memo:t.memo||'',status:t.status||'active',workDays:t.workDays||0,done:false,doneDate:null});
+    save('tasks');
+    const doneCount = tasks.filter(x=>x.done&&x.doneDate===todayStr()).length;
+    const msgs=['太棒了！繼續保持 💪','做得很好！下一件等你 🎯','厲害！再接再厲 🌟','完成了！繼續衝 🚀','超讚！下一件開始 ✨','好樣的！繼續前進 🏃'];
+    showToast(msgs[doneCount%msgs.length]);
+    renderDaily();
   }
 }
 
-function openSettingsModal() {
-  alert("設定功能開發中\n\n目前已強制使用綠葉圖示\n請重新「加入主畫面」即可看到效果");
+function toggleRepeatFields(show){
+  document.getElementById('done-next-block').style.display=show?'block':'none';
 }
 
-// 初始化
-document.getElementById('site-title').textContent = "🌿 沛婷的工作管理中心";
-renderCurrentTab();
+function toggleDone(id){
+  const t=tasks.find(x=>x.id===id); if(!t) return;
+  if(t.done){
+    // 取消完成：年度進度 -1
+    syncProg(t.cat,-1);
+    t.done=false; t.doneDate=null;
+    save('tasks'); renderDaily(); return;
+  }
+  doneTaskId=id;
+  document.getElementById('done-name').textContent=t.name;
+
+  if(t.freq==='once'){
+    // 單次：詢問是否重複
+    document.getElementById('done-repeat-block').style.display='block';
+    document.getElementById('done-next-block').style.display='none';
+    document.querySelectorAll('input[name=done-repeat]').forEach(r=>{ r.checked=r.value==='no'; });
+    document.getElementById('done-next').value=todayStr();
+    document.getElementById('done-freq').value='monthly';
+    openModal('modal-done');
+  } else {
+    // 有週期：靜默自動建下次，不彈視窗
+    t.done=true; t.doneDate=todayStr();
+    syncProg(t.cat,+1);
+    const nextDate=nextDue(t.due||todayStr(),t.freq);
+    tasks.push({id:Date.now()+1,name:t.name,cat:t.cat,due:nextDate,freq:t.freq,notes:t.notes,done:false});
+    save('tasks');
+    showToast(`✅ 完成！下次 ${fmt(nextDate)} 已自動排入`);
+    renderDaily();
+  }
+}
+
+function confirmDone(){
+  const t=tasks.find(x=>x.id===doneTaskId); if(!t) return;
+  t.done=true; t.doneDate=todayStr();
+  syncProg(t.cat,+1);
+
+  const wantRepeat=document.querySelector('input[name=done-repeat]:checked')?.value==='yes';
+  if(wantRepeat){
+    const nextDate=document.getElementById('done-next').value;
+    const newFreq=document.getElementById('done-freq').value;
+    if(nextDate){
+      tasks.push({id:Date.now()+1,name:t.name,cat:t.cat,due:nextDate,freq:newFreq,notes:t.notes,done:false});
+      save('tasks'); closeModal('modal-done');
+      showToast('✅ 完成！下次 '+fmt(nextDate)+' 已排入');
+      renderDaily(); return;
+    }
+  }
+  save('tasks'); closeModal('modal-done');
+  showToast('✅ 任務完成！');
+  renderDaily();
+}
+function showBreakdown(t,nextDate){
+  const steps=BREAKDOWNS[t.cat]||BREAKDOWNS['文件'];
+  document.getElementById('bd-name').textContent=`${t.name}（${fmt(nextDate)} 前完成）`;
+  document.getElementById('bd-steps').innerHTML=steps.map((s,i)=>
+    `<div class="bd-step"><div class="step-num">${i+1}</div><span>${s}</span><span class="step-time">${STEP_TIMES[i]}</span></div>`
+  ).join('');
+  openModal('modal-bd');
+}
+
+// ===== PROGRESS =====
+// 自訂性質清單（預設值）
+let customCats = JSON.parse(localStorage.getItem('pt_customcats') || 'null');
+if(!customCats){
+  customCats = [];
+  localStorage.setItem('pt_customcats', JSON.stringify(customCats));
+}
+
+function saveCats(){ localStorage.setItem('pt_customcats', JSON.stringify(customCats)); }
+
+const CAT_COLOR_MAP={
+  文件:'#2563eb',會議:'#d97706',稽核:'#dc2626',校正:'#e97316',
+  報告:'#7c3aed',合約:'#16a34a',其他:'#888',
+};
+function getCatColor(cat){
+  if(CAT_COLOR_MAP[cat]) return CAT_COLOR_MAP[cat];
+  // 自訂性質給隨機固定色
+  const palette=['#0891b2','#be185d','#854d0e','#166534','#1e3a8a','#6b21a8','#9f1239'];
+  let hash=0; for(let c of cat) hash=(hash*31+c.charCodeAt(0))%palette.length;
+  return palette[hash];
+}
+
+function renderProgress(){
+  const curYear=TODAY.getFullYear();
+  const year=window._progYear||curYear;
+  const yearStr=String(year);
+  const weekNum=Math.ceil((((TODAY-new Date(curYear,0,1))/86400000)+new Date(curYear,0,1).getDay()+1)/7);
+
+  // 年份選擇列：從任務到期日 + 已完成日期 + 當年 合併
+  const allProgYears=[...new Set([
+    ...tasks.map(t=>t.due?t.due.slice(0,4):null).filter(Boolean),
+    ...tasks.map(t=>t.doneDate?t.doneDate.slice(0,4):null).filter(Boolean),
+    String(curYear),
+  ])].sort();
+  function pill(label,active,onclick){
+    return `<button onclick="${onclick}" style="font-family:inherit;font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid ${active?'var(--accent)':'var(--border)'};background:${active?'var(--accent-light)':'transparent'};color:${active?'var(--accent)':'var(--muted)'};cursor:pointer;white-space:nowrap">${label}</button>`;
+  }
+  const showAllYears = window._progShowAllYears || false;
+  const visibleYears = showAllYears ? allProgYears : allProgYears.slice(-5);
+  const hasMore = allProgYears.length > 5;
+  const yearPickerH=`<div style="margin-bottom:.75rem">
+    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:11px;color:var(--muted)">年份</span>
+      ${visibleYears.map(y=>pill(y,String(year)===y,`window._progYear=${y};renderProgress()`)).join('')}
+      ${hasMore&&!showAllYears?`<button onclick="window._progShowAllYears=true;renderProgress()" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">更多 ▼ (${allProgYears.length-5})</button>`:''}
+      ${hasMore&&showAllYears?`<button onclick="window._progShowAllYears=false;renderProgress()" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">收合 ▲</button>`:''}
+    </div>
+  </div>`;
+
+  // 52週 grid — 依該週任務完成率自動上色
+  function getWeekDateRange(y,w){
+    const jan1=new Date(y,0,1);
+    const startDay=((w-1)*7)-jan1.getDay()+1;
+    const start=new Date(y,0,startDay);
+    const end=new Date(y,0,startDay+6);
+    function ld(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+    return{start:ld(start),end:ld(end)};
+  }
+  function getWeekColor(pct){
+    if(pct===null||pct===0) return '#e5e7eb';
+    if(pct<=25) return '#bbf7d0';
+    if(pct<=50) return '#86efac';
+    if(pct<=75) return '#4ade80';
+    if(pct<100) return '#22c55e';
+    return 'var(--accent)';
+  }
+  let weekH='<div class="week-wrap"><div class="week-grid">';
+  for(let w=1;w<=52;w++){
+    const{start,end}=getWeekDateRange(year,w);
+    const weekTasks=tasks.filter(t=>t.due&&t.due>=start&&t.due<=end&&t.cat!=='其他');
+    const weekDoneCount=weekTasks.filter(t=>t.done).length;
+    const pct=weekTasks.length>0?Math.round(weekDoneCount/weekTasks.length*100):null;
+    const isTod=w===weekNum&&year===curYear;
+    const bgColor=getWeekColor(pct,false);
+    const tipText=weekTasks.length>0?`第${w}週 ${weekDoneCount}/${weekTasks.length}件（${pct}%）`:`第${w}週（無任務）`;
+    weekH+=`<div class="wk ${isTod?'today':''}" style="background:${bgColor}" title="${tipText}"></div>`;
+  }
+  weekH+=`</div></div>
+  <div class="week-legend">
+    <span><div class="wl-box" style="background:var(--accent)"></div>全完成</span>
+    <span><div class="wl-box" style="background:#86efac"></div>部分完成</span>
+    <span><div class="wl-box" style="background:#e5e7eb;outline:2px solid var(--amber);outline-offset:1px"></div>本週</span>
+    <span><div class="wl-box" style="background:#e5e7eb"></div>無任務</span>
+    <span style="color:var(--muted)">第${weekNum}週 / 52週</span>
+  </div>`;
+
+  // 性質進度條
+  // 合併：customCats + 任務裡有但不在清單的性質
+  const taskCats=[...new Set(tasks.map(t=>t.cat))].filter(Boolean);
+  const allCats=[...new Set([...customCats,...taskCats])].filter(c=>c!=='其他');
+  // 「其他」單獨列在最後，標示為不計入統計
+  const hasOther=tasks.some(t=>t.cat==='其他');
+
+  const progH=allCats.filter(cat=>cat!=='其他').map(cat=>{
+    // 只計算該年度有到期日的任務
+    const catTasks=tasks.filter(t=>t.cat===cat&&t.due&&t.due.startsWith(yearStr));
+    const total=catTasks.length;
+    const done=catTasks.filter(t=>t.done&&t.doneDate&&t.doneDate.startsWith(yearStr)).length;
+    const pct=total>0?Math.round((done/total)*100):0;
+    const color=getCatColor(cat);
+    const pendingAll=catTasks.filter(t=>!t.done);
+    const doneAll=catTasks.filter(t=>t.done&&t.doneDate&&t.doneDate.startsWith(yearStr));
+    // 該年沒有任務就跳過
+    if(total===0) return '';
+    const isCustom=customCats.includes(cat);
+    const expandId='expand_'+cat.replace(/[^a-zA-Z0-9]/g,'_');
+    return `<div class="prog-item">
+      <div class="prog-header">
+        <span class="prog-name" style="color:${color}">${cat}</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="prog-pct" style="color:${color}">${pct}%</span>
+          <button onclick="toggleExpand('${expandId}')" style="font-size:11px;padding:2px 9px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-family:inherit" id="btn_${expandId}">展開 ▼</button>
+          ${isCustom&&cat!=='其他'?`<button onclick="removeCat('${cat}')" style="font-size:10px;padding:2px 7px;border-radius:6px;border:1px solid #fca5a5;background:var(--red-bg);color:var(--red);cursor:pointer;font-family:inherit">移除</button>`:''}
+        </div>
+      </div>
+      <div class="prog-bar-bg"><div class="prog-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+      <div style="margin-top:4px;display:flex;gap:12px">
+        <span class="prog-stats">待完成 ${pendingAll.length} 件</span>
+        <span class="prog-stats" style="color:var(--green)">今年已完成 ${done} 件</span>
+        <span class="prog-stats">共 ${total} 件</span>
+      </div>
+      <div id="${expandId}" style="display:none;margin-top:8px;border-top:1px solid var(--border);padding-top:8px">
+        ${pendingAll.length?`
+          <div style="font-size:11px;font-weight:500;color:var(--red);margin-bottom:4px">⏳ 待完成（${pendingAll.length}）</div>
+          ${pendingAll.map(t=>`<div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border)">
+            <span style="flex:1;${t.status==='obsolete'?'text-decoration:line-through;color:var(--muted)':''}">${t.name}${t.memo?` <span style="font-size:10px;color:var(--purple)" title="${t.memo}">💬</span>`:''}</span>
+            <span style="color:var(--muted);font-size:11px;white-space:nowrap;margin-left:8px">${t.due?fmt(t.due):''}</span>
+            ${t.status==='obsolete'?'<span style="font-size:10px;padding:1px 5px;background:var(--bg);border-radius:4px;color:var(--muted);margin-left:4px">停用</span>':''}
+            ${t.status==='paused'?'<span style="font-size:10px;padding:1px 5px;background:var(--amber-bg);border-radius:4px;color:var(--amber);margin-left:4px">暫停</span>':''}
+          </div>`).join('')}`:''}
+        ${doneAll.length?`
+          <div style="font-size:11px;font-weight:500;color:var(--green);margin:8px 0 4px">✅ 今年已完成（${doneAll.length}）</div>
+          ${doneAll.map(t=>`<div style="font-size:12px;padding:3px 0;color:var(--muted);text-decoration:line-through">${t.name}</div>`).join('')}`:''}
+      </div>
+    </div>`;
+  }).join('') || '<div class="empty-state">還沒有任何任務</div>';
+
+  // 新增性質
+  const addCatH=`<div style="display:flex;gap:8px;margin-top:.5rem">
+    <input id="new-cat-input" placeholder="新增性質名稱..." style="flex:1;font-size:13px;padding:7px 10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text)" onkeydown="if(event.key==='Enter')addCat()"/>
+    <button class="btn btn-primary" onclick="addCat()">＋新增</button>
+  </div>`;
+
+  // 「其他」區塊
+  const otherTasks=tasks.filter(t=>t.cat==='其他'&&t.due&&t.due.startsWith(yearStr));
+  const otherH=otherTasks.length?`
+    <div class="prog-item" style="opacity:.65;margin-top:.5rem">
+      <div class="prog-header">
+        <span class="prog-name" style="color:var(--muted)">其他（日常瑣事）</span>
+        <span style="font-size:11px;padding:2px 8px;border-radius:20px;background:var(--bg);color:var(--muted);border:1px solid var(--border)">不計入統計</span>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">共 ${otherTasks.filter(t=>!t.done).length} 件待完成，${otherTasks.filter(t=>t.done&&t.doneDate&&t.doneDate.startsWith(yearStr)).length} 件已完成</div>
+    </div>`:'';
+
+  document.getElementById('tab-progress').innerHTML=`
+    ${yearPickerH}
+    <div class="section-title" style="margin-top:.25rem">52週進度 — ${year}年</div>
+    ${weekH}
+    <div class="section-title" style="margin-top:1.25rem">年度完成進度（依性質）— ${year}年</div>
+    ${progH}
+    ${otherH}
+    <div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:6px">新增性質類別</div>
+      ${addCatH}
+    </div>
+  `;
+}
+
+function toggleExpand(id){
+  const el=document.getElementById(id);
+  const btn=document.getElementById('btn_'+id);
+  if(!el) return;
+  const open=el.style.display==='none';
+  el.style.display=open?'block':'none';
+  if(btn) btn.textContent=open?'收合 ▲':'展開 ▼';
+}
+
+function addCat(){
+  const input=document.getElementById('new-cat-input');
+  const name=input.value.trim();
+  if(!name) return;
+  if(customCats.includes(name)){ showToast('已有這個性質'); return; }
+  customCats.push(name);
+  saveCats();
+  input.value='';
+  renderProgress();
+  showToast(`✅「${name}」已新增，任務性質選單同步更新`);
+}
+
+function removeCat(cat){
+  if(cat==='其他'){ showToast('「其他」為保留性質，無法移除'); return; }
+  if(!confirm(`確定移除「${cat}」性質？（任務不會被刪除）`)) return;
+  customCats=customCats.filter(c=>c!==cat);
+  saveCats();
+  renderProgress();
+  showToast(`🗑「${cat}」已移除，任務性質選單同步更新`);
+}
+
+function toggleWeek(w, year){ /* 52週格子現在自動依任務完成率上色 */ }
+
+function toggleHoliday(dateStr){
+  if(isHolidayDate(dateStr)){
+    holidays = holidays.filter(h=>(typeof h==='string'?h:h.date)!==dateStr);
+    saveHolidays(); renderCalendar(); renderProgress();
+    showToast('已取消假期標記'); return;
+  }
+  window._pendingHolidayDate = dateStr;
+  document.getElementById('h-date-label').textContent = fmt(dateStr)+' 標記假期';
+  document.getElementById('h-label').value='';
+  window._selectedCustomType = null;
+  renderCustomTypesList();
+  openModal('modal-holiday');
+}
+
+function saveHolidayType(){
+  // 優先用自訂假別，否則用 radio
+  const type = window._selectedCustomType ||
+    document.querySelector('input[name="htype"]:checked')?.value || 'off';
+  const allTypes = getFullHolidayTypes();
+  const label = document.getElementById('h-label').value.trim() ||
+    allTypes[type]?.label || '假期';
+  holidays.push({date:window._pendingHolidayDate, type, label});
+  saveHolidays(); closeModal('modal-holiday');
+  renderCalendar(); renderProgress();
+  showToast(`${allTypes[type]?.emoji||'📅'} 已標記「${label}」`);
+}
+
+// 保留空函數避免舊程式碼報錯
+function progPlus(){}
+function progMinus(){}
+function openNewProg(){}
+function openEditProg(){}
+function saveProg(){}
+function delProg(){}
+
+// ===== CALENDAR =====
+function renderCalendar(){
+  const y=calMonth.getFullYear(), m=calMonth.getMonth();
+  document.getElementById('tab-monthly').innerHTML=`
+    <div class="month-nav">
+      <button class="btn btn-ghost btn-sm" onclick="chgMonth(-1)">◀</button>
+      <span class="month-label">${y}年${m+1}月</span>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-ghost btn-sm" onclick="openModal('modal-weeklyoff')">😴 週休設定</button>
+        <button class="btn btn-ghost btn-sm" onclick="chgMonth(1)">▶</button>
+      </div>
+    </div>
+    <div class="cal-header">${['日','一','二','三','四','五','六'].map(d=>`<div class="dow">${d}</div>`).join('')}</div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div class="section-title" id="cal-day-label" style="margin-top:1rem">點選日期查看任務</div>
+    <div id="cal-day-tasks"></div>
+  `;
+  const firstDay=new Date(y,m,1).getDay();
+  const daysInMonth=new Date(y,m+1,0).getDate();
+  const taskMap={};
+  tasks.filter(t=>!t.done&&t.due&&t.due.startsWith(`${y}-${String(m+1).padStart(2,'0')}`)).forEach(t=>{
+    const d=parseInt(t.due.split('-')[2]);
+    if(!taskMap[d]) taskMap[d]=[];
+    taskMap[d].push(t);
+  });
+  let html='';
+  for(let i=0;i<firstDay;i++) html+='<div></div>';
+  for(let d=1;d<=daysInMonth;d++){
+    const ts=taskMap[d]||[];
+    const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isToday=new Date(y,m,d).toDateString()===TODAY.toDateString();
+    const minD=ts.length?Math.min(...ts.map(t=>dLeft(t.due))):null;
+    const dotColor=minD!==null?(minD<0?'var(--red)':minD<=7?'var(--red)':minD<=30?'var(--amber)':'var(--green)'):'';
+    const holInfo=getHolidayInfo(ds);
+    const isHol=!!holInfo;
+    html+=`<div class="day-cell ${isToday?'today':''}" onclick="selDay(${y},${m},${d})" style="${isHol?'background:'+holInfo.bg+';':''}" >
+      <div class="day-num" style="${isHol?'color:'+holInfo.color:''}">${d}${isHol?' '+holInfo.emoji:''}</div>
+      ${ts.length?`<div class="day-dot" style="background:${dotColor}"></div>`:''}
+    </div>`;
+  }
+  document.getElementById('cal-grid').innerHTML=html;
+}
+function selDay(y,m,d){
+  const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+  const ts=tasks.filter(t=>t.due===ds&&!t.done);
+  const holInfo=getHolidayInfo(ds);
+  const isHol=!!holInfo;
+  // 顯示開始作業提醒（任務到期日倒數作業天數）
+  const startReminders=tasks.filter(t=>{
+    if(t.done||!t.due||!t.workDays) return false;
+    const due=new Date(t.due); due.setHours(0,0,0,0);
+    const start=new Date(due); start.setDate(start.getDate()-(t.workDays||0));
+    return start.toISOString().split('T')[0]===ds;
+  });
+  document.getElementById('cal-day-label').textContent=`${m+1}月${d}日`;
+  document.getElementById('cal-day-tasks').innerHTML=`
+    <div style="display:flex;gap:8px;margin-bottom:.75rem">
+      <button onclick="toggleHoliday('${ds}')" class="btn btn-sm ${isHol?'btn-danger':'btn-ghost'}" style="font-size:12px" id="hol-btn-${ds}">
+        ${isHol?holInfo.emoji+' 取消「'+holInfo.label+'」':'📅 標記假期'}
+      </button>
+    </div>
+    ${startReminders.length?`<div style="margin-bottom:8px">
+      <div style="font-size:11px;font-weight:500;color:var(--purple);margin-bottom:4px">🔔 今日應開始作業：</div>
+      ${startReminders.map(t=>`<div style="font-size:12px;padding:3px 0;color:var(--purple)">▶ ${t.name}（到期 ${fmt(t.due)}，需 ${t.workDays} 天）</div>`).join('')}
+    </div>`:''}
+    ${ts.length?ts.map(t=>`<div class="task-card"><div class="tbody"><div class="tname">${t.name}</div><div class="tmeta">${catBadge(t.cat)}${freqBadge(t.freq)}</div>${t.notes?`<div style="font-size:11px;color:var(--muted);margin-top:3px">${t.notes}</div>`:''}</div></div>`).join('')
+    :`<div class="empty-state" style="padding:.75rem">這天沒有到期任務</div>`}
+  `;
+}
+function chgMonth(d){ calMonth.setMonth(calMonth.getMonth()+d); renderCalendar(); }
+
+// ===== JOURNAL =====
+function selectMood(m,el){
+  selMood=m;
+  document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function openJournalModal(){
+  const today=todayStr();
+  const existing=journals.find(j=>j.date===today);
+  selMood=existing?existing.mood:'🙂';
+  document.getElementById('jt-note').value=existing?existing.note:'';
+  document.querySelectorAll('.mood-btn').forEach(b=>{
+    b.classList.toggle('selected',b.dataset.mood===selMood);
+  });
+  // 自動抓今日完成任務
+  const doneTasks=tasks.filter(t=>t.done&&t.doneDate===today);
+  const autoDoneEl=document.getElementById('jt-auto-done');
+  if(doneTasks.length){
+    autoDoneEl.innerHTML=doneTasks.map(t=>
+      `<span style="display:inline-flex;align-items:center;gap:4px;margin:2px 4px 2px 0">✅ ${t.name}</span>`
+    ).join('<br/>');
+  } else {
+    autoDoneEl.innerHTML='<span style="color:var(--muted)">今天還沒有完成的任務</span>';
+  }
+  openModal('modal-journal');
+}
+function saveJournal(){
+  const today=todayStr();
+  const note=document.getElementById('jt-note').value.trim();
+  const completed=tasks.filter(t=>t.done&&t.doneDate===today).map(t=>({name:t.name,cat:t.cat}));
+  const existing=journals.findIndex(j=>j.date===today);
+  const entry={date:today,mood:selMood,note,completed};
+  if(existing>-1) journals[existing]=entry; else journals.unshift(entry);
+  save('journals'); closeModal('modal-journal'); renderJournal();
+}
+function renderJournal(){
+  const MOOD_LABEL={'😄':'很好','🙂':'還不錯','😐':'普通','😔':'有點累','😤':'很難熬'};
+  const CAT_EMOJI={文件:'📄',會議:'📋',稽核:'🔍',校正:'🔧',報告:'📊',合約:'📝',其他:'📌'};
+  const today=todayStr();
+  const curYear=TODAY.getFullYear();
+
+  let jYear=window._jYear||String(curYear);
+  let jMonth=window._jMonth||'全部';
+  let jWeek=window._jWeek||'全部';
+
+  const jYears=[...new Set(journals.map(j=>j.date.slice(0,4)))].sort().reverse();
+  if(!jYears.includes(String(curYear))) jYears.unshift(String(curYear));
+
+  const jMonths=['全部',...new Set(
+    journals.filter(j=>j.date.startsWith(jYear)).map(j=>j.date.slice(5,7))
+  ).values()].sort();
+
+  function getWeekNum(dateStr){
+    const d=new Date(dateStr); d.setHours(0,0,0,0);
+    const y=d.getFullYear();
+    return Math.ceil((((d-new Date(y,0,1))/86400000)+new Date(y,0,1).getDay()+1)/7);
+  }
+
+  const jWeeks=['全部',...new Set(
+    journals.filter(j=>j.date.startsWith(jYear)&&(jMonth==='全部'||j.date.slice(5,7)===jMonth))
+    .map(j=>String(getWeekNum(j.date)).padStart(2,'0'))
+  ).values()].sort((a,b)=>Number(a)-Number(b));
+
+  function pill(label,active,onclick){
+    return `<button onclick="${onclick}" style="font-family:inherit;font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid ${active?'var(--accent)':'var(--border)'};background:${active?'var(--accent-light)':'transparent'};color:${active?'var(--accent)':'var(--muted)'};cursor:pointer;white-space:nowrap">${label}</button>`;
+  }
+
+  const MONTH_LABEL=['','1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+  let filtered=journals.filter(j=>j.date.startsWith(jYear));
+  if(jMonth!=='全部') filtered=filtered.filter(j=>j.date.slice(5,7)===jMonth);
+  if(jWeek!=='全部') filtered=filtered.filter(j=>String(getWeekNum(j.date)).padStart(2,'0')===jWeek);
+
+  const todayDone=tasks.filter(t=>t.done&&t.doneDate===today);
+  const hasJournalToday=journals.some(j=>j.date===today);
+  const reminderHTML=!hasJournalToday&&todayDone.length&&jYear===String(curYear)?
+    `<div class="alert-box amber" style="margin-bottom:.75rem">
+      <h4>📝 今天完成了 ${todayDone.length} 件任務，記得寫日誌！</h4>
+      <p>${todayDone.map(t=>t.name).join('、')}</p>
+    </div>`:'';
+
+  document.getElementById('tab-journal').innerHTML=`
+    <button class="btn btn-primary" style="width:100%;margin-top:.5rem;margin-bottom:.5rem" onclick="openJournalModal()">📝 ${hasJournalToday?'編輯今日日誌':'寫今日日誌'}</button>
+    ${buildHolidaySummary(jYear)}
+    ${reminderHTML}
+    <div style="margin-bottom:6px">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+        <span style="font-size:11px;color:var(--muted)">年</span>
+        ${(window._jShowAllYears?jYears:jYears.slice(0,5)).map(y=>pill(y,jYear===y,`window._jYear='${y}';window._jMonth='全部';window._jWeek='全部';renderJournal()`)).join('')}
+        ${jYears.length>5&&!window._jShowAllYears?`<button onclick="window._jShowAllYears=true;renderJournal()" style="font-family:inherit;font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">更多 ▼ (${jYears.length-5})</button>`:''}
+        ${jYears.length>5&&window._jShowAllYears?`<button onclick="window._jShowAllYears=false;renderJournal()" style="font-family:inherit;font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">收合 ▲</button>`:''}
+      </div>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px">
+      <span style="font-size:11px;color:var(--muted)">月</span>
+      ${jMonths.map(m=>pill(m==='全部'?'全部':MONTH_LABEL[Number(m)],jMonth===m,`window._jMonth='${m}';window._jWeek='全部';renderJournal()`)).join('')}
+    </div>
+    ${jWeeks.length>2?`<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px">
+      <span style="font-size:11px;color:var(--muted)">週</span>
+      ${jWeeks.map(w=>pill(w==='全部'?'全部':'第'+Number(w)+'週',jWeek===w,`window._jWeek='${w}';renderJournal()`)).join('')}
+    </div>`:''}
+    <div class="section-title" style="margin-top:.5rem">共 ${filtered.length} 筆</div>
+    ${filtered.length?filtered.map(j=>{
+      const completedList=j.completed||[];
+      return `<div class="journal-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div>
+            <span class="journal-date">${fmt(j.date)}</span>
+            <span style="font-size:11px;color:var(--muted);margin-left:6px">第${getWeekNum(j.date)}週</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="font-size:11px;color:var(--muted)">${MOOD_LABEL[j.mood]||''}</span>
+            <span style="font-size:18px">${j.mood}</span>
+          </div>
+        </div>
+        ${completedList.length?`<div style="margin-bottom:6px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;font-weight:500">✅ 完成任務</div>
+          ${completedList.map(c=>{
+            const name=typeof c==='string'?c:c.name;
+            const cat=typeof c==='string'?'其他':c.cat;
+            return `<div style="font-size:12px;padding:3px 0;display:flex;align-items:center;gap:5px">${CAT_EMOJI[cat]||'📌'} ${name}</div>`;
+          }).join('')}
+        </div>`:''}
+        ${j.note?`<div style="font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:6px;margin-top:4px;line-height:1.6">💬 ${j.note}</div>`:''}
+      </div>`;
+    }).join('')
+    :`<div class="empty-state">這個時段沒有日誌</div>`}
+  `;
+}
+// ===== ALERTS =====
+function renderAlerts(){
+  const exp=tasks.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)<0).sort((a,b)=>dLeft(a.due)-dLeft(b.due));
+  const s30=tasks.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)>=0&&dLeft(t.due)<=30).sort((a,b)=>dLeft(a.due)-dLeft(b.due));
+  const s90=tasks.filter(t=>!t.done&&dLeft(t.due)!==null&&dLeft(t.due)>30&&dLeft(t.due)<=90).sort((a,b)=>dLeft(a.due)-dLeft(b.due));
+  function acard(t){
+    return `<div class="task-card">
+      <div class="tbody">
+        <div class="tname">${t.name}</div>
+        <div class="tmeta">${catBadge(t.cat)}${statusBadge(dLeft(t.due))}<span style="font-size:10px;color:var(--muted)">${fmt(t.due)}</span></div>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="toggleDone(${t.id});renderAlerts()">完成</button>
+    </div>`;
+  }
+  let html='';
+  if(exp.length) html+=`<div class="section-title" style="color:var(--red)">🔴 已過期（${exp.length}件）</div>`+exp.map(acard).join('');
+  if(s30.length) html+=`<div class="section-title" style="color:var(--amber);margin-top:1rem">🟡 30天內到期（${s30.length}件）</div>`+s30.map(acard).join('');
+  if(s90.length) html+=`<div class="section-title" style="margin-top:1rem">📋 90天內到期（${s90.length}件）</div>`+s90.map(acard).join('');
+  if(!exp.length&&!s30.length&&!s90.length) html=`<div class="empty-state">目前沒有緊急提醒，做得很好！🎉</div>`;
+  document.getElementById('tab-alerts').innerHTML=html;
+}
+
+// ===== SETTINGS =====
+const THEMES = {
+  green:  {accent:'#3d6b4f', light:'#e8f5ee'},
+  blue:   {accent:'#1d4ed8', light:'#eff6ff'},
+  purple: {accent:'#6d28d9', light:'#f5f3ff'},
+  rose:   {accent:'#be185d', light:'#fdf2f8'},
+  orange: {accent:'#c2410c', light:'#fff7ed'},
+  teal:   {accent:'#0f766e', light:'#f0fdfa'},
+  slate:  {accent:'#334155', light:'#f1f5f9'},
+  amber:  {accent:'#92400e', light:'#fffbeb'},
+  indigo: {accent:'#3730a3', light:'#eef2ff'},
+};
+let userSettings = JSON.parse(localStorage.getItem('pt_settings')||'{}');
+
+function applyTheme(color, light){
+  document.documentElement.style.setProperty('--accent', color);
+  document.documentElement.style.setProperty('--accent-light', light);
+  document.querySelector('header').style.background = color;
+}
+
+function setTheme(name){
+  document.querySelectorAll('#theme-picker > div').forEach(el=>el.style.border='3px solid transparent');
+  const el = document.getElementById('theme-'+name);
+  if(el) el.style.border='3px solid var(--text)';
+  document.getElementById('custom-color-row').style.display = name==='custom'?'flex':'none';
+  if(name==='custom') return;
+  userSettings.theme = name;
+  const t = THEMES[name];
+  if(t) applyTheme(t.accent, t.light);
+}
+
+function applyCustomColor(val){
+  userSettings.theme = 'custom';
+  userSettings.customColor = val;
+  applyTheme(val, val+'22');
+}
+
+function saveSettings(){
+  const name = document.getElementById('set-name').value.trim();
+  if(name){
+    userSettings.name = name;
+    document.getElementById('site-title').textContent = '🌿 '+name+'的工作管理中心';
+  }
+  localStorage.setItem('pt_settings', JSON.stringify(userSettings));
+  applySelectedIcon();
+  closeModal('modal-settings');
+  showToast('✅ 設定已儲存');
+}
+
+function openSettingsModal(){
+  document.getElementById('set-name').value = userSettings.name||'';
+  const cur = userSettings.theme||'green';
+  document.querySelectorAll('#theme-picker > div').forEach(el=>el.style.border='3px solid transparent');
+  const el = document.getElementById('theme-'+cur);
+  if(el) el.style.border='3px solid var(--text)';
+  if(cur==='custom'){
+    document.getElementById('custom-color-row').style.display='flex';
+    document.getElementById('custom-color-pick').value = userSettings.customColor||'#3d6b4f';
+  }
+
+  renderIconPicker();
+  openModal('modal-settings');
+}
+
+
+
+const ICON_OPTIONS = [
+  {name:"綠葉剪貼板",color:"#3d6b4f",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjM2Q2YjRmIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJpZzEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM2YWFiN2UiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMyYTRmMzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSJ1cmwoI2lnMSkiIG9wYWNpdHk9IjAuMyIvPjxlbGxpcHNlIGN4PSIxNTIiIGN5PSI0NCIgcng9IjI4IiByeT0iMTYiIGZpbGw9IiM1YTllNmYiIG9wYWNpdHk9IjAuNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQwIDE1MiA0NCkiLz48cmVjdCB4PSI1NCIgeT0iNTYiIHdpZHRoPSI4NCIgaGVpZ2h0PSI5OCIgcng9IjEwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPjxyZWN0IHg9Ijc4IiB5PSI0OCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOTUiLz48cmVjdCB4PSI4NCIgeT0iNTEiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiMzZDZiNGYiLz48cmVjdCB4PSI2NiIgeT0iODAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9IiMzZDZiNGYiIG9wYWNpdHk9IjAuOSIvPjxwb2x5bGluZSBwb2ludHM9IjY4LDg3IDcxLDkxIDc4LDgzIiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iODYiIHk9IjgzIiB3aWR0aD0iNDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMzZDZiNGYiIG9wYWNpdHk9IjAuMjUiLz48cmVjdCB4PSI2NiIgeT0iMTAyIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSIjM2Q2YjRmIiBvcGFjaXR5PSIwLjkiLz48cG9seWxpbmUgcG9pbnRzPSI2OCwxMDkgNzEsMTEzIDc4LDEwNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9Ijg2IiB5PSIxMDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0iIzNkNmI0ZiIgb3BhY2l0eT0iMC4yNSIvPjxyZWN0IHg9IjY2IiB5PSIxMjQiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNkNmI0ZiIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjYiLz48cmVjdCB4PSI4NiIgeT0iMTI3IiB3aWR0aD0iNDQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMzZDZiNGYiIG9wYWNpdHk9IjAuMTUiLz48cmVjdCB4PSI2NiIgeT0iMTQ2IiB3aWR0aD0iNjAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiNlOGY1ZWUiLz48cmVjdCB4PSI2NiIgeT0iMTQ2IiB3aWR0aD0iNDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMzZDZiNGYiIG9wYWNpdHk9IjAuNyIvPjwvc3ZnPg=="},
+  {name:"深藍星空",color:"#1e3a5f",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjMWUzYTVmIi8+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJpZzIiIGN4PSIzMCUiIGN5PSIzMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMyNTYzZWI7c3RvcC1vcGFjaXR5Oi40Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWUzYTVmO3N0b3Atb3BhY2l0eTowIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNpZzIpIi8+PGNpcmNsZSBjeD0iNDAiIGN5PSIzNSIgcj0iMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNiIvPjxjaXJjbGUgY3g9IjE1NSIgY3k9IjUwIiByPSIyIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC41Ii8+PGNpcmNsZSBjeD0iMTMwIiBjeT0iMjUiIHI9IjIuNSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPjxjaXJjbGUgY3g9IjE2NSIgY3k9IjgwIiByPSIxLjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjQiLz48cmVjdCB4PSI1MCIgeT0iNTIiIHdpZHRoPSI5MiIgaGVpZ2h0PSIxMDQiIHJ4PSIxMiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjMiLz48cmVjdCB4PSI1OCIgeT0iNzYiIHdpZHRoPSI3NiIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPjxyZWN0IHg9IjU4IiB5PSI5MiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjYiIHJ4PSIzIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC40Ii8+PHJlY3QgeD0iNTgiIHk9IjEwNiIgd2lkdGg9IjY0IiBoZWlnaHQ9IjYiIHJ4PSIzIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC40Ii8+PHJlY3QgeD0iNTgiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYiIHJ4PSIzIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4zIi8+PGNpcmNsZSBjeD0iOTYiIGN5PSIxNDgiIHI9IjE0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLW9wYWNpdHk9IjAuNiIvPjxwb2x5bGluZSBwb2ludHM9Ijg4LDE0OCA5MywxNTQgMTA2LDE0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1vcGFjaXR5PSIwLjkiLz48L3N2Zz4="},
+  {name:"珊瑚活力",color:"#c2410c",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjYzI0MTBjIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJpZzMiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmYjkyM2MiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM5YTM0MTIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSJ1cmwoI2lnMykiIG9wYWNpdHk9IjAuOCIvPjxjaXJjbGUgY3g9IjE0NSIgY3k9IjU1IiByPSI0NSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMDYiLz48cmVjdCB4PSIzOCIgeT0iNTgiIHdpZHRoPSIxMTYiIGhlaWdodD0iMTQiIHJ4PSI3IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+PHJlY3QgeD0iMzgiIHk9IjgyIiB3aWR0aD0iOTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC42Ii8+PHJlY3QgeD0iMzgiIHk9IjEwMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjYiLz48cmVjdCB4PSIzOCIgeT0iMTE4IiB3aWR0aD0iNzAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC40Ii8+PHJlY3QgeD0iMzgiIHk9IjEzOCIgd2lkdGg9IjExNiIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMTUiLz48cmVjdCB4PSIzOCIgeT0iMTM4IiB3aWR0aD0iNzUiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjciLz48L3N2Zz4="},
+  {name:"紫羅蘭",color:"#5b21b6",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjNWIyMWI2Ii8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJpZzQiIHgxPSIwJSIgeTE9IjEwMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3YzNhZWQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM0YzFkOTUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSJ1cmwoI2lnNCkiIG9wYWNpdHk9IjAuOSIvPjxyZWN0IHg9IjQ0IiB5PSI0NCIgd2lkdGg9IjEwNCIgaGVpZ2h0PSIxMDQiIHJ4PSIxNiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMiIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTYwIDk2IEw4MCAxMTYgTDEzMiA2OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIwLjk1Ii8+PC9zdmc+"},
+  {name:"玫瑰粉",color:"#9f1239",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjOWYxMjM5Ii8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJpZzUiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmYjcxODUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM4ODEzMzciLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSJ1cmwoI2lnNSkiIG9wYWNpdHk9IjAuODUiLz48Y2lyY2xlIGN4PSI5NiIgY3k9Ijc4IiByPSIzNiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMTIiLz48cGF0aCBkPSJNOTYgNTQgTDEwMiA3MCBMMTIwIDcwIEwxMDYgODAgTDExMSA5NiBMOTYgODYgTDgxIDk2IEw4NiA4MCBMNzIgNzAgTDkwIDcwIFoiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz48cmVjdCB4PSI1NiIgeT0iMTE4IiB3aWR0aD0iODAiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjYiLz48cmVjdCB4PSI2NiIgeT0iMTM0IiB3aWR0aD0iNjAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjQiLz48L3N2Zz4="},
+  {name:"海洋藍",color:"#0c4a6e",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjMGM0YTZlIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJpZzYiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwZWE1ZTkiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwNzU5ODUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSJ1cmwoI2lnNikiIG9wYWNpdHk9IjAuNyIvPjxwYXRoIGQ9Ik0wIDEzMCBRNDggMTEwIDk2IDEzMCBRMTQ0IDE1MCAxOTIgMTMwIEwxOTIgMTkyIEwwIDE5MiBaIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4wNyIvPjxwYXRoIGQ9Ik0wIDE0NSBRNDggMTI1IDk2IDE0NSBRMTQ0IDE2NSAxOTIgMTQ1IEwxOTIgMTkyIEwwIDE5MiBaIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4wNyIvPjxyZWN0IHg9IjUyIiB5PSI1MiIgd2lkdGg9Ijg4IiBoZWlnaHQ9IjEwMCIgcng9IjEyIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2Utb3BhY2l0eT0iMC40Ii8+PHJlY3QgeD0iNjQiIHk9IjcyIiB3aWR0aD0iNjQiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjgiLz48cmVjdCB4PSI2NCIgeT0iODgiIHdpZHRoPSI0OCIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjY0IiB5PSIxMDIiIHdpZHRoPSI1NiIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjY0IiB5PSIxMTYiIHdpZHRoPSIzNiIgaGVpZ2h0PSI2IiByeD0iMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMzUiLz48Y2lyY2xlIGN4PSI5NiIgY3k9IjEzOCIgcj0iOCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNiIvPjwvc3ZnPg=="},
+  {name:"墨綠簡約",color:"#134e2a",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjMTM0ZTJhIi8+PHJlY3QgeD0iMzYiIHk9IjM2IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjIwIiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1vcGFjaXR5PSIwLjIiLz48dGV4dCB4PSI5NiIgeT0iMTE1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjcyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ij7inJM8L3RleHQ+PC9zdmc+"},
+  {name:"暖金黃",color:"#92400e",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjOTI0MDBlIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJpZzgiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmYmJmMjQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNiNDUzMDkiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSJ1cmwoI2lnOCkiIG9wYWNpdHk9IjAuODUiLz48Y2lyY2xlIGN4PSI5NiIgY3k9Ijg4IiByPSI0MCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMTIiLz48cGF0aCBkPSJNOTYgNTIgTDEwMCA3MiBMMTIwIDY1IEwxMDggODIgTDEyNCA5NCBMMTA0IDk0IEwxMDAgMTE0IEw5MiA5NCBMNzIgOTggTDg2IDg0IEw3MiA3MCBMOTIgNzggWiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuODUiLz48cmVjdCB4PSI1OCIgeT0iMTMyIiB3aWR0aD0iNzYiIGhlaWdodD0iNyIgcng9IjMuNSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg=="},
+  {name:"石板灰",color:"#1e293b",dataUrl:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjMWUyOTNiIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJpZzkiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM0NzU1NjkiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwZjE3MmEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSJ1cmwoI2lnOSkiIG9wYWNpdHk9IjAuOCIvPjxyZWN0IHg9IjQ4IiB5PSI1NiIgd2lkdGg9Ijk2IiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2Utb3BhY2l0eT0iMC4zIi8+PHJlY3QgeD0iNjAiIHk9IjcyIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIvPjxwb2x5bGluZSBwb2ludHM9IjYzLDgyIDY3LDg3IDc3LDc1IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW9wYWNpdHk9IjAuOCIvPjxyZWN0IHg9Ijg4IiB5PSI3NiIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjUiIHJ4PSIyLjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjUiLz48cmVjdCB4PSI4OCIgeT0iODUiIHdpZHRoPSIzMiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMyIvPjxyZWN0IHg9IjQ4IiB5PSIxNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMDgiLz48cmVjdCB4PSI0OCIgeT0iMTQ4IiB3aWR0aD0iNjIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjQiLz48L3N2Zz4="}
+];
+
+// ===== 圖示選擇 =====
+function renderIconPicker(){
+  const el = document.getElementById('icon-picker');
+  if(!el) return;
+  const cur = userSettings.iconIndex||0;
+  el.innerHTML = ICON_OPTIONS.map((ic,i)=>`
+    <div onclick="selectIcon(${i})" style="cursor:pointer;text-align:center;border-radius:10px;padding:4px;border:2px solid ${i===cur?'var(--accent)':'transparent'};background:${i===cur?'var(--accent-light)':'transparent'}">
+      <img src="${ic.dataUrl}" style="width:44px;height:44px;border-radius:10px;display:block;margin:0 auto"/>
+      <div style="font-size:9px;color:var(--muted);margin-top:2px">${ic.name}</div>
+    </div>`).join('');
+}
+
+function selectIcon(i){
+  userSettings.iconIndex = i;
+  renderIconPicker();
+}
+
+function applySelectedIcon(){
+  const i = userSettings.iconIndex||0;
+  const dataUrl = ICON_OPTIONS[i].dataUrl;
+  // 更新 apple-touch-icon
+  let link = document.querySelector('link[rel="apple-touch-icon"]');
+  if(link) link.href = dataUrl;
+  let icon = document.querySelector('link[rel="icon"]');
+  if(icon) icon.href = dataUrl;
+}
+
+// ===== 備份與匯入 =====
+function exportBackup(){
+  const data = {
+    version: 1,
+    exportDate: new Date().toLocaleString('zh-TW'),
+    tasks,
+    holidays,
+    weekDone,
+    journals,
+    customCats,
+    customHolidayTypes,
+    userSettings,
+  };
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const name = userSettings.name || '工作管理';
+  a.href = url;
+  a.download = `${name}_備份_${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✅ 備份已下載！');
+}
+
+function importBackup(input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if(!data.version || !data.tasks){
+        showToast('❌ 檔案格式不正確');
+        return;
+      }
+      if(!confirm(`確定要匯入備份嗎？\n匯出日期：${data.exportDate}\n任務數：${data.tasks.length} 件\n\n⚠️ 現有資料將被覆蓋`)) return;
+
+      // 還原所有資料
+      tasks = data.tasks || [];
+      holidays = data.holidays || [];
+      weekDone = data.weekDone || [];
+      journals = data.journals || [];
+      customCats = data.customCats || [];
+      customHolidayTypes = data.customHolidayTypes || [];
+      if(data.userSettings) userSettings = data.userSettings;
+
+      // 存回 localStorage
+      save('tasks'); saveHolidays(); save('week'); save('journals');
+      saveCats(); saveCustomHTypes();
+      localStorage.setItem('pt_settings', JSON.stringify(userSettings));
+
+      closeModal('modal-settings');
+      loadSettings();
+      renderDaily();
+      showToast(`✅ 匯入成功！共 ${tasks.length} 件任務`);
+    } catch(err) {
+      showToast('❌ 匯入失敗，請確認檔案格式');
+    }
+    input.value = '';
+  };
+  reader.readAsText(file);
+}
+
+function loadSettings(){
+  if(userSettings.name){
+    document.getElementById('site-title').textContent = '🌿 '+userSettings.name+'的工作管理中心';
+  }
+  if(userSettings.theme){
+    const t = THEMES[userSettings.theme];
+    if(t) applyTheme(t.accent, t.light);
+    else if(userSettings.customColor) applyTheme(userSettings.customColor, userSettings.customColor+'22');
+  }
+  if(!userSettings.name && !userSettings.skippedName){
+    setTimeout(()=>openModal('modal-welcome'), 600);
+  }
+}
+
+
+
+// ===== WEEKLY OFF =====
+function addNationalHolidays(){
+  const year = parseInt(document.getElementById('wo-year').value);
+  const added = autoAddNationalHolidays(year);
+  renderCalendar(); renderProgress();
+  if(added>0) showToast(`🎌 已加入 ${year} 年 ${added} 個國定假日`);
+  else showToast('該年國定假日已全部加入');
+}
+
+// ===== 自訂假別 =====
+let customHolidayTypes = JSON.parse(localStorage.getItem('pt_custom_htypes')||'[]');
+// 格式: [{key:'custom_1', label:'調休', emoji:'🔄', color:'#888', bg:'#f8fafc'}]
+
+function saveCustomHTypes(){ localStorage.setItem('pt_custom_htypes', JSON.stringify(customHolidayTypes)); }
+
+function getFullHolidayTypes(){
+  const base = {...HOLIDAY_TYPES};
+  customHolidayTypes.forEach(t=>{ base[t.key]={label:t.label,color:t.color,bg:t.bg,emoji:t.emoji}; });
+  return base;
+}
+
+function openEmojiPicker(){
+  document.getElementById('emoji-direct-input').value='';
+  openModal('modal-emoji');
+}
+
+function selectEmoji(e){
+  if(!e.trim()) return;
+  document.getElementById('custom-emoji-btn').textContent=e;
+  closeModal('modal-emoji');
+}
+
+function addCustomHolidayType(){
+  const emoji = document.getElementById('custom-emoji-btn').textContent;
+  const name = document.getElementById('custom-type-name').value.trim();
+  if(!name){ showToast('請輸入假別名稱'); return; }
+  const key = 'custom_'+Date.now();
+  // 隨機柔和顏色
+  const colors=[
+    {color:'#0891b2',bg:'#ecfeff'},{color:'#7c3aed',bg:'#f5f3ff'},
+    {color:'#be185d',bg:'#fdf2f8'},{color:'#b45309',bg:'#fffbeb'},
+    {color:'#166534',bg:'#f0fdf4'},{color:'#1e40af',bg:'#eff6ff'},
+  ];
+  const c = colors[customHolidayTypes.length % colors.length];
+  customHolidayTypes.push({key, label:name, emoji, color:c.color, bg:c.bg});
+  saveCustomHTypes();
+  renderCustomTypesList();
+  document.getElementById('custom-type-name').value='';
+  document.getElementById('custom-emoji-btn').textContent='😊';
+  showToast(`✅ 已新增「${emoji} ${name}」假別`);
+}
+
+// addCustomTypeToModal removed
+
+function renderCustomTypesList(){
+  const el = document.getElementById('custom-types-list');
+  if(!el) return;
+  if(!customHolidayTypes.length){
+    el.innerHTML='<span style="font-size:11px;color:var(--muted)">尚未新增自訂假別</span>';
+    return;
+  }
+  el.innerHTML = customHolidayTypes.map(t=>{
+    const isSel = window._selectedCustomType===t.key;
+    return `<span onclick="selectCustomType('${t.key}')" style="display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:5px 10px;border-radius:20px;background:${isSel?t.color:t.bg};color:${isSel?'#fff':t.color};border:2px solid ${t.color};cursor:pointer;transition:all .15s">
+      ${t.emoji} ${t.label}
+      <button onclick="event.stopPropagation();removeCustomType('${t.key}')" style="border:none;background:transparent;color:${isSel?'#fff':t.color};cursor:pointer;font-size:13px;padding:0 0 0 2px;line-height:1" title="刪除">×</button>
+    </span>`;
+  }).join('');
+}
+
+function selectCustomType(key){
+  // 取消 radio 選取
+  document.querySelectorAll('input[name="htype"]').forEach(r=>r.checked=false);
+  window._selectedCustomType = window._selectedCustomType===key ? null : key;
+  renderCustomTypesList();
+}
+
+function removeCustomType(key){
+  customHolidayTypes = customHolidayTypes.filter(t=>t.key!==key);
+  saveCustomHTypes();
+  renderCustomTypesList();
+  showToast('已刪除自訂假別');
+}
+
+// 開啟假期 modal 時載入自訂假別
+const _origToggleHoliday = toggleHoliday;
+
+function confirmWeeklyOff(){
+  const year = parseInt(document.getElementById('wo-year').value);
+  const pattern = document.querySelector('input[name="wo-pattern"]:checked')?.value||'both';
+  const count = setWeeklyOff(year, pattern);
+  closeModal('modal-weeklyoff');
+  renderCalendar(); renderProgress();
+  if(pattern==='none') showToast(`已清除 ${year} 年所有週休標記`);
+  else showToast(`✅ 已設定 ${year} 年共 ${count} 天週休`);
+}
+
+// ===== BATCH ADD =====
+const FREQ_ZH_MAP = {
+  '單次':'once','每天':'daily','每週':'weekly','每月':'monthly',
+  '每季':'quarterly','每年':'yearly','3年':'triennial','5年':'quinquennial'
+};
+
+function openBatchAdd(){
+  document.getElementById('batch-input').value='';
+  document.getElementById('batch-preview').style.display='none';
+  openModal('modal-batch');
+}
+
+function parseBatchLine(line){
+  line = line.trim();
+  if(!line) return null;
+  const parts = line.split(',').map(s=>s.trim());
+  const name = parts[0];
+  if(!name) return null;
+  const cat = parts[1] || '其他';
+  const due = parts[2] || '';
+  let freq = parts[3] || 'once';
+  // 中文週期轉英文
+  if(FREQ_ZH_MAP[freq]) freq = FREQ_ZH_MAP[freq];
+  return { id: Date.now()+Math.random(), name, cat, due, freq, notes:'', memo:'', status:'active', done:false, doneDate:null };
+}
+
+function previewBatch(){
+  const lines = document.getElementById('batch-input').value.split('\n').filter(l=>l.trim());
+  const parsed = lines.map(parseBatchLine).filter(Boolean);
+  const preview = document.getElementById('batch-preview');
+  if(!parsed.length){
+    preview.style.display='block';
+    preview.innerHTML='<div style="color:var(--red);font-size:12px">沒有可解析的任務，請確認格式</div>';
+    return;
+  }
+  preview.style.display='block';
+  preview.innerHTML=`
+    <div style="font-size:12px;font-weight:500;margin-bottom:6px;color:var(--accent)">預覽 ${parsed.length} 筆任務：</div>
+    <div style="max-height:200px;overflow-y:auto">
+      ${parsed.map((t,i)=>`
+        <div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border)">
+          <span>${i+1}. ${t.name}</span>
+          <span style="color:var(--muted);font-size:11px">${t.cat} | ${FREQ_LABEL[t.freq]||t.freq}${t.due?' | '+fmt(t.due):''}</span>
+        </div>`).join('')}
+    </div>`;
+}
+
+function confirmBatch(){
+  const lines = document.getElementById('batch-input').value.split('\n').filter(l=>l.trim());
+  const parsed = lines.map(parseBatchLine).filter(Boolean);
+  if(!parsed.length){ showToast('沒有可新增的任務'); return; }
+  // 確保 id 唯一
+  let maxId = tasks.length ? Math.max(...tasks.map(t=>t.id)) : 0;
+  parsed.forEach((t,i)=>{ t.id = maxId+i+1; });
+  tasks.push(...parsed);
+  save('tasks');
+  closeModal('modal-batch');
+  showToast(`✅ 已新增 ${parsed.length} 筆任務`);
+  renderDaily();
+}
+
+// ===== BATCH DELETE =====
+let batchMode = false;
+let batchSelected = new Set();
+
+function toggleBatchMode(){
+  batchMode = true;
+  batchSelected.clear();
+  document.getElementById('batch-bar').style.display='flex';
+  renderDaily();
+}
+function cancelBatchMode(){
+  batchMode = false;
+  batchSelected.clear();
+  document.getElementById('batch-bar').style.display='none';
+  renderDaily();
+}
+function toggleBatchSelect(id){
+  if(batchSelected.has(id)) batchSelected.delete(id);
+  else batchSelected.add(id);
+  document.getElementById('batch-count').textContent='已選 '+batchSelected.size+' 件';
+  renderDaily();
+}
+function selectAllTasks(){
+  tasks.forEach(t=>batchSelected.add(t.id));
+  document.getElementById('batch-count').textContent='已選 '+batchSelected.size+' 件';
+  renderDaily();
+}
+function confirmBatchDelete(){
+  if(!batchSelected.size) return;
+  if(!confirm('確定刪除選取的 '+batchSelected.size+' 件任務？此操作無法復原')) return;
+  tasks = tasks.filter(t=>!batchSelected.has(t.id));
+  save('tasks');
+  cancelBatchMode();
+  showToast('🗑 已刪除 '+batchSelected.size+' 件任務');
+}
+
+// ===== INIT =====
+loadSettings();
+renderDaily();
+
 </script>
 </body>
 </html>
