@@ -2,158 +2,146 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<!-- 強制綠葉圖示 -->
+<!-- 強制使用綠葉圖示 -->
 <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmQ1YTNkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRhOGM1YyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNiZykiLz4KICA8cmVjdCB4PSIyOCIgeT0iNTIiIHdpZHRoPSIxMzYiIGhlaWdodD0iMTA4IiByeD0iMTAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDxyZWN0IHg9IjI4IiB5PSIzMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSIyOCIgcng9IjgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNDYiIHI9IjciIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSI3MiIgY3k9IjQ2IiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4KICA8cmVjdCB4PSI0MCIgeT0iNzIiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIvPgogIDxyZWN0IHg9IjYwIiB5PSI3NCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8cmVjdCB4PSI0MCIgeT0iOTQiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9IiM3ZWVkOWYiLz4KICA8cmVjdCB4PSI2MCIgeT0iOTYiIHdpZHRoPSI1NSIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjQpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjExNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgPHJlY3QgeD0iNjAiIHk9IjExOCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8cmVjdCB4PSI0MCIgeT0iMTQyIiB3aWR0aD0iMTEyIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTUpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjE0MiIgd2lkdGg9IjY1IiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjN2VlZDlmIi8+CiAgPHRleHQgeD0iMTQ4IiB5PSI2MCIgZm9udC1zaXplPSIyNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MvzwvdGV4dD4KPC9zdmc+">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmQ1YTNkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRhOGM1YyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0idXJsKCNiZykiLz4KICA8cmVjdCB4PSIyOCIgeT0iNTIiIHdpZHRoPSIxMzYiIGhlaWdodD0iMTA4IiByeD0iMTAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDxyZWN0IHg9IjI4IiB5PSIzMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSIyOCIgcng9IjgiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNDYiIHI9IjciIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSI3MiIgY3k9IjQ2IiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4KICA8cmVjdCB4PSI0MCIgeT0iNzIiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIvPgogIDxyZWN0IHg9IjYwIiB5PSI3NCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8cmVjdCB4PSI0MCIgeT0iOTQiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgcng9IjMiIGZpbGw9IiM3ZWVkOWYiLz4KICA8cmVjdCB4PSI2MCIgeT0iOTYiIHdpZHRoPSI1NSIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjQpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjExNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgPHJlY3QgeD0iNjAiIHk9IjExOCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiLz4KICA8cmVjdCB4PSI0MCIgeT0iMTQyIiB3aWR0aD0iMTEyIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTUpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjE0MiIgd2lkdGg9IjY1IiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjN2VlZDlmIi8+CiAgPHRleHQgeD0iMTQ4IiB5PSI2MCIgZm9udC1zaXplPSIyNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MvzwvdGV4dD4KPC9zdmc+">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>工作管理中心</title>
+<title>沛婷工作管理中心</title>
 <style>
 :root {
-  --font-tc: "PingFang TC", "蘋方-繁", "Microsoft JhengHei", "微軟正黑體", "Heiti TC", "黑體-繁", "Noto Sans TC", sans-serif;
-  --bg:#f5f3ef;--card:#fff;--text:#1a1a1a;--muted:#888;
-  --red:#dc2626;--red-bg:#fef2f2;
-  --amber:#d97706;--amber-bg:#fffbeb;
-  --green:#16a34a;--green-bg:#f0fdf4;
-  --blue:#2563eb;--blue-bg:#eff6ff;
-  --purple:#7c3aed;--purple-bg:#f5f3ff;
-  --accent:#3d6b4f;--accent-light:#e8f5ee;
-  --border:#e5e0d8;
+  --accent:#3d6b4f; --accent-light:#e8f5ee; --bg:#f5f3ef; --card:#fff; --text:#1a1a1a; --muted:#888;
+  --red:#dc2626; --amber:#d97706; --green:#16a34a; --border:#e5e0d8;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:var(--font-tc);background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:2rem;}
-header{background:var(--accent);color:#fff;padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
-header h1{font-size:15px;font-weight:700;}
-#today-label{font-size:11px;opacity:.8;}
-.tabs{display:flex;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;position:sticky;top:46px;z-index:40;}
-.tab{flex:0 0 auto;padding:.7rem .9rem;font-size:12px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--muted);white-space:nowrap;}
-.tab.active{color:var(--accent);border-bottom-color:var(--accent);}
-.content{padding:1rem;max-width:700px;margin:0 auto;}
-.section-title{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin:1rem 0 .5rem;}
-.btn{font-family:inherit;font-size:13px;padding:8px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:500;transition:all .15s;}
-.btn-primary{background:var(--accent);color:#fff;}
-.btn-primary:hover{opacity:.85;}
-.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted);}
-.btn-ghost:hover{background:var(--bg);}
-.btn-sm{font-size:11px;padding:4px 10px;border-radius:6px;}
-.btn-danger{background:var(--red-bg);color:var(--red);border:1px solid #fca5a5;}
-.badge{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:500;}
-.task-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.7rem .9rem;margin-bottom:7px;display:flex;align-items:flex-start;gap:9px;}
-.task-card.done{opacity:.45;}
-.task-card.done .tname{text-decoration:line-through;}
-.chk{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);cursor:pointer;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
-.chk.on{background:var(--accent);border-color:var(--accent);}
-.chk.on::after{content:'✓';color:#fff;font-size:11px;font-weight:700;}
-.tbody{flex:1;min-width:0;}
-.tname{font-size:13px;font-weight:500;margin-bottom:3px;}
-.tmeta{display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
-.tacts{display:flex;gap:5px;flex-shrink:0;}
-.empty-state{text-align:center;color:var(--muted);padding:1.5rem;font-size:13px;}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1rem;}
-.stat-card{background:var(--card);border-radius:10px;padding:.7rem .8rem;text-align:center;border:1px solid var(--border);}
-.stat-num{font-size:20px;font-weight:700;}
-.stat-label{font-size:10px;color:var(--muted);margin-top:2px;}
+body{font-family:"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+header{background:var(--accent);color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.tabs{display:flex;background:white;border-bottom:1px solid var(--border);overflow-x:auto;position:sticky;top:52px;z-index:40;}
+.tab{padding:12px 16px;font-size:14px;white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent;}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600;}
+.content{padding:16px;max-width:720px;margin:0 auto;}
+.task-card{background:white;border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;}
+.chk{width:24px;height:24px;border:2px solid #ccc;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.chk.on{background:var(--accent);border-color:var(--accent);color:white;}
+.btn{padding:8px 16px;border-radius:8px;border:none;cursor:pointer;}
+.btn-primary{background:var(--accent);color:white;}
+.empty-state{text-align:center;color:#888;padding:40px 20px;}
 </style>
 </head>
 <body>
+
 <header>
   <h1 id="site-title">🌿 工作管理中心</h1>
-  <div style="display:flex;align-items:center;gap:10px">
-    <span id="today-label"></span>
-    <button onclick="openSettingsModal()" style="background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:18px;width:32px;height:32px;border-radius:50%;cursor:pointer">⚙️</button>
-  </div>
+  <button onclick="openSettingsModal()" style="background:none;border:none;color:white;font-size:24px;cursor:pointer">⚙️</button>
 </header>
 
 <div class="tabs">
-  <div class="tab active" onclick="switchTab('daily')">每日任務</div>
-  <div class="tab" onclick="switchTab('overview')">任務總覽</div>
-  <div class="tab" onclick="switchTab('progress')">年度進度</div>
-  <div class="tab" onclick="switchTab('monthly')">月曆</div>
-  <div class="tab" onclick="switchTab('journal')">工作日誌</div>
+  <div class="tab active" onclick="switchTab(0)">每日任務</div>
+  <div class="tab" onclick="switchTab(1)">任務總覽</div>
+  <div class="tab" onclick="switchTab(2)">年度進度</div>
+  <div class="tab" onclick="switchTab(3)">月曆</div>
+  <div class="tab" onclick="switchTab(4)">工作日誌</div>
 </div>
 
-<div class="content">
-  <div id="tab-daily"></div>
-  <div id="tab-overview" style="display:none"></div>
-  <div id="tab-progress" style="display:none"></div>
-  <div id="tab-monthly" style="display:none"></div>
-  <div id="tab-journal" style="display:none"></div>
-</div>
-
-<!-- 主要 Modal（簡化版，只保留必要） -->
-<div class="overlay" id="modal-task" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center;">
-  <div style="background:white;border-radius:14px;padding:20px;width:90%;max-width:420px;max-height:90vh;overflow:auto">
-    <!-- modal 內容省略，保持原功能 -->
-    <h3 id="mt-title">新增任務</h3>
-    <button onclick="closeModal('modal-task')">取消</button>
-    <button onclick="saveTask()">儲存</button>
-  </div>
-</div>
+<div class="content" id="main-content"></div>
 
 <script>
-// ===== 核心變數 =====
-const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+// 核心變數
 let tasks = JSON.parse(localStorage.getItem('pt_tasks') || '[]');
-let activeTab = 'daily';
+let activeTab = 0;
 
-// ===== 工具函數 =====
-function todayStr(){ 
+const TODAY = new Date();
+TODAY.setHours(0,0,0,0);
+
+function todayStr() {
   return TODAY.getFullYear() + '-' + String(TODAY.getMonth()+1).padStart(2,'0') + '-' + String(TODAY.getDate()).padStart(2,'0');
 }
-function dLeft(due){
-  if(!due) return null;
-  const d = new Date(due); d.setHours(0,0,0,0);
-  return Math.round((d - TODAY)/86400000);
-}
-function saveTasks(){ localStorage.setItem('pt_tasks', JSON.stringify(tasks)); }
 
-// ===== 修復重點：完成勾勾 =====
-function toggleDone(id){
+function dLeft(due) {
+  if (!due) return 999;
+  const d = new Date(due);
+  d.setHours(0,0,0,0);
+  return Math.round((d - TODAY) / 86400000);
+}
+
+function saveTasks() {
+  localStorage.setItem('pt_tasks', JSON.stringify(tasks));
+}
+
+// 完成勾勾（已修復）
+function toggleDone(id) {
   event.stopImmediatePropagation();
-  const t = tasks.find(x => x.id === id);
-  if(!t) return;
+  const task = tasks.find(t => t.id === id);
+  if (!task) return;
   
-  if(t.done){
-    t.done = false;
-    t.doneDate = null;
-  } else {
-    t.done = true;
-    t.doneDate = todayStr();
-  }
+  task.done = !task.done;
+  if (task.done) task.doneDate = todayStr();
+  else task.doneDate = null;
+  
   saveTasks();
-  renderDaily();
-  if(activeTab === 'monthly') renderCalendar();
+  renderCurrentTab();
 }
 
-function renderDaily(){
-  let html = `<div class="stat-grid">...統計...</div>`;
+// 渲染目前分頁
+function renderCurrentTab() {
+  const content = document.getElementById('main-content');
   
-  tasks.forEach(t => {
-    const d = dLeft(t.due);
-    html += `
-      <div class="task-card ${t.done?'done':''}">
-        <div class="chk ${t.done?'on':''}" onclick="event.stopImmediatePropagation();toggleDone(${t.id})"></div>
-        <div class="tbody">
-          <div class="tname">${t.name}</div>
-          <div class="tmeta">到期 ${t.due||'—'}</div>
-        </div>
-      </div>`;
+  if (activeTab === 0) { // 每日任務
+    let html = `<h2 style="margin-bottom:16px">今日任務</h2>`;
+    if (tasks.length === 0) {
+      html += `<div class="empty-state">目前沒有任務<br><button class="btn btn-primary" onclick="openNewTask()" style="margin-top:16px">新增任務</button></div>`;
+    } else {
+      tasks.forEach(t => {
+        const days = dLeft(t.due);
+        html += `
+          <div class="task-card" style="${t.done ? 'opacity:0.6' : ''}">
+            <div class="chk ${t.done ? 'on' : ''}" onclick="toggleDone(${t.id})">${t.done ? '✓' : ''}</div>
+            <div style="flex:1">
+              <div style="font-weight:500">${t.name}</div>
+              <div style="font-size:13px;color:#666">${t.due ? t.due : '無到期日'} ${days <= 7 && days >= 0 ? '（即將到期）' : ''}</div>
+            </div>
+          </div>`;
+      });
+    }
+    content.innerHTML = html;
+  } 
+  else if (activeTab === 3) { // 月曆簡化版
+    content.innerHTML = `<h2>月曆功能開發中...（可點選日期後勾選任務）</h2>`;
+  } 
+  else {
+    content.innerHTML = `<h2>此分頁開發中</h2>`;
+  }
+}
+
+function switchTab(n) {
+  activeTab = n;
+  document.querySelectorAll('.tab').forEach((tab, i) => {
+    tab.classList.toggle('active', i === n);
   });
-  
-  document.getElementById('tab-daily').innerHTML = html;
+  renderCurrentTab();
 }
 
-function switchTab(tab){
-  activeTab = tab;
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.content > div').forEach(d => d.style.display = 'none');
-  document.getElementById('tab-'+tab).style.display = 'block';
-  if(tab === 'daily') renderDaily();
+function openNewTask() {
+  const name = prompt("任務名稱：");
+  if (name) {
+    tasks.push({
+      id: Date.now(),
+      name: name,
+      due: todayStr(),
+      done: false
+    });
+    saveTasks();
+    renderCurrentTab();
+  }
 }
 
-// ===== 初始化 =====
-document.getElementById('today-label').textContent = `${TODAY.getFullYear()}/${String(TODAY.getMonth()+1).padStart(2,'0')}/${String(TODAY.getDate()).padStart(2,'0')}`;
-renderDaily();
+function openSettingsModal() {
+  alert("設定功能開發中\n\n目前已強制使用綠葉圖示\n請重新「加入主畫面」即可看到效果");
+}
+
+// 初始化
+document.getElementById('site-title').textContent = "🌿 沛婷的工作管理中心";
+renderCurrentTab();
 </script>
 </body>
 </html>
