@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>圖示選擇器</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, sans-serif; background: #f5f3ef; padding: 1.5rem; }
+h2 { font-size: 18px; margin-bottom: 1rem; color: #1a1a1a; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 2rem; }
+.item { background: white; border-radius: 16px; padding: 1rem; text-align: center; cursor: pointer; border: 3px solid transparent; transition: all .2s; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+.item:hover { border-color: #3d6b4f; transform: scale(1.03); }
+.item.selected { border-color: #3d6b4f; background: #f0fdf4; }
+.item svg { width: 80px; height: 80px; border-radius: 18px; box-shadow: 0 3px 10px rgba(0,0,0,.15); }
+.item .name { font-size: 12px; color: #888; margin-top: 8px; }
+.btn { width: 100%; padding: 14px; background: #3d6b4f; color: white; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.btn:active { opacity: .85; }
+.toast { display: none; position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #1a1a1a; color: white; padding: 10px 20px; border-radius: 20px; font-size: 13px; }
+</style>
+</head>
+<body>
+<h2>選擇您的工具圖示</h2>
+<div class="grid" id="grid"></div>
+<button class="btn" onclick="applyIcon()">✅ 套用選取的圖示</button>
+<div class="toast" id="toast"></div>
+
+<script>
+const icons = [
+  {
+    name: '綠葉剪貼板',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#3d6b4f"/>
+      <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6aab7e"/><stop offset="100%" style="stop-color:#2a4f38"/></linearGradient></defs>
+      <rect width="192" height="192" rx="40" fill="url(#g1)" opacity="0.3"/>
+      <ellipse cx="152" cy="44" rx="28" ry="16" fill="#5a9e6f" opacity="0.5" transform="rotate(-40 152 44)"/>
+      <rect x="54" y="56" width="84" height="98" rx="10" fill="white" opacity="0.95"/>
+      <rect x="78" y="48" width="36" height="18" rx="9" fill="white" opacity="0.95"/>
+      <rect x="84" y="51" width="24" height="12" rx="6" fill="#3d6b4f"/>
+      <rect x="66" y="80" width="14" height="14" rx="3" fill="#3d6b4f" opacity="0.9"/>
+      <polyline points="68,87 71,91 78,83" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="86" y="83" width="40" height="6" rx="3" fill="#3d6b4f" opacity="0.25"/>
+      <rect x="66" y="102" width="14" height="14" rx="3" fill="#3d6b4f" opacity="0.9"/>
+      <polyline points="68,109 71,113 78,105" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="86" y="105" width="32" height="6" rx="3" fill="#3d6b4f" opacity="0.25"/>
+      <rect x="66" y="124" width="14" height="14" rx="3" fill="none" stroke="#3d6b4f" stroke-width="2" opacity="0.6"/>
+      <rect x="86" y="127" width="44" height="6" rx="3" fill="#3d6b4f" opacity="0.15"/>
+      <rect x="66" y="146" width="60" height="6" rx="3" fill="#e8f5ee"/>
+      <rect x="66" y="146" width="40" height="6" rx="3" fill="#3d6b4f" opacity="0.7"/>
+    </svg>`
+  },
+  {
+    name: '深藍星空',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#1e3a5f"/>
+      <defs><radialGradient id="g2" cx="30%" cy="30%"><stop offset="0%" style="stop-color:#2563eb;stop-opacity:.4"/><stop offset="100%" style="stop-color:#1e3a5f;stop-opacity:0"/></radialGradient></defs>
+      <rect width="192" height="192" rx="40" fill="url(#g2)"/>
+      <circle cx="40" cy="35" r="3" fill="white" opacity="0.6"/>
+      <circle cx="155" cy="50" r="2" fill="white" opacity="0.5"/>
+      <circle cx="130" cy="25" r="2.5" fill="white" opacity="0.7"/>
+      <circle cx="165" cy="80" r="1.5" fill="white" opacity="0.4"/>
+      <circle cx="28" cy="75" r="2" fill="white" opacity="0.5"/>
+      <rect x="50" y="52" width="92" height="104" rx="12" fill="white" opacity="0.1" stroke="white" stroke-width="1.5" stroke-opacity="0.3"/>
+      <rect x="58" y="76" width="76" height="8" rx="4" fill="white" opacity="0.7"/>
+      <rect x="58" y="92" width="56" height="6" rx="3" fill="white" opacity="0.4"/>
+      <rect x="58" y="106" width="64" height="6" rx="3" fill="white" opacity="0.4"/>
+      <rect x="58" y="120" width="40" height="6" rx="3" fill="white" opacity="0.3"/>
+      <circle cx="96" cy="148" r="14" fill="none" stroke="white" stroke-width="2.5" stroke-opacity="0.6"/>
+      <polyline points="88,148 93,154 106,140" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9"/>
+    </svg>`
+  },
+  {
+    name: '珊瑚活力',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#c2410c"/>
+      <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#fb923c"/><stop offset="100%" style="stop-color:#9a3412"/></linearGradient></defs>
+      <rect width="192" height="192" rx="40" fill="url(#g3)" opacity="0.8"/>
+      <circle cx="145" cy="55" r="45" fill="white" opacity="0.06"/>
+      <circle cx="145" cy="55" r="30" fill="white" opacity="0.06"/>
+      <rect x="38" y="58" width="116" height="14" rx="7" fill="white" opacity="0.9"/>
+      <rect x="38" y="82" width="90" height="10" rx="5" fill="white" opacity="0.6"/>
+      <rect x="38" y="100" width="100" height="10" rx="5" fill="white" opacity="0.6"/>
+      <rect x="38" y="118" width="70" height="10" rx="5" fill="white" opacity="0.4"/>
+      <rect x="38" y="138" width="116" height="8" rx="4" fill="white" opacity="0.15"/>
+      <rect x="38" y="138" width="75" height="8" rx="4" fill="white" opacity="0.7"/>
+    </svg>`
+  },
+  {
+    name: '紫羅蘭',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#5b21b6"/>
+      <defs><linearGradient id="g4" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#7c3aed"/><stop offset="100%" style="stop-color:#4c1d95"/></linearGradient></defs>
+      <rect width="192" height="192" rx="40" fill="url(#g4)" opacity="0.9"/>
+      <rect x="44" y="44" width="104" height="104" rx="16" fill="white" opacity="0.1" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
+      <path d="M60 96 L80 116 L132 68" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+    </svg>`
+  },
+  {
+    name: '玫瑰金',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#9f1239"/>
+      <defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#fb7185"/><stop offset="100%" style="stop-color:#881337"/></linearGradient></defs>
+      <rect width="192" height="192" rx="40" fill="url(#g5)" opacity="0.85"/>
+      <circle cx="96" cy="78" r="36" fill="white" opacity="0.12"/>
+      <circle cx="96" cy="78" r="24" fill="white" opacity="0.15"/>
+      <path d="M96 54 L102 70 L120 70 L106 80 L111 96 L96 86 L81 96 L86 80 L72 70 L90 70 Z" fill="white" opacity="0.9"/>
+      <rect x="56" y="118" width="80" height="8" rx="4" fill="white" opacity="0.6"/>
+      <rect x="66" y="134" width="60" height="6" rx="3" fill="white" opacity="0.4"/>
+    </svg>`
+  },
+  {
+    name: '海洋藍',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#0c4a6e"/>
+      <defs><linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0ea5e9"/><stop offset="100%" style="stop-color:#075985"/></linearGradient></defs>
+      <rect width="192" height="192" rx="40" fill="url(#g6)" opacity="0.7"/>
+      <path d="M0 130 Q48 110 96 130 Q144 150 192 130 L192 192 L0 192 Z" fill="white" opacity="0.07"/>
+      <path d="M0 145 Q48 125 96 145 Q144 165 192 145 L192 192 L0 192 Z" fill="white" opacity="0.07"/>
+      <rect x="52" y="52" width="88" height="100" rx="12" fill="white" opacity="0.15" stroke="white" stroke-width="2" stroke-opacity="0.4"/>
+      <rect x="64" y="72" width="64" height="8" rx="4" fill="white" opacity="0.8"/>
+      <rect x="64" y="88" width="48" height="6" rx="3" fill="white" opacity="0.5"/>
+      <rect x="64" y="102" width="56" height="6" rx="3" fill="white" opacity="0.5"/>
+      <rect x="64" y="116" width="36" height="6" rx="3" fill="white" opacity="0.35"/>
+      <circle cx="96" cy="138" r="8" fill="white" opacity="0.6"/>
+      <rect x="92" y="134" width="8" height="8" rx="1" fill="none" stroke="white" stroke-width="0"/>
+      <polyline points="91,138 94,142 101,134" fill="none" stroke="#0c4a6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`
+  },
+  {
+    name: '墨綠簡約',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#134e2a"/>
+      <rect x="36" y="36" width="120" height="120" rx="20" fill="none" stroke="white" stroke-width="3" stroke-opacity="0.2"/>
+      <text x="96" y="115" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="72" font-weight="700" fill="white" opacity="0.9">✓</text>
+    </svg>`
+  },
+  {
+    name: '暖金黃',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#92400e"/>
+      <defs><linearGradient id="g8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#fbbf24"/><stop offset="100%" style="stop-color:#b45309"/></linearGradient></defs>
+      <rect width="192" height="192" rx="40" fill="url(#g8)" opacity="0.85"/>
+      <circle cx="96" cy="88" r="40" fill="white" opacity="0.12"/>
+      <path d="M96 52 L100 72 L120 65 L108 82 L124 94 L104 94 L100 114 L92 94 L72 98 L86 84 L72 70 L92 78 Z" fill="white" opacity="0.85"/>
+      <rect x="58" y="132" width="76" height="7" rx="3.5" fill="white" opacity="0.5"/>
+      <rect x="68" y="146" width="56" height="5" rx="2.5" fill="white" opacity="0.35"/>
+    </svg>`
+  },
+  {
+    name: '石板灰',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <rect width="192" height="192" rx="40" fill="#1e293b"/>
+      <defs><linearGradient id="g9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#475569"/><stop offset="100%" style="stop-color:#0f172a"/></linearGradient></defs>
+      <rect width="192" height="192" rx="40" fill="url(#g9)" opacity="0.8"/>
+      <rect x="48" y="56" width="96" height="80" rx="10" fill="none" stroke="white" stroke-width="2.5" stroke-opacity="0.3"/>
+      <rect x="60" y="72" width="20" height="20" rx="4" fill="white" opacity="0.15"/>
+      <rect x="60" y="72" width="20" height="20" rx="4" fill="none" stroke="white" stroke-width="1.5" stroke-opacity="0.5"/>
+      <polyline points="63,82 67,87 77,75" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
+      <rect x="88" y="76" width="44" height="5" rx="2.5" fill="white" opacity="0.5"/>
+      <rect x="88" y="85" width="32" height="4" rx="2" fill="white" opacity="0.3"/>
+      <rect x="60" y="100" width="20" height="20" rx="4" fill="none" stroke="white" stroke-width="1.5" stroke-opacity="0.3"/>
+      <rect x="88" y="104" width="44" height="5" rx="2.5" fill="white" opacity="0.3"/>
+      <rect x="88" y="113" width="28" height="4" rx="2" fill="white" opacity="0.2"/>
+      <rect x="48" y="148" width="96" height="8" rx="4" fill="white" opacity="0.08"/>
+      <rect x="48" y="148" width="62" height="8" rx="4" fill="white" opacity="0.4"/>
+    </svg>`
+  },
+];
+
+let selected = 0;
+
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = icons.map((ic,i)=>`
+    <div class="item ${i===selected?'selected':''}" onclick="select(${i})">
+      ${ic.svg}
+      <div class="name">${ic.name}</div>
+    </div>
+  `).join('');
+}
+
+function select(i){
+  selected = i;
+  render();
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.style.display='block';
+  setTimeout(()=>t.style.display='none', 2500);
+}
+
+function applyIcon(){
+  const svgStr = icons[selected].svg.trim();
+  const b64 = btoa(unescape(encodeURIComponent(svgStr)));
+  const dataUrl = 'data:image/svg+xml;base64,'+b64;
+  // 複製 data URL 到剪貼簿
+  const code = `<link rel="apple-touch-icon" href="${dataUrl}">\n<link rel="icon" type="image/svg+xml" href="${dataUrl}">`;
+  navigator.clipboard.writeText(dataUrl).then(()=>{
+    showToast('✅ 圖示 data URL 已複製！');
+  }).catch(()=>{
+    // fallback
+    const ta = document.createElement('textarea');
+    ta.value = dataUrl;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('✅ 已複製！');
+  });
+}
+
+render();
+</script>
+</body>
+</html>
