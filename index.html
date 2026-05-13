@@ -2,11 +2,7 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<link rel="manifest" href="./manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="工作管理">
-<meta name="theme-color" content="#3d6b4f" id="meta-theme">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>沛婷工作管理中心</title>
 <style>
@@ -188,6 +184,12 @@ textarea{resize:vertical;}
       </select>
     </div>
     <div class="form-row"><label>備註／檔案位置</label><textarea id="mt-notes" rows="2" placeholder="負責人、檔案位置..."></textarea></div>
+    <div class="form-row"><label>作業天數（幾天前要開始做）</label>
+      <div style="display:flex;align-items:center;gap:8px">
+        <input id="mt-workdays" type="number" min="0" max="30" value="0" style="width:80px"/>
+        <span style="font-size:12px;color:var(--muted)" id="mt-workdays-hint">到期日當天開始即可</span>
+      </div>
+    </div>
     <div class="form-row"><label>筆記（停用原因、特殊說明等）</label><textarea id="mt-memo" rows="2" placeholder="例：此文件已停用、改由南行政負責、某年後不再更新..."></textarea></div>
     <div class="form-row"><label>狀態</label>
       <select id="mt-status">
@@ -265,13 +267,176 @@ textarea{resize:vertical;}
         <input type="color" id="custom-color-pick" value="#3d6b4f" style="width:48px;height:32px;padding:2px;border-radius:6px;cursor:pointer;border:1px solid var(--border)" oninput="applyCustomColor(this.value)"/>
       </div>
     </div>
-    <div class="form-row" style="margin-top:.5rem">
-      <label>手機通知</label>
-      <button id="notif-btn" class="btn btn-ghost" style="width:100%;margin-top:4px" onclick="toggleNotification()">載入中...</button>
+
+    <div style="border-top:1px solid var(--border);margin-top:1rem;padding-top:1rem">
+      <div style="font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px">💾 資料備份</div>
+      <div style="display:flex;gap:8px;margin-bottom:6px">
+        <button class="btn btn-ghost" style="flex:1;font-size:12px" onclick="exportBackup()">📤 匯出備份</button>
+        <button class="btn btn-ghost" style="flex:1;font-size:12px" onclick="document.getElementById('import-file').click()">📥 匯入備份</button>
+        <input type="file" id="import-file" accept=".json" style="display:none" onchange="importBackup(this)"/>
+      </div>
+      <div style="font-size:11px;color:var(--muted)">換手機或清除快取前請先匯出備份</div>
     </div>
     <div class="modal-btns">
       <button class="btn btn-ghost" onclick="closeModal('modal-settings')">取消</button>
       <button class="btn btn-primary" onclick="saveSettings()">儲存</button>
+    </div>
+  </div>
+</div>
+
+<!-- HOLIDAY TYPE MODAL -->
+<div class="overlay" id="modal-holiday">
+  <div class="modal">
+    <h3>📅 標記假期</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:.75rem" id="h-date-label"></p>
+    <div class="form-row"><label>假期類型</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:4px" id="htype-grid">
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="off" checked style="accent-color:var(--accent);width:auto"/> 😴 週休
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="national" style="accent-color:var(--accent);width:auto"/> 🇹🇼 國定假日
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="annual" style="accent-color:var(--accent);width:auto"/> 🏖 特休
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="sick" style="accent-color:var(--accent);width:auto"/> 🤒 病假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="menstrual" style="accent-color:var(--accent);width:auto"/> 🌸 生理假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="family" style="accent-color:var(--accent);width:auto"/> 👨‍👩‍👧 家庭照顧假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="marriage" style="accent-color:var(--accent);width:auto"/> 💍 婚假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="funeral" style="accent-color:var(--accent);width:auto"/> 🕯️ 喪假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="maternity" style="accent-color:var(--accent);width:auto"/> 🍼 產假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="paternity" style="accent-color:var(--accent);width:auto"/> 👨‍🍼 陪產假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="parental" style="accent-color:var(--accent);width:auto"/> 🧸 育嬰假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="official" style="accent-color:var(--accent);width:auto"/> 📋 公假
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid #fca5a5;cursor:pointer;font-size:12px;background:var(--red-bg)">
+          <input type="radio" name="htype" value="makeup" style="accent-color:var(--red);width:auto"/> ⚠️ 補班（需上班）
+        </label>
+        <label style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:12px">
+          <input type="radio" name="htype" value="other" style="accent-color:var(--accent);width:auto"/> 📅 其他
+        </label>
+      </div>
+    </div>
+    <div class="form-row"><label>備註（可留空）</label>
+      <input id="h-label" placeholder="例：端午節、婚假..."/>
+    </div>
+
+    <!-- 自訂假別 -->
+    <div style="border-top:1px solid var(--border);margin-top:.75rem;padding-top:.75rem">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:6px">＋ 新增自訂假別</div>
+      <div style="display:flex;gap:7px;align-items:center">
+        <button id="custom-emoji-btn" onclick="openEmojiPicker()" style="font-size:22px;width:44px;height:44px;border-radius:8px;border:1px solid var(--border);background:var(--bg);cursor:pointer;flex-shrink:0" title="選擇Emoji">😊</button>
+        <input id="custom-type-name" placeholder="假別名稱（例：調休）" style="flex:1;font-size:13px;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)"/>
+        <button onclick="addCustomHolidayType()" class="btn btn-primary btn-sm">新增</button>
+      </div>
+      <div id="custom-types-list" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px"></div>
+    </div>
+
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal('modal-holiday')">取消</button>
+      <button class="btn btn-primary" onclick="saveHolidayType()">確認</button>
+    </div>
+  </div>
+</div>
+
+<!-- WEEKLY OFF MODAL -->
+<div class="overlay" id="modal-weeklyoff">
+  <div class="modal">
+    <h3>😴 設定週休</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:.75rem">一次設定整年的週休日，會自動標記所有符合的日期</p>
+    <div class="form-row"><label>年份</label>
+      <select id="wo-year" style="width:120px">
+        <option value="2026">2026年</option>
+        <option value="2027">2027年</option>
+        <option value="2028">2028年</option>
+        <option value="2029">2029年</option>
+        <option value="2030">2030年</option>
+      </select>
+    </div>
+    <div class="form-row"><label>週休模式</label>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="radio" name="wo-pattern" value="both" checked style="accent-color:var(--accent);width:auto"/> 週休二日（六＋日）
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="radio" name="wo-pattern" value="sun" style="accent-color:var(--accent);width:auto"/> 只休星期日
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="radio" name="wo-pattern" value="alt_sat" style="accent-color:var(--accent);width:auto"/> 隔週六（上班下休）
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="radio" name="wo-pattern" value="none" style="accent-color:var(--accent);width:auto"/> 清除該年所有週休標記
+        </label>
+      </div>
+    </div>
+    <div style="background:var(--green-bg);border-radius:8px;padding:.6rem .75rem;margin-bottom:.75rem;font-size:12px;color:var(--green)">
+      🇹🇼 <b>自動加入台灣國定假日</b>（2026、2027年，含新增教師節、光復節、行憲紀念日）
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost btn-sm" onclick="addNationalHolidays()" style="font-size:12px">🇹🇼 加入台灣國定假日</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-weeklyoff')">取消</button>
+      <button class="btn btn-primary" onclick="confirmWeeklyOff()">確認設定</button>
+    </div>
+  </div>
+</div>
+
+<!-- BATCH ADD MODAL -->
+<div class="overlay" id="modal-batch">
+  <div class="modal">
+    <h3>📋 批量新增任務</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:.75rem">每行一筆，格式：<b>任務名稱, 性質, 到期日, 週期</b><br>只有名稱是必填，其他可省略</p>
+    <div style="background:var(--bg);border-radius:8px;padding:8px 10px;font-size:11px;color:var(--muted);margin-bottom:.75rem;line-height:1.8">
+      範例：<br>
+      食品安全會議<br>
+      儀器內校｜計畫表, 校正, 2026-07-01, quarterly<br>
+      產品責任險, 合約, 2026-06-24, yearly
+    </div>
+    <div class="form-row">
+      <label>貼上任務清單</label>
+      <textarea id="batch-input" rows="8" placeholder="每行一筆任務...&#10;任務名稱, 性質, 到期日, 週期"></textarea>
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:.5rem">
+      週期可填：once / daily / weekly / monthly / quarterly / yearly / triennial / quinquennial<br>
+      或中文：單次 / 每天 / 每週 / 每月 / 每季 / 每年 / 3年 / 5年
+    </div>
+    <div id="batch-preview" style="display:none;margin-bottom:.75rem"></div>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="previewBatch()">預覽</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-batch')">取消</button>
+      <button class="btn btn-primary" onclick="confirmBatch()">確定新增</button>
+    </div>
+  </div>
+</div>
+
+<!-- EMOJI PICKER MODAL -->
+<div class="overlay" id="modal-emoji" style="z-index:200">
+  <div class="modal" style="max-width:360px">
+    <h3>選擇 Emoji</h3>
+    <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:.75rem 0;max-height:280px;overflow-y:auto">
+      <button onclick="selectEmoji('😴')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">😴</button><button onclick="selectEmoji('🏖')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🏖</button><button onclick="selectEmoji('🤒')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🤒</button><button onclick="selectEmoji('🌸')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌸</button><button onclick="selectEmoji('👨‍👩‍👧')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">👨‍👩‍👧</button><button onclick="selectEmoji('💍')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">💍</button><button onclick="selectEmoji('🕯')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🕯</button><button onclick="selectEmoji('🍼')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🍼</button><button onclick="selectEmoji('👨‍🍼')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">👨‍🍼</button><button onclick="selectEmoji('🧸')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🧸</button><button onclick="selectEmoji('📋')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📋</button><button onclick="selectEmoji('📅')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📅</button><button onclick="selectEmoji('🎉')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎉</button><button onclick="selectEmoji('🏥')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🏥</button><button onclick="selectEmoji('🌴')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌴</button><button onclick="selectEmoji('✈️')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">✈️</button><button onclick="selectEmoji('🏠')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🏠</button><button onclick="selectEmoji('📚')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📚</button><button onclick="selectEmoji('🎓')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎓</button><button onclick="selectEmoji('💼')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">💼</button><button onclick="selectEmoji('🌟')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌟</button><button onclick="selectEmoji('❤️')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">❤️</button><button onclick="selectEmoji('🙏')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🙏</button><button onclick="selectEmoji('🎊')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎊</button><button onclick="selectEmoji('🎁')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎁</button><button onclick="selectEmoji('🌈')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌈</button><button onclick="selectEmoji('☀️')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">☀️</button><button onclick="selectEmoji('🌙')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌙</button><button onclick="selectEmoji('⭐')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">⭐</button><button onclick="selectEmoji('🔔')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🔔</button><button onclick="selectEmoji('📆')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📆</button><button onclick="selectEmoji('📌')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📌</button><button onclick="selectEmoji('✅')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">✅</button><button onclick="selectEmoji('🔑')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🔑</button><button onclick="selectEmoji('💡')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">💡</button><button onclick="selectEmoji('🎯')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎯</button><button onclick="selectEmoji('🏃')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🏃</button><button onclick="selectEmoji('💪')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">💪</button><button onclick="selectEmoji('🧘')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🧘</button><button onclick="selectEmoji('🥗')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🥗</button><button onclick="selectEmoji('☕')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">☕</button><button onclick="selectEmoji('🍵')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🍵</button><button onclick="selectEmoji('🎵')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎵</button><button onclick="selectEmoji('🎨')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🎨</button><button onclick="selectEmoji('📷')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">📷</button><button onclick="selectEmoji('🌺')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🌺</button><button onclick="selectEmoji('🍀')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🍀</button><button onclick="selectEmoji('🦋')" style="font-size:22px;padding:4px;border:none;background:transparent;cursor:pointer;border-radius:6px">🦋</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:.75rem">
+      <span style="font-size:12px;color:var(--muted)">或直接輸入：</span>
+      <input id="emoji-direct-input" maxlength="2" placeholder="🎯" style="width:60px;font-size:18px;text-align:center;padding:5px;border:1px solid var(--border);border-radius:8px"/>
+      <button class="btn btn-primary btn-sm" onclick="selectEmoji(document.getElementById('emoji-direct-input').value||'📅')">確認</button>
     </div>
   </div>
 </div>
@@ -354,6 +519,90 @@ let tasks = [];
 // progs removed
 let journals = JSON.parse(localStorage.getItem('pt_journals')||'[]');
 let weekDone = JSON.parse(localStorage.getItem('pt_week')||'[]');
+// holidays 格式: [{date:'2026-05-01', type:'holiday', label:'勞動節'}]
+let holidays = JSON.parse(localStorage.getItem('pt_holidays')||'[]');
+function saveHolidays(){ localStorage.setItem('pt_holidays', JSON.stringify(holidays)); }
+
+const HOLIDAY_TYPES = {
+  off:        {label:'週休',     color:'#d97706', bg:'#fef9c3', emoji:'😴'},
+  makeup:     {label:'補班',     color:'#dc2626', bg:'#fef2f2', emoji:'⚠️'},
+  national:   {label:'國定假日', color:'#dc2626', bg:'#fef2f2', emoji:'🇹🇼'},
+  sick:       {label:'病假',     color:'#a78bfa', bg:'#f5f3ff', emoji:'🤒'},
+  menstrual:  {label:'生理假',   color:'#f9a8d4', bg:'#fdf2f8', emoji:'🌸'},
+  family:     {label:'家庭照顧假', color:'#f472b6', bg:'#fdf2f8', emoji:'👨‍👩‍👧'},
+  marriage:   {label:'婚假',     color:'#fbbf24', bg:'#fefce8', emoji:'💍'},
+  funeral:    {label:'喪假',     color:'#94a3b8', bg:'#f1f5f9', emoji:'🕯️'},
+  maternity:  {label:'產假',     color:'#fb923c', bg:'#fff7ed', emoji:'🍼'},
+  paternity:  {label:'陪產假',   color:'#60a5fa', bg:'#eff6ff', emoji:'👨‍🍼'},
+  parental:   {label:'育嬰假',   color:'#34d399', bg:'#ecfdf5', emoji:'🧸'},
+  annual:     {label:'特休',     color:'#16a34a', bg:'#f0fdf4', emoji:'🏖'},
+  official:   {label:'公假',     color:'#2563eb', bg:'#eff6ff', emoji:'📋'},
+  other:      {label:'其他假',   color:'#94a3b8', bg:'#f8fafc', emoji:'📅'},
+};
+
+// 台灣國定假日資料
+const TW_NATIONAL_HOLIDAYS = {
+  "2026-01-01": "元旦", "2026-01-02": "元旦補假", "2026-02-14": "除夕", "2026-02-16": "春節初一", "2026-02-17": "春節初二", "2026-02-18": "春節初三", "2026-02-19": "春節補假", "2026-02-20": "春節補假", "2026-02-27": "和平紀念日補假", "2026-02-28": "和平紀念日", "2026-04-03": "兒童節", "2026-04-04": "清明節", "2026-04-05": "清明補假", "2026-05-01": "勞動節", "2026-06-19": "端午節", "2026-09-28": "教師節", "2026-09-25": "中秋節補假", "2026-09-26": "中秋節", "2026-10-09": "國慶日補假", "2026-10-10": "國慶日", "2026-10-25": "台灣光復節", "2026-10-26": "台灣光復節補假", "2026-12-25": "行憲紀念日", "2027-01-01": "元旦", "2027-02-02": "除夕", "2027-02-03": "春節初一", "2027-02-04": "春節初二", "2027-02-05": "春節初三", "2027-02-06": "春節補假", "2027-02-28": "和平紀念日", "2027-04-03": "兒童節", "2027-04-05": "清明節", "2027-05-01": "勞動節", "2027-06-09": "端午節", "2027-09-28": "教師節", "2027-10-04": "中秋節", "2027-10-10": "國慶日", "2027-10-25": "台灣光復節", "2027-12-25": "行憲紀念日"
+};
+
+function autoAddNationalHolidays(year){
+  // 加入該年國定假日（不重複）
+  let added=0;
+  Object.entries(TW_NATIONAL_HOLIDAYS).forEach(([date,name])=>{
+    if(!date.startsWith(String(year))) return;
+    if(isHolidayDate(date)) return;
+    holidays.push({date,type:'national',label:name});
+    added++;
+  });
+  if(added>0){ saveHolidays(); return added; }
+  return 0;
+}
+
+function getHolidayInfo(dateStr){
+  const h = holidays.find(h=> (typeof h==='string'?h:h.date) === dateStr);
+  if(!h) return null;
+  if(typeof h==='string') return {date:h, type:'off', ...HOLIDAY_TYPES.off};
+  const allT=getFullHolidayTypes(); return {...h, ...(allT[h.type]||allT.other)};
+}
+function isHolidayDate(dateStr){
+  return holidays.some(h=>(typeof h==='string'?h:h.date)===dateStr);
+}
+
+// 週休二日：設定整年的週六日
+function setWeeklyOff(year, pattern){
+  // pattern: 'both'=六日, 'sat'=六, 'sun'=日, 'alt_sat'=隔週六, 'none'=清除
+  // 先移除該年所有 type=off 的假期
+  holidays = holidays.filter(h=>{
+    const d = typeof h==='string'?h:h.date;
+    const t = typeof h==='string'?'off':h.type;
+    return !(d.startsWith(String(year)) && t==='off');
+  });
+  if(pattern==='none'){ saveHolidays(); return 0; }
+  let count=0;
+  const d = new Date(year,0,1);
+  let satCount=0;
+  function toLocalDate(date){
+    const y=date.getFullYear();
+    const m=String(date.getMonth()+1).padStart(2,'0');
+    const day=String(date.getDate()).padStart(2,'0');
+    return `${y}-${m}-${day}`;
+  }
+  while(d.getFullYear()===year){
+    const dow = d.getDay(); // 0=日, 1=一, 2=二, 3=三, 4=四, 5=五, 6=六
+    const ds = toLocalDate(d);
+    let add=false;
+    let lbl='';
+    if(pattern==='both' && dow===0){ add=true; lbl='星期日'; }
+    else if(pattern==='both' && dow===6){ add=true; lbl='星期六'; }
+    else if(pattern==='sun' && dow===0){ add=true; lbl='星期日'; }
+    else if(pattern==='sat' && dow===6){ add=true; lbl='星期六'; }
+    else if(pattern==='alt_sat' && dow===6){ satCount++; if(satCount%2===0){ add=true; lbl='隔週六'; } }
+    if(add){ holidays.push({date:ds,type:'off',label:lbl}); count++; }
+    d.setDate(d.getDate()+1);
+  }
+  saveHolidays();
+  return count;
+}
 
 let editTaskId = null, doneTaskId = null, editProgId = null, selMood = '🙂';
 let calMonth = new Date(TODAY.getFullYear(), TODAY.getMonth(), 1);
@@ -397,7 +646,10 @@ function nextDue(from,freq){
   else if(freq==='quinquennial') d.setFullYear(d.getFullYear()+5);
   return d.toISOString().split('T')[0];
 }
-function todayStr(){ return TODAY.toISOString().split('T')[0]; }
+function todayStr(){
+  const d=TODAY;
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
 function openModal(id){ document.getElementById(id).classList.add('show'); }
 function closeModal(id){ document.getElementById(id).classList.remove('show'); }
 
@@ -489,9 +741,12 @@ function renderOverview(){
 
   document.getElementById('tab-overview').innerHTML=`
     <div style="margin-top:.5rem;margin-bottom:.75rem">
-      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-        <span style="font-size:13px;font-weight:600">📅 年份</span>
-        ${['全部',...allYears].map(y=>pill(y,filterYear===y,`window._ovYear='${y}';window._ovCat='全部';renderOverview()`)).join('')}
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:600;color:var(--muted)">年份</span>
+        ${pill('全部',filterYear==='全部',`window._ovYear='全部';window._ovCat='全部';renderOverview()`)}
+        ${(window._ovShowAllYears?allYears:allYears.slice(-5)).map(y=>pill(y,filterYear===y,`window._ovYear='${y}';window._ovCat='全部';renderOverview()`)).join('')}
+        ${allYears.length>5&&!window._ovShowAllYears?`<button onclick="window._ovShowAllYears=true;renderOverview()" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">更多 ▼ (${allYears.length-5})</button>`:''}
+        ${allYears.length>5&&window._ovShowAllYears?`<button onclick="window._ovShowAllYears=false;renderOverview()" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">收合 ▲</button>`:''}
       </div>
     </div>
 
@@ -549,14 +804,98 @@ function skipWelcome(){
   closeModal('modal-welcome');
 }
 
+// ===== SCHEDULE ENGINE =====
+// 計算任務的「應開始日」（排除假期，往前推工作天）
+function calcStartDate(dueStr, workDays){
+  if(!dueStr||!workDays) return dueStr||'';
+  const due = new Date(dueStr); due.setHours(0,0,0,0);
+  let remaining = workDays;
+  const d = new Date(due);
+  while(remaining > 0){
+    d.setDate(d.getDate()-1);
+    const ds = d.toISOString().split('T')[0];
+    const hInfo = getHolidayInfo(ds);
+    // 假期（非補班）不算工作天
+    if(!hInfo || hInfo.type==='makeup') remaining--;
+  }
+  return d.toISOString().split('T')[0];
+}
+
+// 取得今日/指定日期的「應作業任務清單」
+function getTodaySchedule(dateStr){
+  const result = [];
+  tasks.forEach(t=>{
+    if(t.done||!t.due||!(!t.status||t.status==='active')) return;
+    const startDate = calcStartDate(t.due, t.workDays||0);
+    const dueDate = t.due;
+    // 今天在作業區間內（startDate ~ dueDate）
+    if(dateStr >= startDate && dateStr <= dueDate){
+      const daysLeft = Math.round((new Date(dueDate)-new Date(dateStr))/86400000);
+      const totalDays = t.workDays||0;
+      const elapsed = totalDays - Math.round((new Date(dueDate)-new Date(dateStr))/86400000);
+      result.push({...t, startDate, daysLeft, totalDays, elapsed: Math.max(0,elapsed)});
+    }
+  });
+  // 排序：越急越前面
+  result.sort((a,b)=>a.daysLeft-b.daysLeft);
+  return result;
+}
+
+// 建立假期統計 HTML
+function buildHolidaySummary(year){
+  const yHols=holidays.filter(h=>{const d=typeof h==='string'?h:h.date; return d.startsWith(year);});
+  if(!yHols.length) return '';
+  const counts={};
+  const allT2=getFullHolidayTypes();
+  yHols.forEach(h=>{const t=typeof h==='string'?'off':(h.type||'off'); if(t!=='makeup') counts[t]=(counts[t]||0)+1;});
+  if(!Object.keys(counts).length) return '';
+  return `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.75rem">
+    ${Object.entries(counts).map(([t,n])=>`<span style="font-size:11px;padding:3px 9px;border-radius:20px;background:${allT2[t]?.bg||'#f8fafc'};color:${allT2[t]?.color||'#888'}">${allT2[t]?.emoji||'📅'} ${allT2[t]?.label||t} ${n}天</span>`).join('')}
+  </div>`;
+}
+
 // ===== DAILY =====
+function buildRestDayHTML(hol){
+  const tmr=new Date(TODAY); tmr.setDate(tmr.getDate()+1);
+  const tmrStr=tmr.getFullYear()+'-'+String(tmr.getMonth()+1).padStart(2,'0')+'-'+String(tmr.getDate()).padStart(2,'0');
+  const tmrTasks=getTodaySchedule(tmrStr);
+  const tmrHTML=tmrTasks.length
+    ?tmrTasks.slice(0,3).map(t=>`<div style="font-size:12px;padding:4px 0;display:flex;justify-content:space-between;border-bottom:1px solid var(--border)"><span>${t.name}</span><span style="color:var(--muted);font-size:11px">到期 ${fmt(t.due)}</span></div>`).join('')
+    :'<div style="font-size:13px;color:var(--muted)">明天沒有排定任務 🎉</div>';
+  return `<div style="text-align:center;padding:2.5rem 1rem 1.5rem">
+    <div style="font-size:64px;margin-bottom:12px">${hol.emoji}</div>
+    <div style="font-size:20px;font-weight:700;color:var(--accent);margin-bottom:6px">今天${hol.label}</div>
+    <div style="font-size:14px;color:var(--muted);margin-bottom:1.5rem">好好休息，明天繼續加油！💪</div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1rem;text-align:left">
+      <div style="font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px">📋 明天待辦預覽</div>
+      ${tmrHTML}
+    </div>
+    <button class="btn btn-ghost" style="font-size:12px" onclick="window._forceShowTasks=true;renderDaily()">還是看任務清單</button>
+  </div>`;
+}
+
 function renderDaily(){
+  // 休息日直接跳出
+  const todayHolCheck = getHolidayInfo(todayStr());
+  if(todayHolCheck && todayHolCheck.type!=='makeup' && !window._forceShowTasks){
+    document.getElementById('tab-daily').innerHTML = buildRestDayHTML(todayHolCheck);
+    return;
+  }
   const sorted=[...tasks].sort((a,b)=>(dLeft(a.due)??9999)-(dLeft(b.due)??9999));
   const isActive=t=>!t.status||t.status==='active';
   const overdue=sorted.filter(t=>!t.done&&isActive(t)&&dLeft(t.due)!==null&&dLeft(t.due)<0);
   const todayT=sorted.filter(t=>!t.done&&isActive(t)&&dLeft(t.due)===0);
   const upcoming=sorted.filter(t=>!t.done&&isActive(t)&&dLeft(t.due)!==null&&dLeft(t.due)>0);
   const doneT=sorted.filter(t=>t.done);
+
+  // 今日排程
+  const todaySchedule = getTodaySchedule(todayStr());
+  // 提前可做的任務（到期日>今天，但 startDate <= 今天，且今天不在原本的作業區間，代表可提前）
+  const canEarly = upcoming.filter(t=>{
+    if(!t.workDays) return false;
+    const start = calcStartDate(t.due, t.workDays);
+    return start > todayStr(); // 還沒到開始日，但可以提前
+  }).slice(0,3);
 
   const urgent=[...overdue,...todayT];
   let alertH='';
@@ -594,14 +933,99 @@ function renderDaily(){
   const doneCount=tasks.filter(t=>t.done).length;
   const total=tasks.length;
 
+  // 今日是否放假
+  const todayHol = getHolidayInfo(todayStr());
+  const isMakeup = todayHol && todayHol.type==='makeup';
+  const isOff = todayHol && todayHol.type!=='makeup';
+
+  // 今日排程卡（只顯示前3件，依緊急度排序）
+  const ENCOURAGE_MSGS = [
+    '太棒了！繼續保持 💪','做得很好！下一件等你 🎯',
+    '厲害！再接再厲 🌟','完成了！繼續衝 🚀',
+    '超讚！下一件開始 ✨','好樣的！繼續前進 🏃',
+  ];
+  // 排序：先過期（過期越久越急），再依剩餘天數
+  const sortedSchedule = [...todaySchedule].sort((a,b)=>{
+    const da = a.daysLeft; const db = b.daysLeft;
+    if(da<0 && db<0) return da-db; // 都過期，過期越久越前
+    if(da<0) return -1; // a過期，a排前
+    if(db<0) return 1;  // b過期，b排前
+    return da-db; // 都未過期，剩越少越前
+  });
+  const shown3 = sortedSchedule.slice(0,3);
+  const remaining = todaySchedule.length - shown3.length;
+  const doneToday = tasks.filter(t=>t.done&&t.doneDate===todayStr()).length;
+
+  const scheduleHTML = todaySchedule.length ? `
+    <div style="background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;padding:.85rem 1rem;margin-bottom:.75rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-size:13px;font-weight:700;color:var(--accent)">📋 今日作業清單</span>
+        <span style="font-size:11px;color:var(--muted)">今日已完成 ${doneToday} 件 ✅</span>
+      </div>
+      ${doneToday>0?`<div style="font-size:12px;color:var(--accent);background:rgba(61,107,79,.1);border-radius:8px;padding:5px 10px;margin-bottom:8px;text-align:center">
+        ${ENCOURAGE_MSGS[doneToday%ENCOURAGE_MSGS.length]}
+      </div>`:''}
+      ${shown3.map((t,i)=>{
+        // 過期越久顏色越深
+        const absOverdue = t.daysLeft<0?Math.abs(t.daysLeft):0;
+        const urgency = t.daysLeft<0?(absOverdue>7?'🔴':absOverdue>3?'🟠':'🟡'):t.daysLeft===0?'🔴':t.daysLeft<=2?'🟡':'🟢';
+        const urgColor = t.daysLeft<0?(absOverdue>7?'#b91c1c':absOverdue>3?'#dc2626':'var(--red)'):'var(--red)';
+        const urgLabel = t.daysLeft<0?`⚠️ 過期${absOverdue}天`:t.daysLeft===0?'🔴 今天截止':t.daysLeft<=2?`剩${t.daysLeft}天`:t.daysLeft<=7?`剩${t.daysLeft}天`:`剩${t.daysLeft}天`;
+        const urgBg = t.daysLeft<0?(absOverdue>7?'#fef2f2':absOverdue>3?'#fff5f5':'transparent'):'transparent';
+        const prog = t.totalDays>0?Math.min(100,Math.round(((t.totalDays-Math.max(0,t.daysLeft))/t.totalDays)*100)):0;
+        const isLast = i===shown3.length-1;
+        return `<div style="padding:8px;border-radius:8px;margin-bottom:4px;background:${urgBg};${!isLast?'':''}">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:18px;flex-shrink:0">${urgency}</span>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:13px;font-weight:600">${t.name}</div>
+              <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:2px">
+                <span style="font-size:11px;color:var(--muted)">到期 ${fmt(t.due)}</span>
+                <span style="font-size:11px;font-weight:600;color:${urgColor}">${urgLabel}</span>
+                ${t.workDays?`<span style="font-size:10px;color:var(--muted)">需${t.workDays}天</span>`:''}
+              </div>
+              ${t.totalDays>0?`<div style="background:rgba(61,107,79,.15);border-radius:10px;height:4px;margin-top:4px">
+                <div style="background:var(--accent);height:4px;border-radius:10px;width:${prog}%;transition:width .3s"></div>
+              </div>`:''}
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="doneWithEncourage(${t.id})" style="flex-shrink:0;background:${t.daysLeft<0?urgColor:'var(--accent)'}">完成 ✓</button>
+          </div>
+        </div>`;
+      }).join('')}
+      ${remaining>0?`<div style="font-size:11px;color:var(--muted);text-align:center;padding-top:6px;border-top:1px solid rgba(61,107,79,.15)">另有 ${remaining} 件待作業 ↓</div>`:''}
+    </div>` : `<div style="background:var(--green-bg);border:1px solid #86efac;border-radius:12px;padding:.85rem 1rem;margin-bottom:.75rem;text-align:center">
+      <div style="font-size:14px;font-weight:600;color:var(--green)">🎉 今日沒有待作業任務</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">${doneToday>0?`已完成 ${doneToday} 件，好樣的！`:'休息一下，或看看可提前的任務'}</div>
+    </div>`;
+
+  // 可提前完成的任務
+  const earlyHTML = canEarly.length ? `
+    <div style="background:var(--blue-bg);border:1px solid #93c5fd;border-radius:10px;padding:.75rem 1rem;margin-bottom:.75rem">
+      <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:6px">⚡ 今日可提前作業（${canEarly.length}件）</div>
+      ${canEarly.map(t=>`<div style="font-size:12px;padding:4px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(37,99,235,.1)">
+        <span style="font-weight:500">${t.name}</span>
+        <div style="display:flex;gap:6px;align-items:center">
+          <span style="color:var(--muted);font-size:11px">到期 ${fmt(t.due)}</span>
+          <button class="btn btn-ghost btn-sm" onclick="doneWithEncourage(${t.id})" style="font-size:11px">做！</button>
+        </div>
+      </div>`).join('')}
+    </div>` : '';
   document.getElementById('tab-daily').innerHTML=`
-    <div class="stat-grid" style="margin-top:.5rem">
+    ${isOff&&!isMakeup?`<div style="background:#fef9c3;border:1px solid #fbbf24;border-radius:10px;padding:.75rem 1rem;margin-top:.5rem;margin-bottom:.75rem;text-align:center;font-size:14px">
+      ${todayHol.emoji} 今天是${todayHol.label}，好好休息！
+    </div>`:''}
+    ${isMakeup?`<div style="background:var(--red-bg);border:1px solid #fca5a5;border-radius:10px;padding:.75rem 1rem;margin-top:.5rem;margin-bottom:.75rem;text-align:center;font-size:14px">
+      ⚠️ 今天補班，記得上班！
+    </div>`:''}
+    <div class="stat-grid" style="margin-top:${isOff||isMakeup?'0':'.5rem'}">
       <div class="stat-card"><div class="stat-num" style="color:var(--red)">${exp}</div><div class="stat-label">已過期</div></div>
       <div class="stat-card"><div class="stat-num" style="color:var(--amber)">${s30}</div><div class="stat-label">30天內</div></div>
       <div class="stat-card"><div class="stat-num" style="color:var(--green)">${doneCount}</div><div class="stat-label">已完成</div></div>
       <div class="stat-card"><div class="stat-num">${total}</div><div class="stat-label">全部任務</div></div>
     </div>
     ${alertH}
+    ${scheduleHTML}
+    ${earlyHTML}
     <div class="add-bar">
       <input id="quick-name" placeholder="快速新增任務..." onkeydown="if(event.key==='Enter')quickAdd()"/>
       <select id="quick-freq">
@@ -611,8 +1035,11 @@ function renderDaily(){
       </select>
       <button class="btn btn-primary" onclick="quickAdd()">＋</button>
     </div>
-    <button class="btn btn-ghost" style="width:100%;margin-bottom:.5rem;font-size:12px" onclick="openNewTask()">＋ 完整新增（含到期日/性質/備註）</button>
-    <button class="btn btn-ghost" style="width:100%;margin-bottom:.75rem;font-size:12px;color:var(--red)" onclick="toggleBatchMode()">🗑 批量刪除</button>
+    <div style="display:flex;gap:7px;margin-bottom:.75rem">
+      <button class="btn btn-ghost" style="flex:1;font-size:12px" onclick="openNewTask()">＋ 完整新增</button>
+      <button class="btn btn-ghost" style="flex:1;font-size:12px" onclick="openBatchAdd()">📋 批量新增</button>
+      <button class="btn btn-ghost" style="flex:1;font-size:12px;color:var(--red)" onclick="toggleBatchMode()">🗑 批量刪除</button>
+    </div>
     <div id="batch-bar" style="display:none;background:var(--red-bg);border:1px solid #fca5a5;border-radius:10px;padding:.6rem 1rem;margin-bottom:.75rem;display:none;align-items:center;justify-content:space-between">
       <span id="batch-count" style="font-size:13px;color:var(--red)">已選 0 件</span>
       <div style="display:flex;gap:8px">
@@ -655,6 +1082,15 @@ function openNewTask(){
   document.getElementById('mt-memo').value='';
   document.getElementById('mt-status').value='active';
   fillCatSelect(customCats[0]||'');
+  // 作業天數提示
+  const wdInput=document.getElementById('mt-workdays');
+  const wdHint=document.getElementById('mt-workdays-hint');
+  if(wdInput&&wdHint){
+    wdInput.oninput=function(){
+      const n=parseInt(this.value)||0;
+      wdHint.textContent=n===0?'到期日當天開始即可':`到期日前 ${n} 天開始作業`;
+    };
+  }
   openModal('modal-task');
 }
 function openEditTask(id){
@@ -667,6 +1103,9 @@ function openEditTask(id){
   document.getElementById('mt-freq').value=t.freq;
   document.getElementById('mt-notes').value=t.notes||'';
   document.getElementById('mt-memo').value=t.memo||'';
+  document.getElementById('mt-workdays').value=t.workDays||0;
+  const wdHint2=document.getElementById('mt-workdays-hint');
+  if(wdHint2){ const n=t.workDays||0; wdHint2.textContent=n===0?'到期日當天開始即可':`到期日前 ${n} 天開始作業`; }
   document.getElementById('mt-status').value=t.status||'active';
   openModal('modal-task');
 }
@@ -678,6 +1117,7 @@ function saveTask(){
     notes:document.getElementById('mt-notes').value,
     memo:document.getElementById('mt-memo').value,
     status:document.getElementById('mt-status').value,
+    workDays:parseInt(document.getElementById('mt-workdays').value)||0,
     done:false};
   if(editTaskId){ const i=tasks.findIndex(x=>x.id===editTaskId); tasks[i]=t; }
   else tasks.push(t);
@@ -701,6 +1141,30 @@ function showToast(msg){
   }
   el.textContent=msg; el.style.opacity='1';
   clearTimeout(el._t); el._t=setTimeout(()=>el.style.opacity='0',2800);
+}
+
+function doneWithEncourage(id){
+  const t = tasks.find(x=>x.id===id);
+  if(!t) return;
+  // 先打勾
+  if(t.freq==='once'){
+    doneTaskId=id;
+    document.getElementById('done-name').textContent=t.name;
+    document.querySelectorAll('input[name="done-repeat"]').forEach(r=>{r.checked=r.value==='no';});
+    document.getElementById('done-next').value=todayStr();
+    document.getElementById('done-freq').value='monthly';
+    openModal('modal-done');
+  } else {
+    t.done=true; t.doneDate=todayStr();
+    syncProg(t.cat,+1);
+    const nextDate=nextDue(t.due||todayStr(),t.freq);
+    tasks.push({id:Date.now()+1,name:t.name,cat:t.cat,due:nextDate,freq:t.freq,notes:t.notes,memo:t.memo||'',status:t.status||'active',workDays:t.workDays||0,done:false,doneDate:null});
+    save('tasks');
+    const doneCount = tasks.filter(x=>x.done&&x.doneDate===todayStr()).length;
+    const msgs=['太棒了！繼續保持 💪','做得很好！下一件等你 🎯','厲害！再接再厲 🌟','完成了！繼續衝 🚀','超讚！下一件開始 ✨','好樣的！繼續前進 🏃'];
+    showToast(msgs[doneCount%msgs.length]);
+    renderDaily();
+  }
 }
 
 function toggleRepeatFields(show){
@@ -795,32 +1259,62 @@ function renderProgress(){
   const yearStr=String(year);
   const weekNum=Math.ceil((((TODAY-new Date(curYear,0,1))/86400000)+new Date(curYear,0,1).getDay()+1)/7);
 
-  // 年份選擇列
+  // 年份選擇列：從任務到期日 + 已完成日期 + 當年 合併
   const allProgYears=[...new Set([
+    ...tasks.map(t=>t.due?t.due.slice(0,4):null).filter(Boolean),
     ...tasks.map(t=>t.doneDate?t.doneDate.slice(0,4):null).filter(Boolean),
-    String(curYear), String(curYear+1)
+    String(curYear),
   ])].sort();
   function pill(label,active,onclick){
     return `<button onclick="${onclick}" style="font-family:inherit;font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid ${active?'var(--accent)':'var(--border)'};background:${active?'var(--accent-light)':'transparent'};color:${active?'var(--accent)':'var(--muted)'};cursor:pointer;white-space:nowrap">${label}</button>`;
   }
-  const yearPickerH=`<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:.75rem">
-    <span style="font-size:11px;color:var(--muted)">年份</span>
-    ${allProgYears.map(y=>pill(y,String(year)===y,`window._progYear=${y};renderProgress()`)).join('')}
+  const showAllYears = window._progShowAllYears || false;
+  const visibleYears = showAllYears ? allProgYears : allProgYears.slice(-5);
+  const hasMore = allProgYears.length > 5;
+  const yearPickerH=`<div style="margin-bottom:.75rem">
+    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:11px;color:var(--muted)">年份</span>
+      ${visibleYears.map(y=>pill(y,String(year)===y,`window._progYear=${y};renderProgress()`)).join('')}
+      ${hasMore&&!showAllYears?`<button onclick="window._progShowAllYears=true;renderProgress()" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">更多 ▼ (${allProgYears.length-5})</button>`:''}
+      ${hasMore&&showAllYears?`<button onclick="window._progShowAllYears=false;renderProgress()" style="font-family:inherit;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">收合 ▲</button>`:''}
+    </div>
   </div>`;
 
-  // 52週 grid（只顯示當年）
+  // 52週 grid — 依該週任務完成率自動上色
+  function getWeekDateRange(y,w){
+    const jan1=new Date(y,0,1);
+    const startDay=((w-1)*7)-jan1.getDay()+1;
+    const start=new Date(y,0,startDay);
+    const end=new Date(y,0,startDay+6);
+    function ld(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+    return{start:ld(start),end:ld(end)};
+  }
+  function getWeekColor(pct){
+    if(pct===null||pct===0) return '#e5e7eb';
+    if(pct<=25) return '#bbf7d0';
+    if(pct<=50) return '#86efac';
+    if(pct<=75) return '#4ade80';
+    if(pct<100) return '#22c55e';
+    return 'var(--accent)';
+  }
   let weekH='<div class="week-wrap"><div class="week-grid">';
   for(let w=1;w<=52;w++){
-    const key=`${year}_${w}`;
-    const isDone=(weekDone||[]).includes(key)||(year===curYear&&(weekDone||[]).includes(w));
+    const{start,end}=getWeekDateRange(year,w);
+    const weekTasks=tasks.filter(t=>t.due&&t.due>=start&&t.due<=end&&t.cat!=='其他');
+    const weekDoneCount=weekTasks.filter(t=>t.done).length;
+    const pct=weekTasks.length>0?Math.round(weekDoneCount/weekTasks.length*100):null;
     const isTod=w===weekNum&&year===curYear;
-    weekH+=`<div class="wk ${isDone?'done':''} ${isTod?'today':''}" onclick="toggleWeek(${w},${year})" title="第${w}週"></div>`;
+    const bgColor=getWeekColor(pct,false);
+    const tipText=weekTasks.length>0?`第${w}週 ${weekDoneCount}/${weekTasks.length}件（${pct}%）`:`第${w}週（無任務）`;
+    weekH+=`<div class="wk ${isTod?'today':''}" style="background:${bgColor}" title="${tipText}"></div>`;
   }
   weekH+=`</div></div>
   <div class="week-legend">
-    <span><div class="wl-box" style="background:var(--accent)"></div>已完成</span>
+    <span><div class="wl-box" style="background:var(--accent)"></div>全完成</span>
+    <span><div class="wl-box" style="background:#86efac"></div>部分完成</span>
     <span><div class="wl-box" style="background:#e5e7eb;outline:2px solid var(--amber);outline-offset:1px"></div>本週</span>
-    <span style="color:var(--muted)">第${weekNum}週 / 共52週（${year}年）</span>
+    <span><div class="wl-box" style="background:#e5e7eb"></div>無任務</span>
+    <span style="color:var(--muted)">第${weekNum}週 / 52週</span>
   </div>`;
 
   // 性質進度條
@@ -831,13 +1325,16 @@ function renderProgress(){
   const hasOther=tasks.some(t=>t.cat==='其他');
 
   const progH=allCats.filter(cat=>cat!=='其他').map(cat=>{
-    const catTasks=tasks.filter(t=>t.cat===cat);
+    // 只計算該年度有到期日的任務
+    const catTasks=tasks.filter(t=>t.cat===cat&&t.due&&t.due.startsWith(yearStr));
     const total=catTasks.length;
     const done=catTasks.filter(t=>t.done&&t.doneDate&&t.doneDate.startsWith(yearStr)).length;
     const pct=total>0?Math.round((done/total)*100):0;
     const color=getCatColor(cat);
     const pendingAll=catTasks.filter(t=>!t.done);
     const doneAll=catTasks.filter(t=>t.done&&t.doneDate&&t.doneDate.startsWith(yearStr));
+    // 該年沒有任務就跳過
+    if(total===0) return '';
     const isCustom=customCats.includes(cat);
     const expandId='expand_'+cat.replace(/[^a-zA-Z0-9]/g,'_');
     return `<div class="prog-item">
@@ -878,14 +1375,14 @@ function renderProgress(){
   </div>`;
 
   // 「其他」區塊
-  const otherTasks=tasks.filter(t=>t.cat==='其他');
+  const otherTasks=tasks.filter(t=>t.cat==='其他'&&t.due&&t.due.startsWith(yearStr));
   const otherH=otherTasks.length?`
     <div class="prog-item" style="opacity:.65;margin-top:.5rem">
       <div class="prog-header">
         <span class="prog-name" style="color:var(--muted)">其他（日常瑣事）</span>
         <span style="font-size:11px;padding:2px 8px;border-radius:20px;background:var(--bg);color:var(--muted);border:1px solid var(--border)">不計入統計</span>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px">共 ${otherTasks.filter(t=>!t.done).length} 件待完成，${otherTasks.filter(t=>t.done).length} 件已完成</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">共 ${otherTasks.filter(t=>!t.done).length} 件待完成，${otherTasks.filter(t=>t.done&&t.doneDate&&t.doneDate.startsWith(yearStr)).length} 件已完成</div>
     </div>`:'';
 
   document.getElementById('tab-progress').innerHTML=`
@@ -932,12 +1429,33 @@ function removeCat(cat){
   showToast(`🗑「${cat}」已移除，任務性質選單同步更新`);
 }
 
-function toggleWeek(w, year){
-  const curYear=TODAY.getFullYear();
-  const key=(year&&year!==curYear)?`${year}_${w}`:w;
-  const i=weekDone.indexOf(key);
-  if(i>-1) weekDone.splice(i,1); else weekDone.push(key);
-  save('week'); renderProgress();
+function toggleWeek(w, year){ /* 52週格子現在自動依任務完成率上色 */ }
+
+function toggleHoliday(dateStr){
+  if(isHolidayDate(dateStr)){
+    holidays = holidays.filter(h=>(typeof h==='string'?h:h.date)!==dateStr);
+    saveHolidays(); renderCalendar(); renderProgress();
+    showToast('已取消假期標記'); return;
+  }
+  window._pendingHolidayDate = dateStr;
+  document.getElementById('h-date-label').textContent = fmt(dateStr)+' 標記假期';
+  document.getElementById('h-label').value='';
+  window._selectedCustomType = null;
+  renderCustomTypesList();
+  openModal('modal-holiday');
+}
+
+function saveHolidayType(){
+  // 優先用自訂假別，否則用 radio
+  const type = window._selectedCustomType ||
+    document.querySelector('input[name="htype"]:checked')?.value || 'off';
+  const allTypes = getFullHolidayTypes();
+  const label = document.getElementById('h-label').value.trim() ||
+    allTypes[type]?.label || '假期';
+  holidays.push({date:window._pendingHolidayDate, type, label});
+  saveHolidays(); closeModal('modal-holiday');
+  renderCalendar(); renderProgress();
+  showToast(`${allTypes[type]?.emoji||'📅'} 已標記「${label}」`);
 }
 
 // 保留空函數避免舊程式碼報錯
@@ -955,7 +1473,10 @@ function renderCalendar(){
     <div class="month-nav">
       <button class="btn btn-ghost btn-sm" onclick="chgMonth(-1)">◀</button>
       <span class="month-label">${y}年${m+1}月</span>
-      <button class="btn btn-ghost btn-sm" onclick="chgMonth(1)">▶</button>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-ghost btn-sm" onclick="openModal('modal-weeklyoff')">😴 週休設定</button>
+        <button class="btn btn-ghost btn-sm" onclick="chgMonth(1)">▶</button>
+      </div>
     </div>
     <div class="cal-header">${['日','一','二','三','四','五','六'].map(d=>`<div class="dow">${d}</div>`).join('')}</div>
     <div class="cal-grid" id="cal-grid"></div>
@@ -974,11 +1495,14 @@ function renderCalendar(){
   for(let i=0;i<firstDay;i++) html+='<div></div>';
   for(let d=1;d<=daysInMonth;d++){
     const ts=taskMap[d]||[];
+    const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     const isToday=new Date(y,m,d).toDateString()===TODAY.toDateString();
     const minD=ts.length?Math.min(...ts.map(t=>dLeft(t.due))):null;
     const dotColor=minD!==null?(minD<0?'var(--red)':minD<=7?'var(--red)':minD<=30?'var(--amber)':'var(--green)'):'';
-    html+=`<div class="day-cell ${isToday?'today':''}" onclick="selDay(${y},${m},${d})">
-      <div class="day-num">${d}</div>
+    const holInfo=getHolidayInfo(ds);
+    const isHol=!!holInfo;
+    html+=`<div class="day-cell ${isToday?'today':''}" onclick="selDay(${y},${m},${d})" style="${isHol?'background:'+holInfo.bg+';':''}" >
+      <div class="day-num" style="${isHol?'color:'+holInfo.color:''}">${d}${isHol?' '+holInfo.emoji:''}</div>
       ${ts.length?`<div class="day-dot" style="background:${dotColor}"></div>`:''}
     </div>`;
   }
@@ -987,10 +1511,29 @@ function renderCalendar(){
 function selDay(y,m,d){
   const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
   const ts=tasks.filter(t=>t.due===ds&&!t.done);
-  document.getElementById('cal-day-label').textContent=`${m+1}月${d}日的任務`;
-  document.getElementById('cal-day-tasks').innerHTML=ts.length
-    ?ts.map(t=>`<div class="task-card"><div class="tbody"><div class="tname">${t.name}</div><div class="tmeta">${catBadge(t.cat)}${freqBadge(t.freq)}</div>${t.notes?`<div style="font-size:11px;color:var(--muted);margin-top:3px">${t.notes}</div>`:''}</div></div>`).join('')
-    :`<div class="empty-state">這天沒有到期任務</div>`;
+  const holInfo=getHolidayInfo(ds);
+  const isHol=!!holInfo;
+  // 顯示開始作業提醒（任務到期日倒數作業天數）
+  const startReminders=tasks.filter(t=>{
+    if(t.done||!t.due||!t.workDays) return false;
+    const due=new Date(t.due); due.setHours(0,0,0,0);
+    const start=new Date(due); start.setDate(start.getDate()-(t.workDays||0));
+    return start.toISOString().split('T')[0]===ds;
+  });
+  document.getElementById('cal-day-label').textContent=`${m+1}月${d}日`;
+  document.getElementById('cal-day-tasks').innerHTML=`
+    <div style="display:flex;gap:8px;margin-bottom:.75rem">
+      <button onclick="toggleHoliday('${ds}')" class="btn btn-sm ${isHol?'btn-danger':'btn-ghost'}" style="font-size:12px" id="hol-btn-${ds}">
+        ${isHol?holInfo.emoji+' 取消「'+holInfo.label+'」':'📅 標記假期'}
+      </button>
+    </div>
+    ${startReminders.length?`<div style="margin-bottom:8px">
+      <div style="font-size:11px;font-weight:500;color:var(--purple);margin-bottom:4px">🔔 今日應開始作業：</div>
+      ${startReminders.map(t=>`<div style="font-size:12px;padding:3px 0;color:var(--purple)">▶ ${t.name}（到期 ${fmt(t.due)}，需 ${t.workDays} 天）</div>`).join('')}
+    </div>`:''}
+    ${ts.length?ts.map(t=>`<div class="task-card"><div class="tbody"><div class="tname">${t.name}</div><div class="tmeta">${catBadge(t.cat)}${freqBadge(t.freq)}</div>${t.notes?`<div style="font-size:11px;color:var(--muted);margin-top:3px">${t.notes}</div>`:''}</div></div>`).join('')
+    :`<div class="empty-state" style="padding:.75rem">這天沒有到期任務</div>`}
+  `;
 }
 function chgMonth(d){ calMonth.setMonth(calMonth.getMonth()+d); renderCalendar(); }
 
@@ -1076,11 +1619,16 @@ function renderJournal(){
     </div>`:'';
 
   document.getElementById('tab-journal').innerHTML=`
-    <button class="btn btn-primary" style="width:100%;margin-top:.5rem;margin-bottom:.75rem" onclick="openJournalModal()">📝 ${hasJournalToday?'編輯今日日誌':'寫今日日誌'}</button>
+    <button class="btn btn-primary" style="width:100%;margin-top:.5rem;margin-bottom:.5rem" onclick="openJournalModal()">📝 ${hasJournalToday?'編輯今日日誌':'寫今日日誌'}</button>
+    ${buildHolidaySummary(jYear)}
     ${reminderHTML}
-    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px">
-      <span style="font-size:11px;color:var(--muted)">年</span>
-      ${jYears.map(y=>pill(y,jYear===y,`window._jYear='${y}';window._jMonth='全部';window._jWeek='全部';renderJournal()`)).join('')}
+    <div style="margin-bottom:6px">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+        <span style="font-size:11px;color:var(--muted)">年</span>
+        ${(window._jShowAllYears?jYears:jYears.slice(0,5)).map(y=>pill(y,jYear===y,`window._jYear='${y}';window._jMonth='全部';window._jWeek='全部';renderJournal()`)).join('')}
+        ${jYears.length>5&&!window._jShowAllYears?`<button onclick="window._jShowAllYears=true;renderJournal()" style="font-family:inherit;font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">更多 ▼ (${jYears.length-5})</button>`:''}
+        ${jYears.length>5&&window._jShowAllYears?`<button onclick="window._jShowAllYears=false;renderJournal()" style="font-family:inherit;font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer">收合 ▲</button>`:''}
+      </div>
     </div>
     <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px">
       <span style="font-size:11px;color:var(--muted)">月</span>
@@ -1198,35 +1746,74 @@ function openSettingsModal(){
     document.getElementById('custom-color-row').style.display='flex';
     document.getElementById('custom-color-pick').value = userSettings.customColor||'#3d6b4f';
   }
-  // 更新通知按鈕狀態
-  const btn = document.getElementById('notif-btn');
-  if(btn){
-    if(!('Notification' in window)) btn.textContent='此裝置不支援通知';
-    else if(Notification.permission==='granted') btn.textContent='🔔 通知已開啟（點此測試）';
-    else if(Notification.permission==='denied') btn.textContent='🚫 通知已封鎖（請到設定開啟）';
-    else btn.textContent='🔕 點此開啟通知提醒';
-  }
+
   openModal('modal-settings');
 }
 
-async function toggleNotification(){
-  if(Notification.permission==='granted'){
-    // 發送測試通知
-    const today = todayStr();
-    const cnt = tasks.filter(t=>!t.done&&(!t.status||t.status==='active')&&t.due&&t.due<=today).length;
-    new Notification('🌿 工作管理中心 — 測試通知', {
-      body: cnt>0?`目前有 ${cnt} 件任務需要處理`:'目前沒有待處理任務，太棒了！',
-      tag:'test'
-    });
-    showToast('✅ 測試通知已發送！');
-    return;
-  }
-  const granted = await requestNotification();
-  if(granted){
-    document.getElementById('notif-btn').textContent='🔔 通知已開啟（點此測試）';
-    showToast('🔔 通知開啟成功！每天會提醒您的任務');
-    checkTodayNotifications();
-  }
+
+
+// ===== 備份與匯入 =====
+function exportBackup(){
+  const data = {
+    version: 1,
+    exportDate: new Date().toLocaleString('zh-TW'),
+    tasks,
+    holidays,
+    weekDone,
+    journals,
+    customCats,
+    customHolidayTypes,
+    userSettings,
+  };
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const name = userSettings.name || '工作管理';
+  a.href = url;
+  a.download = `${name}_備份_${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✅ 備份已下載！');
+}
+
+function importBackup(input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if(!data.version || !data.tasks){
+        showToast('❌ 檔案格式不正確');
+        return;
+      }
+      if(!confirm(`確定要匯入備份嗎？\n匯出日期：${data.exportDate}\n任務數：${data.tasks.length} 件\n\n⚠️ 現有資料將被覆蓋`)) return;
+
+      // 還原所有資料
+      tasks = data.tasks || [];
+      holidays = data.holidays || [];
+      weekDone = data.weekDone || [];
+      journals = data.journals || [];
+      customCats = data.customCats || [];
+      customHolidayTypes = data.customHolidayTypes || [];
+      if(data.userSettings) userSettings = data.userSettings;
+
+      // 存回 localStorage
+      save('tasks'); saveHolidays(); save('week'); save('journals');
+      saveCats(); saveCustomHTypes();
+      localStorage.setItem('pt_settings', JSON.stringify(userSettings));
+
+      closeModal('modal-settings');
+      loadSettings();
+      renderDaily();
+      showToast(`✅ 匯入成功！共 ${tasks.length} 件任務`);
+    } catch(err) {
+      showToast('❌ 匯入失敗，請確認檔案格式');
+    }
+    input.value = '';
+  };
+  reader.readAsText(file);
 }
 
 function loadSettings(){
@@ -1243,71 +1830,164 @@ function loadSettings(){
   }
 }
 
-// ===== PWA & 通知 =====
-async function initPWA(){
-  if(!('serviceWorker' in navigator)) return;
-  try {
-    await navigator.serviceWorker.register('./sw.js');
-    console.log('SW registered');
-  } catch(e) { console.log('SW fail:', e); }
+
+
+// ===== WEEKLY OFF =====
+function addNationalHolidays(){
+  const year = parseInt(document.getElementById('wo-year').value);
+  const added = autoAddNationalHolidays(year);
+  renderCalendar(); renderProgress();
+  if(added>0) showToast(`🎌 已加入 ${year} 年 ${added} 個國定假日`);
+  else showToast('該年國定假日已全部加入');
 }
 
-async function requestNotification(){
-  if(!('Notification' in window)){
-    showToast('您的瀏覽器不支援通知功能');
-    return false;
-  }
-  if(Notification.permission === 'granted') return true;
-  if(Notification.permission === 'denied'){
-    showToast('通知已被封鎖，請到瀏覽器設定開啟');
-    return false;
-  }
-  const perm = await Notification.requestPermission();
-  return perm === 'granted';
+// ===== 自訂假別 =====
+let customHolidayTypes = JSON.parse(localStorage.getItem('pt_custom_htypes')||'[]');
+// 格式: [{key:'custom_1', label:'調休', emoji:'🔄', color:'#888', bg:'#f8fafc'}]
+
+function saveCustomHTypes(){ localStorage.setItem('pt_custom_htypes', JSON.stringify(customHolidayTypes)); }
+
+function getFullHolidayTypes(){
+  const base = {...HOLIDAY_TYPES};
+  customHolidayTypes.forEach(t=>{ base[t.key]={label:t.label,color:t.color,bg:t.bg,emoji:t.emoji}; });
+  return base;
 }
 
-// 每次開啟頁面時檢查今日到期任務並推播
-async function checkTodayNotifications(){
-  const granted = Notification.permission === 'granted';
-  if(!granted) return;
-  const today = todayStr();
-  const notifiedKey = 'pt_notified_'+today;
-  if(localStorage.getItem(notifiedKey)) return; // 今天已通知過
-
-  const todayTasks = tasks.filter(t=>!t.done&&(!t.status||t.status==='active')&&t.due===today);
-  const overdue = tasks.filter(t=>!t.done&&(!t.status||t.status==='active')&&t.due&&t.due<today);
-  const soon = tasks.filter(t=>{
-    if(t.done||!(!t.status||t.status==='active')||!t.due||t.due<=today) return false;
-    const d = Math.round((new Date(t.due)-new Date(today))/86400000);
-    return d<=3;
-  });
-
-  let msgs = [];
-  if(todayTasks.length) msgs.push(`今天到期 ${todayTasks.length} 件`);
-  if(overdue.length) msgs.push(`已過期 ${overdue.length} 件`);
-  if(soon.length) msgs.push(`3天內到期 ${soon.length} 件`);
-
-  if(msgs.length){
-    new Notification('🌿 工作管理中心', {
-      body: msgs.join('　|　'),
-      icon: './icon-192.png',
-      tag: 'daily-check'
-    });
-    localStorage.setItem(notifiedKey, '1');
-  }
+function openEmojiPicker(){
+  document.getElementById('emoji-direct-input').value='';
+  openModal('modal-emoji');
 }
 
-// 設定每日定時通知（用 setTimeout 模擬）
-function scheduleDaily(){
-  const now = new Date();
-  const next8 = new Date(now);
-  next8.setHours(8,0,0,0);
-  if(next8 <= now) next8.setDate(next8.getDate()+1);
-  const ms = next8 - now;
-  setTimeout(()=>{
-    checkTodayNotifications();
-    setInterval(checkTodayNotifications, 24*60*60*1000);
-  }, ms);
+function selectEmoji(e){
+  if(!e.trim()) return;
+  document.getElementById('custom-emoji-btn').textContent=e;
+  closeModal('modal-emoji');
+}
+
+function addCustomHolidayType(){
+  const emoji = document.getElementById('custom-emoji-btn').textContent;
+  const name = document.getElementById('custom-type-name').value.trim();
+  if(!name){ showToast('請輸入假別名稱'); return; }
+  const key = 'custom_'+Date.now();
+  // 隨機柔和顏色
+  const colors=[
+    {color:'#0891b2',bg:'#ecfeff'},{color:'#7c3aed',bg:'#f5f3ff'},
+    {color:'#be185d',bg:'#fdf2f8'},{color:'#b45309',bg:'#fffbeb'},
+    {color:'#166534',bg:'#f0fdf4'},{color:'#1e40af',bg:'#eff6ff'},
+  ];
+  const c = colors[customHolidayTypes.length % colors.length];
+  customHolidayTypes.push({key, label:name, emoji, color:c.color, bg:c.bg});
+  saveCustomHTypes();
+  renderCustomTypesList();
+  document.getElementById('custom-type-name').value='';
+  document.getElementById('custom-emoji-btn').textContent='😊';
+  showToast(`✅ 已新增「${emoji} ${name}」假別`);
+}
+
+// addCustomTypeToModal removed
+
+function renderCustomTypesList(){
+  const el = document.getElementById('custom-types-list');
+  if(!el) return;
+  if(!customHolidayTypes.length){
+    el.innerHTML='<span style="font-size:11px;color:var(--muted)">尚未新增自訂假別</span>';
+    return;
+  }
+  el.innerHTML = customHolidayTypes.map(t=>{
+    const isSel = window._selectedCustomType===t.key;
+    return `<span onclick="selectCustomType('${t.key}')" style="display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:5px 10px;border-radius:20px;background:${isSel?t.color:t.bg};color:${isSel?'#fff':t.color};border:2px solid ${t.color};cursor:pointer;transition:all .15s">
+      ${t.emoji} ${t.label}
+      <button onclick="event.stopPropagation();removeCustomType('${t.key}')" style="border:none;background:transparent;color:${isSel?'#fff':t.color};cursor:pointer;font-size:13px;padding:0 0 0 2px;line-height:1" title="刪除">×</button>
+    </span>`;
+  }).join('');
+}
+
+function selectCustomType(key){
+  // 取消 radio 選取
+  document.querySelectorAll('input[name="htype"]').forEach(r=>r.checked=false);
+  window._selectedCustomType = window._selectedCustomType===key ? null : key;
+  renderCustomTypesList();
+}
+
+function removeCustomType(key){
+  customHolidayTypes = customHolidayTypes.filter(t=>t.key!==key);
+  saveCustomHTypes();
+  renderCustomTypesList();
+  showToast('已刪除自訂假別');
+}
+
+// 開啟假期 modal 時載入自訂假別
+const _origToggleHoliday = toggleHoliday;
+
+function confirmWeeklyOff(){
+  const year = parseInt(document.getElementById('wo-year').value);
+  const pattern = document.querySelector('input[name="wo-pattern"]:checked')?.value||'both';
+  const count = setWeeklyOff(year, pattern);
+  closeModal('modal-weeklyoff');
+  renderCalendar(); renderProgress();
+  if(pattern==='none') showToast(`已清除 ${year} 年所有週休標記`);
+  else showToast(`✅ 已設定 ${year} 年共 ${count} 天週休`);
+}
+
+// ===== BATCH ADD =====
+const FREQ_ZH_MAP = {
+  '單次':'once','每天':'daily','每週':'weekly','每月':'monthly',
+  '每季':'quarterly','每年':'yearly','3年':'triennial','5年':'quinquennial'
+};
+
+function openBatchAdd(){
+  document.getElementById('batch-input').value='';
+  document.getElementById('batch-preview').style.display='none';
+  openModal('modal-batch');
+}
+
+function parseBatchLine(line){
+  line = line.trim();
+  if(!line) return null;
+  const parts = line.split(',').map(s=>s.trim());
+  const name = parts[0];
+  if(!name) return null;
+  const cat = parts[1] || '其他';
+  const due = parts[2] || '';
+  let freq = parts[3] || 'once';
+  // 中文週期轉英文
+  if(FREQ_ZH_MAP[freq]) freq = FREQ_ZH_MAP[freq];
+  return { id: Date.now()+Math.random(), name, cat, due, freq, notes:'', memo:'', status:'active', done:false, doneDate:null };
+}
+
+function previewBatch(){
+  const lines = document.getElementById('batch-input').value.split('\n').filter(l=>l.trim());
+  const parsed = lines.map(parseBatchLine).filter(Boolean);
+  const preview = document.getElementById('batch-preview');
+  if(!parsed.length){
+    preview.style.display='block';
+    preview.innerHTML='<div style="color:var(--red);font-size:12px">沒有可解析的任務，請確認格式</div>';
+    return;
+  }
+  preview.style.display='block';
+  preview.innerHTML=`
+    <div style="font-size:12px;font-weight:500;margin-bottom:6px;color:var(--accent)">預覽 ${parsed.length} 筆任務：</div>
+    <div style="max-height:200px;overflow-y:auto">
+      ${parsed.map((t,i)=>`
+        <div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border)">
+          <span>${i+1}. ${t.name}</span>
+          <span style="color:var(--muted);font-size:11px">${t.cat} | ${FREQ_LABEL[t.freq]||t.freq}${t.due?' | '+fmt(t.due):''}</span>
+        </div>`).join('')}
+    </div>`;
+}
+
+function confirmBatch(){
+  const lines = document.getElementById('batch-input').value.split('\n').filter(l=>l.trim());
+  const parsed = lines.map(parseBatchLine).filter(Boolean);
+  if(!parsed.length){ showToast('沒有可新增的任務'); return; }
+  // 確保 id 唯一
+  let maxId = tasks.length ? Math.max(...tasks.map(t=>t.id)) : 0;
+  parsed.forEach((t,i)=>{ t.id = maxId+i+1; });
+  tasks.push(...parsed);
+  save('tasks');
+  closeModal('modal-batch');
+  showToast(`✅ 已新增 ${parsed.length} 筆任務`);
+  renderDaily();
 }
 
 // ===== BATCH DELETE =====
@@ -1349,9 +2029,7 @@ function confirmBatchDelete(){
 // ===== INIT =====
 loadSettings();
 renderDaily();
-initPWA();
-setTimeout(checkTodayNotifications, 2000);
-scheduleDaily();
+
 </script>
 </body>
 </html>
